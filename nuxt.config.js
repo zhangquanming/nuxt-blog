@@ -12,13 +12,12 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      {
-        hid: 'description',
-        name: 'description',
-        content: process.env.npm_package_description || ''
-      }
+      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: '//at.alicdn.com/t/font_1905390_llqrtizsl1g.css' }
+    ]
   },
   /*
    ** Customize the progress-bar color
@@ -30,11 +29,18 @@ module.exports = {
   /*
    ** Global CSS
    */
-  css: [],
+  css: ['@/assets/css/index.less'],
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: [
+    '~/plugins/axios',
+    '~/plugins/filters.js',
+    '~/plugins/api-repositories.js',
+    { src: '~/plugins/storeCache', ssr: false },
+    { src: '~/plugins/directive/focus/index.js', ssr: false },
+    { src: '~/plugins/directive/loading/index.js', ssr: false }
+  ],
   /*
    ** Nuxt.js dev-modules
    */
@@ -82,10 +88,7 @@ module.exports = {
    */
   proxy: {
     '/api/': {
-      target:
-        process.env.NODE_ENV === 'production'
-          ? 'http://localhost:3000/'
-          : 'http://zhangjinpei.cn',
+      target: process.env.NODE_ENV === 'production' ? 'http://localhost:3000/' : 'http://zhangjinpei.cn',
       changeOrigin: true
     },
     '/douban/': {

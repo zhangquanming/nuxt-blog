@@ -19,6 +19,13 @@ module.exports = {
   ],
   // add your custom rules here
   rules: {
-    'nuxt/no-cjs-in-config': 'off'
+    'nuxt/no-cjs-in-config': 'off',
+    "max-len":[1, 180],
+    'prettier/prettier': [
+      'error',
+      {
+        printWidth: 180 // 换行字符串阈值
+      },
+    ],
   }
 }

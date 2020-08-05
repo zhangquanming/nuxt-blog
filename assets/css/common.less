@@ -1,0 +1,218 @@
+html,
+body {
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  color: #fff;
+  background: @colorSuccess;
+  text-shadow: none;
+}
+
+/*==== 电子书 章节链接样式 =====*/
+.ebook-chapter-link {
+  color: @colorTextSub;
+  &:hover {
+    color: @colorTextContent;
+  }
+}
+
+/*==== 电子书 目录链接样式 =====*/
+.ebook-catalog-link {
+  color: @colorTextTitle;
+  &:hover {
+    color: @colorError;
+  }
+}
+
+/*==== 电子书表格排序样式 =====*/
+.ebook-rank-index {
+  position: relative;
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  color: #fff;
+  text-align: center;
+  background-color: @colorTextSub;
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    height: 0;
+    width: 0;
+  }
+  &:before {
+    left: 0;
+    border-left: 9px solid @colorTextSub;
+    border-bottom: 3px solid transparent;
+  }
+  &:after {
+    right: 0;
+    border-right: 9px solid @colorTextSub;
+    border-bottom: 3px solid transparent;
+  }
+}
+
+.ebook-rank-index-0 {
+  background-color: @colorError;
+  &:before {
+    border-left: 9px solid @colorError;
+  }
+  &:after {
+    right: 0;
+    border-right: 9px solid @colorError;
+  }
+}
+.ebook-rank-index-1 {
+  background-color: average(@colorError, @colorWarning);
+  &:before {
+    border-left: 9px solid average(@colorError, @colorWarning);
+  }
+  &:after {
+    right: 0;
+    border-right: 9px solid average(@colorError, @colorWarning);
+  }
+}
+.ebook-rank-index-2 {
+  background-color: @colorWarning;
+  &:before {
+    border-left: 9px solid @colorWarning;
+  }
+  &:after {
+    right: 0;
+    border-right: 9px solid @colorWarning;
+  }
+}
+
+/*==== 输入框统一样式 =====*/
+input.common-input {
+  width: 100%;
+  outline: none;
+  margin: 5px 0;
+  padding: 0 10px;
+  line-height: 40px;
+  height: 40px;
+  font-size: 14px;
+  background-color: @colorBgBody;
+  border: 1px solid transparent;
+  border-radius: 5px;
+}
+
+input.common-input:hover {
+  background-color: lighten(@colorBgBody, 2%);
+}
+
+input.common-input:focus {
+  border-color: @colorInfo;
+}
+
+textarea.common-textarea {
+  width: 100%;
+  outline: none;
+  margin: 5px 0;
+  padding: 10px;
+  font-size: 14px;
+  background-color: @colorBgBody;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  min-height: 40px;
+  min-height: 100px;
+}
+
+textarea.common-textarea:hover {
+  background-color: lighten(@colorBgBody, 2%);
+}
+
+textarea.common-textarea:focus {
+  border-color: @colorInfo;
+}
+
+/*==== 确实背景图样式 =====*/
+.no-img-placeholder,
+.no-img-placeholder-colorful {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #fafafa;
+}
+.no-img-placeholder {
+  background-image: url('../images/no-data-bg.png');
+}
+.no-img-placeholder-colorful {
+  background-image: url('../images/no-data-bg-colorful.png');
+}
+.no-img-placeholder-horizon {
+  background-size: auto 90%;
+}
+.no-img-placeholder-vertical {
+  background-size: 80% auto;
+}
+
+/*==== 文字居中 =====*/
+.text-center {
+  text-align: center;
+}
+
+/*==== 右浮动 =====*/
+.fr {
+  float: right;
+}
+
+/*==== 左浮动 =====*/
+.fl {
+  float: left;
+}
+
+/*==== 清除浮动 =====*/
+.clearfix:after {
+  content: '';
+  display: block;
+  height: 0;
+  visibility: hidden;
+  clear: both;
+}
+
+/*==== 无限旋转 =====*/
+.z-load-loop {
+  -webkit-animation: ani-load-loop 1s linear infinite;
+  animation: ani-load-loop 1s linear infinite;
+}
+
+@-webkit-keyframes ani-load-loop {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+
+  50% {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+
+  to {
+    -webkit-transform: rotate(1turn);
+    transform: rotate(1turn);
+  }
+}
+
+@keyframes ani-load-loop {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+
+  50% {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+
+  to {
+    -webkit-transform: rotate(1turn);
+    transform: rotate(1turn);
+  }
+}
