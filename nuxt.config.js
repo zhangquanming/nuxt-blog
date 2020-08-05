@@ -24,7 +24,7 @@ module.exports = {
    */
   loading: {
     color: '#19be6b',
-    height: '3px'
+    height: '2px'
   },
   /*
    ** Global CSS
@@ -34,9 +34,9 @@ module.exports = {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    '~/plugins/axios',
-    '~/plugins/filters.js',
-    '~/plugins/api-repositories.js',
+    { src: '~/plugins/axios.js', ssr: true },
+    { src: '~/plugins/filters.js', ssr: true },
+    { src: '~/plugins/api-repositories.js', ssr: true },
     { src: '~/plugins/storeCache', ssr: false },
     { src: '~/plugins/directive/focus/index.js', ssr: false },
     { src: '~/plugins/directive/loading/index.js', ssr: false }
@@ -55,13 +55,13 @@ module.exports = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/dotenv',
     '@nuxtjs/proxy',
+    '@nuxtjs/dotenv',
     '@nuxtjs/toast',
     '@nuxtjs/style-resources'
   ],
   styleResources: {
-    less: './assets/variables.less'
+    less: ['./assets/css/variables.less']
   },
   toast: {
     theme: 'bubble',
@@ -76,20 +76,23 @@ module.exports = {
   axios: {
     proxy: true,
     headers: {
-      common: {
-        'Access-Control-Allow-Origin': '*',
-        'X-Requested-With': 'XMLHttpRequest',
-        'Content-Type': 'application/json; charset=UTF-8'
-      }
-    }
+      'Access-Control-Allow-Origin': '*',
+      'X-Requested-With': 'XMLHttpRequest',
+      'Content-Type': 'application/json; charset=UTF-8'
+    },
+    prefix: '/api',
+    credentials: true
   },
   /*
    ** 配置代理
    */
   proxy: {
-    '/api/': {
-      target: process.env.NODE_ENV === 'production' ? 'http://localhost:3000/' : 'http://zhangjinpei.cn',
-      changeOrigin: true
+    '/api': {
+      target: process.env.NODE_ENV === 'production' ? 'http://localhost:3000/' : 'https://zhangjinpei.cn/',
+      changeOrigin: true,
+      pathRewrite: {
+        '^/api': ''
+      }
     },
     '/douban/': {
       target: 'http://api.douban.com/v2',

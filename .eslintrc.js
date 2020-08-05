@@ -17,9 +17,15 @@ module.exports = {
   plugins: [
     'prettier'
   ],
+  globals: {
+    Vue: true,
+    Vuex: true,
+  },
   // add your custom rules here
   rules: {
     'nuxt/no-cjs-in-config': 'off',
+    'vue/require-default-prop': 'off',
+    'vue/no-v-html': 'off',
     "max-len":[1, 180],
     'prettier/prettier': [
       'error',

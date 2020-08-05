@@ -8,6 +8,8 @@ export const showSignInModal = (state) => state.showSignInModal
 
 export const showSignUpModal = (state) => state.showSignUpModal
 
+export const tagList = (state) => state.tagList
+
 export const categoryList = (state) => state.categoryList
 
 export const categoryIdByValue = (state) => (value) => {
@@ -28,3 +30,7 @@ export const categoryIdByValue = (state) => (value) => {
 export const blogResult = (state) => state.blogResult
 
 export const highLightIndex = (state) => state.highLightIndex
+
+export const categoryIndex = (state) => state.categoryIndex
+
+export const cacheArticleData = (state) => state.cacheArticleData

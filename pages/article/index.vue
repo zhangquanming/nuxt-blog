@@ -1,0 +1,120 @@
+<template>
+  <div class="z-container">
+    <div class="z-row">
+      <div class="z-col-md-42 z-col-xl-45">
+        <template v-if="blogList.length > 0">
+          <card v-for="(blog, index) in blogList" :key="index">
+            <topic-item :topic="blog"></topic-item>
+          </card>
+        </template>
+        <card-no-data v-else style="height: 300px;" />
+      </div>
+      <div class="list-side z-col-md-18 z-col-xl-15">
+        <card class="search-wrap">
+          <search-blog @on-search="handleSearch" />
+        </card>
+        <card-category :categoryList="categoryList" />
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import Card from '@/components/base/Card/Card'
+import TopicItem from '@/components/kit/TopicItem/TopicItem'
+import CardNoData from '@/components/kit/CardNoData/CardNoData'
+import SearchBlog from '@/components/kit/SearchBlog/SearchBlog'
+import CardCategory from '@/components/kit/CardCategory/CardCategory'
+import { mapGetters } from 'vuex'
+export default {
+  name: 'ArticleIndex',
+  components: {
+    Card,
+    TopicItem,
+    CardNoData,
+    SearchBlog,
+    CardCategory
+  },
+  data() {
+    return {
+      page: 1,
+      limit: 10,
+      pageTotal: 0,
+      itemTotal: 0,
+      blogList: [],
+      isLoading: false
+    }
+  },
+  computed: {
+    ...mapGetters(['categoryList', 'categoryIdByValue'])
+  },
+  async asyncData({ app }) {
+    const params = {
+      page: 1,
+      limit: 10,
+      category: ''
+    }
+    const res = await app.$myApi.blogs.index(params)
+    return {
+      blogList: res.result.list,
+      pageTotal: res.result.pages,
+      itemTotal: res.result.total
+    }
+  },
+  async fetch({ store }) {
+    await store.dispatch('getCategoryList')
+  },
+
+  methods: {
+    /**
+     * @desc 分页点击
+     */
+    changePage(page) {
+      this.page = page
+      this.requestblogList()
+    },
+    /**
+     * @desc 搜索
+     */
+    handleSearch(keyword) {
+      this.$router.push({ path: '/article/search', query: { keyword } })
+    },
+    /**
+     * @desc 请求分页数据
+     */
+    requestblogList() {
+      this.isLoading = true
+      const params = {
+        page: this.page,
+        limit: this.limit,
+        category: ''
+      }
+      this.$myApi.blogs
+        .index(params)
+        .then((res) => {
+          this.blogList = res.result.list
+          this.pageTotal = res.result.pages
+          this.isLoading = false
+        })
+        .catch(() => {
+          this.isLoading = false
+        })
+    }
+  },
+  head() {
+    return {
+      title: '全部文章'
+    }
+  }
+}
+</script>
+
+<style lang="less">
+.list-side {
+  position: sticky;
+  top: @heightHeader + 20;
+}
+.z-card.search-wrap {
+  background-image: linear-gradient(90deg, @colorSuccess, @colorInfo);
+}
+</style>

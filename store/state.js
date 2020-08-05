@@ -1,23 +1,27 @@
-const state = {
+const state = () => ({
   navList: [
+    // {
+    //   name: '首页',
+    //   path: '/'
+    // },
     {
-      name: '个人博客',
-      path: '/blog'
+      name: '文章',
+      path: '/article'
     },
     {
-      name: '前端资源',
+      name: 'WEB圈',
       path: '/resource'
     },
     {
-      name: '豆瓣电影',
+      name: '电影',
       path: '/movie'
     },
     {
-      name: '网络小说',
+      name: '小说',
       path: '/ebook'
     },
     {
-      name: '后台管理',
+      name: '后台',
       path: '/admin'
     }
   ],
@@ -25,9 +29,12 @@ const state = {
   userInfo: null,
   showSignInModal: false,
   showSignUpModal: false,
+  tagList: [],
   categoryList: [],
   blogResult: {},
-  highLightIndex: 0 // markdown 目录高亮索引
-}
+  highLightIndex: 0, // markdown 目录高亮索引
+  categoryIndex: 0,
+  cacheArticleData: null
+})
 
 export default state
