@@ -2,7 +2,7 @@
   <div class="z-container">
     <div class="z-row">
       <div class="z-col-md-42 z-col-xl-45">
-        <template v-if="blogList.length > 0">
+        <template v-if="blogList && blogList.length > 0">
           <card v-for="(blog, index) in blogList" :key="index">
             <topic-item :topic="blog"></topic-item>
           </card>
@@ -12,31 +12,33 @@
       </div>
       <div class="list-side z-col-md-18 z-col-xl-15">
         <card class="search-wrap">
-          <search-blog @on-search="handleSearch" />
+          <search-blog @on-search="handleSearch"></search-blog>
         </card>
-        <card-category :categoryList="categoryList" />
+        <card-category :category-list="categoryList" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Card from '@/components/base/Card/Card'
 import TopicItem from '@/components/kit/TopicItem/TopicItem'
+import Card from '@/components/base/Card/Card'
 import CardNoData from '@/components/kit/CardNoData/CardNoData'
-import SearchBlog from '@/components/kit/SearchBlog/SearchBlog'
 import CardCategory from '@/components/kit/CardCategory/CardCategory'
+import SearchBlog from '@/components/kit/SearchBlog/SearchBlog'
 import Pagenation from '@/components/base/Pagenation/Pagenation'
+
 import { mapGetters } from 'vuex'
+
 export default {
-  name: 'ArticleIndex',
+  name: 'ArticleCategory',
   components: {
     Card,
     TopicItem,
     CardNoData,
+    CardCategory,
     SearchBlog,
-    Pagenation,
-    CardCategory
+    Pagenation
   },
   data() {
     return {
@@ -51,24 +53,36 @@ export default {
   computed: {
     ...mapGetters(['categoryList', 'categoryIdByValue'])
   },
-  async asyncData({ app }) {
-    const params = {
+  async asyncData({ app, params, store }) {
+    const categoryList = store.getters.categoryList
+
+    if (categoryList.length === 0) {
+      await store.dispatch('getCategoryList')
+    }
+
+    const category = store.getters.categoryIdByValue(params.category)
+    const sendParams = {
       page: 1,
       limit: 10,
-      category: ''
+      category
     }
-    const res = await app.$myApi.blogs.index(params)
+
+    const res = await app.$myApi.blogs.index(sendParams)
+
     return {
       blogList: res.result.list,
       pageTotal: res.result.pages,
       itemTotal: res.result.total
     }
   },
-  async fetch({ store }) {
-    await store.dispatch('getCategoryList')
-  },
-
   methods: {
+    /**
+     * @desc 搜索
+     */
+    handleSearch(keyword) {
+      this.$router.push({ path: '/article/search', query: { keyword } })
+    },
+
     /**
      * @desc 分页点击
      */
@@ -76,27 +90,25 @@ export default {
       this.page = page
       this.requestblogList()
     },
-    /**
-     * @desc 搜索
-     */
-    handleSearch(keyword) {
-      this.$router.push({ path: '/article/search', query: { keyword } })
-    },
+
     /**
      * @desc 请求分页数据
      */
     requestblogList() {
-      this.isLoading = true
+      const category = this.$store.getters.categoryIdByValue(this.$route.params.category)
+
       const params = {
         page: this.page,
         limit: this.limit,
-        category: ''
+        category
       }
+      this.isLoading = true
       this.$myApi.blogs
         .index(params)
         .then((res) => {
           this.blogList = res.result.list
           this.pageTotal = res.result.pages
+          this.itemTotal = res.result.total
           this.isLoading = false
         })
         .catch(() => {
@@ -106,7 +118,7 @@ export default {
   },
   head() {
     return {
-      title: '全部文章'
+      title: `文章-分类-${this.$route.params.category}`
     }
   }
 }

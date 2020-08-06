@@ -2,9 +2,12 @@
   <div class="app-layout-wrap">
     <app-header />
     <div class="app-content">
-      <router-view></router-view>
+      <slot></slot>
     </div>
     <app-footer />
+
+    <sign-in />
+    <sign-up />
   </div>
 </template>
 
@@ -12,14 +15,16 @@
 import AppHeader from '@/components/framework/AppHeader/AppHeader'
 import AppFooter from '@/components/framework/AppFooter/AppFooter'
 
+import SignIn from '@/components/kit/SignIn/SignIn'
+import SignUp from '@/components/kit/SignUp/SignUp'
+
 export default {
   name: 'AppLayout',
   components: {
     AppHeader,
-    AppFooter
-  },
-  data() {
-    return {}
+    AppFooter,
+    SignIn,
+    SignUp
   }
 }
 </script>

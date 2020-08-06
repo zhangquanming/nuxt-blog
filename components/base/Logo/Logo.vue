@@ -49,8 +49,10 @@ export default {
   z-index: 310;
   overflow: hidden;
   display: flex;
+  margin: 0 auto;
   align-items: center;
   img {
+    flex: none;
     max-width: 100%;
     max-height: 100%;
   }
