@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import api from '@/api/api-douban'
+import doubanApi from '@/assets/js/douban/api-douban'
 import Icon from '@/components/base/Icon/Icon'
 
 let timer = null
@@ -173,7 +173,7 @@ export default {
         q: this.searchWord
       }
       this.isSearchLoading = true
-      api
+      doubanApi
         .DoubanMovieSearch(params)
         .then((res) => {
           this.isSearchLoading = false
@@ -192,7 +192,7 @@ export default {
         q: this.searchWord
       }
       this.isSearchLoading = true
-      api
+      doubanApi
         .DoubanMovieSearchFull(params)
         .then(() => {
           this.isSearchLoading = false

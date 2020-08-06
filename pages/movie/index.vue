@@ -19,7 +19,7 @@
 import doubanApi from '@/assets/js/douban/api-douban'
 
 import SearchMovie from '@/components/kit/SearchMovie/SearchMovie'
-import MovieHomeList from '@/views/movie/MovieHome/MovieHomeList'
+import MovieHomeList from '@/components/page/movie/MovieHomeList'
 import Btn from '@/components/base/Btn/Btn'
 
 export default {

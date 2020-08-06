@@ -25,8 +25,8 @@
 import doubanApi from '@/assets/js/douban/api-douban'
 
 import ZVideo from '@/components/base/ZVideo/ZVideo'
-import MovieInfoCard from '@/views/movie/components/MovieInfoCard'
-import MovieReviewsItem from '@/views/movie/components/MovieReviewsItem'
+import MovieInfoCard from '@/components/page/movie/MovieInfoCard'
+import MovieReviewsItem from '@/components/page/movie/MovieReviewsItem'
 
 export default {
   name: 'MovieDetail',
