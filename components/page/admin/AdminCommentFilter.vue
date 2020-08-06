@@ -1,11 +1,11 @@
 <template>
   <div>
     <div class="z-row">
-      <div class="z-col-15">
+      <!-- <div class="z-col-15">
         <form-item :labelWidth="80" label="用户名">
           <input v-model.trim="formData.userName" class="form-item-input" type="text" />
         </form-item>
-      </div>
+      </div> -->
       <div class="z-col-15">
         <form-item :label-width="80" label="评论内容">
           <input v-model.trim="formData.content" class="form-item-input" type="text" />
@@ -20,11 +20,11 @@
           </zbtn-group>
         </form-item>
       </div>
-      <div class="z-col-15">
+      <!-- <div class="z-col-15">
         <form-item :labelWidth="80" label="文章标题">
           <input v-model.trim="formData.blogTitle" class="form-item-input" type="text" />
         </form-item>
-      </div>
+      </div> -->
       <div class="z-col-15">
         <form-item :label-width="0">
           <slot :formData="formData"></slot>
@@ -37,7 +37,7 @@
 <script>
 import FormItem from '@/components/base/FormItem/FormItem'
 import Btn from '@/components/base/Btn/Btn'
-import ZbtnGroup from '@/components/base/ZbtnGroup/ZbtnGroup'
+import ZbtnGroup from '@/components/base/BtnGroup/BtnGroup'
 
 export default {
   name: 'AdminCommentFilter',

@@ -7,6 +7,20 @@
         <btn :theme="editorMode === 'previewMode' ? 'info' : 'text'" :ghost="editorMode === 'previewMode'" @click="setEditorMode('previewMode')" size="small" title="预览模式"
           >预览</btn
         >
+        <upload
+          :format="['png', 'jpeg', 'jpg', 'gif']"
+          :data="uploadParams"
+          :max-size="2048"
+          :on-format-error="handleFormatError"
+          :on-exceeded-size="handleMaxSize"
+          :on-success="handleUploadSuccess"
+          style="display: inline-block"
+          action="/api/upload"
+          accept="image/*"
+        >
+          <btn theme="primary" ghost size="small">添加图片</btn>
+        </upload>
+        <span v-if="imgUrl" style="margin-left: 20px;"> ![图片]({{ imgUrl }}) </span>
       </div>
       <slot></slot>
     </div>
@@ -25,19 +39,26 @@
 <script>
 import Btn from '@/components/base/Btn/Btn'
 import MdPreview from '@/components/kit/MdPreview/MdPreview'
-let timer = null
+import Upload from '@/components/base/Upload/Upload'
+
+let timer = ''
 
 export default {
   name: 'MdEditor',
   components: {
     Btn,
-    MdPreview
+    MdPreview,
+    Upload
   },
   props: ['value'],
   data() {
     return {
       mdText: this.value || '',
-      editorMode: 'liveMode'
+      editorMode: 'liveMode',
+      uploadParams: {
+        usedFor: 'article'
+      },
+      imgUrl: ''
     }
   },
   watch: {
@@ -56,11 +77,31 @@ export default {
       timer = setTimeout(() => {
         this.$emit('input', e.target.value)
       }, 300)
+    },
+
+    /**
+     * @desc 上传 格式出错
+     */
+    handleFormatError(file) {
+      this.$toast.error(`文件 ${file.name} 格式不对, 请选择 jpg or png.`, { duration: 4000 })
+    },
+
+    /**
+     * @desc 上传 大小限制
+     */
+    handleMaxSize(file) {
+      this.$toast.error(`文件 ${file.name} 太大, 不可超过2M`)
+    },
+
+    /**
+     * @desc 上传 成功
+     */
+    handleUploadSuccess(res) {
+      this.imgUrl = res.result.path
     }
   }
 }
 </script>
-
 <style lang="less" scoped>
 @mdToolBarHeight: 30px;
 
