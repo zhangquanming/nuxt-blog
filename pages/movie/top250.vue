@@ -180,9 +180,13 @@ export default {
       color: @colorTextTitle;
     }
     &-item {
+      width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
       font-size: 14px;
       color: @colorTextSub;
-      margin-top: 5px;
+      margin-top: 6px;
       label {
         color: @colorTextContent;
         font-weight: bold;
