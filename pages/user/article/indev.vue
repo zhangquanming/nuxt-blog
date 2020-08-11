@@ -229,7 +229,7 @@ export default {
     requestblogList() {
       const storeCacheStr = sessionStorage.getItem('storeCache') || '{}'
       const storeCache = JSON.parse(storeCacheStr)
-      const cacheId = storeCache && storeCache.common && storeCache.common.userInfo && storeCache.common.userInfo._id ? storeCache.common.userInfo._id : ''
+      const cacheId = storeCache && storeCache.userInfo && storeCache.userInfo._id ? storeCache.userInfo._id : ''
 
       if ((this.userInfo && this.userInfo._id) || cacheId) {
         const params = {

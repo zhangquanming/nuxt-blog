@@ -44,7 +44,7 @@
 import Card from '@/components/base/Card/Card'
 import UserPageTitle from '@/components/page/user/UserPageTitle.vue'
 import Btn from '@/components/base/Btn/Btn'
-import Upload from '@/components/base/Upload/'
+import Upload from '@/components/base/Upload/Upload'
 
 import { mapGetters } from 'vuex'
 
@@ -66,9 +66,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters('common', {
-      userInfo: 'getUserInfo'
-    }),
+    ...mapGetters(['userInfo']),
     previewImg() {
       if (this.formData.avatar) {
         return this.formData.avatar
