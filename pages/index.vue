@@ -31,5 +31,6 @@ export default {
 
 <style lang="less" scoped>
 .page {
+  font-size: 12px;
 }
 </style>
