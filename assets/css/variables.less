@@ -1,32 +1,40 @@
 /*===== 主题色配置 =====*/
-@colorPrimary: #2d8cf0;
-@colorPrimaryLight: lighten(@colorPrimary, 10%);
-@colorPrimaryDark: darken(@colorPrimary, 10%);
-@colorPrimaryFade: fade(@colorPrimary, 10%);
+@colorPrimary: #6bc30d;
+@colorPrimaryLight: lighten(@colorPrimary, 8%);
+@colorPrimaryDark: darken(@colorPrimary, 8%);
+@colorPrimaryFade: fade(@colorPrimary, 8%);
 
-@colorInfo: #2db7f5;
-@colorInfoLight: lighten(@colorInfo, 10%);
-@colorInfoDark: darken(@colorInfo, 10%);
-@colorInfoFade: fade(@colorInfo, 10%);
+@colorAssist: #2db7f5;
+@colorAssistLight: lighten(@colorAssist, 8%);
+@colorAssistDark: darken(@colorAssist, 8%);
+@colorAssistFade: fade(@colorAssist, 8%);
 
-@colorSuccess: #19be6b;
-@colorSuccessLight: lighten(@colorSuccess, 10%);
-@colorSuccessDark: darken(@colorSuccess, 10%);
-@colorSuccessFade: fade(@colorSuccess, 10%);
+@colorSuccess: #67C23A;
+@colorSuccessLight: lighten(@colorSuccess, 8%);
+@colorSuccessDark: darken(@colorSuccess, 8%);
+@colorSuccessFade: fade(@colorSuccess, 8%);
 
-@colorWarning: #ff9900;
-@colorWarningLight: lighten(@colorWarning, 10%);
-@colorWarningDark: darken(@colorWarning, 10%);
-@colorWarningFade: fade(@colorWarning, 10%);
+@colorWarning: #E6A23C;
+@colorWarningLight: lighten(@colorWarning, 8%);
+@colorWarningDark: darken(@colorWarning, 8%);
+@colorWarningFade: fade(@colorWarning, 8%);
 
-@colorError: #ed4014;
-@colorErrorLight: lighten(@colorError, 10%);
-@colorErrorDark: darken(@colorError, 10%);
-@colorErrorFade: fade(@colorError, 10%);
+@colorError: #F56C6C;
+@colorErrorLight: lighten(@colorError, 8%);
+@colorErrorDark: darken(@colorError, 8%);
+@colorErrorFade: fade(@colorError, 8%);
+
+@colorInfo: #909399;
+@colorInfoLight: lighten(@colorInfo, 8%);
+@colorInfoDark: darken(@colorInfo, 8%);
+@colorInfoFade: fade(@colorInfo, 8%);
+
+@color: linear-gradient(90deg,@colorAssist,@colorPrimary);
+@colorReverse: linear-gradient(270deg,@colorAssist,@colorPrimary);
 
 /*===== 字体颜色配置 =====*/
 @colorTextTitle: #282828;
-@colorTextContent: #616161;
+@colorTextContent: #414240;
 @colorTextSub: #808695;
 @colorTextLight: #aeaeae;
 @colorTextDisable: #c5c8ce;
@@ -38,7 +46,7 @@
 @colorBorderLight: fade(@colorBorder, 50%);
 
 /*===== 背景颜色配置 =====*/
-@colorBgBody: #f0f4f7;
+@colorBgBody: #ffffff;
 @colorBg: #f8f8f8;
 
 @colorBgSideMenu: #001529;
@@ -46,7 +54,7 @@
 @colorBgSideMenuItemActive: #363e4f;
 
 /*===== 各种高度配置 =====*/
-@heightHeader: 50px;
+@heightHeader: 60px;
 @heightFooter: 230px;
 
 /*===== 响应式相关变量 =====*/

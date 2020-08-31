@@ -34,13 +34,19 @@ export default {
   left: 0;
   width: 100%;
   z-index: 999;
-  background-color: rgba(0, 0, 0, 0.8);
-  color: @colorTextSilver;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 255, 255, 0.9);
+  color: @colorTextTitle;
   .app-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: @heightHeader;
+  }
+}
+@media only screen and (max-width: @breakpoints-lg) {
+  .app-header-wrap {
+    background-color: rgba(255, 255, 255, 0.95);
   }
 }
 </style>

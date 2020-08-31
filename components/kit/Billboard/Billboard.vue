@@ -68,6 +68,12 @@ export default {
   height: @billboardHeight;
   &-homepage {
     padding-top: @heightHeader;
+    .billboard-poster {
+      background-position: center bottom;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
   }
   &-poster {
     position: absolute;

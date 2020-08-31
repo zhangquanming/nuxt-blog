@@ -12,8 +12,8 @@
       </div>
     </div>
     <btn-group v-else>
-      <btn @click="handleSignIn" theme="success" size="small" shape="circle" icon="iconsignin">登录</btn>
-      <btn @click="handleSignUp" theme="primary" size="small" shape="circle" icon="iconsignup">注册</btn>
+      <btn @click="handleSignIn" theme="primary" size="small" shape="circle" icon="iconsignin">登录</btn>
+      <btn @click="handleSignUp" theme="assist" size="small" shape="circle" icon="iconsignup">注册</btn>
     </btn-group>
   </div>
 </template>
@@ -86,7 +86,7 @@ export default {
     border-bottom-right-radius: 10px;
   }
   .dropdown-menu-white {
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.9);
   }
   .dropdown-menu-black {
     background-color: rgba(0, 0, 0, 0.8);

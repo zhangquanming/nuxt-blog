@@ -29,7 +29,7 @@ export default {
   props: {
     theme: {
       type: String,
-      default: 'white'
+      default: 'black'
     }
   },
   data() {
@@ -66,7 +66,7 @@ export default {
 }
 .app-menu {
   font-size: 0;
-  color: @colorTextSilver;
+  color: @colorTextTitle;
   .app-menu-handle {
     display: none;
     padding: 10px;
@@ -80,30 +80,37 @@ export default {
     display: block;
     line-height: @heightHeader;
     position: relative;
-    padding: 0 15px;
-    font-size: 15px;
+    padding: 0 25px;
+    font-size: 16px;
     cursor: pointer;
     transition: color 0.25s ease;
     &:after {
       content: '';
       position: absolute;
-      bottom: 0;
+      bottom: 0px;
       left: 50%;
       height: 2px;
       width: 0;
       border-radius: 2px;
-      background-image: linear-gradient(90deg, @colorSuccess, @colorInfo);
+      background-image: @color;
       transition: all 0.3s ease;
     }
     &:hover {
-      color: @colorTextWhite;
+      color: @colorPrimary;
+      background: @color;
+      -webkit-background-clip: text;
+      color: transparent;
       &:after {
         width: 100%;
         left: 0;
       }
     }
     &.current {
-      color: @colorTextWhite;
+      color: @colorPrimary;
+      font-weight: 600;
+      background: @color;
+      -webkit-background-clip: text;
+      color: transparent;
       &:after {
         width: 100%;
         left: 0;
@@ -114,7 +121,7 @@ export default {
 
 @media only screen and (max-width: @breakpoints-lg) {
   .app-menu {
-    color: @colorTextLight;
+    color: @colorTextTitle;
     .app-menu-handle {
       display: block;
     }
@@ -126,21 +133,30 @@ export default {
       left: 0;
       z-index: 1000;
       overflow: hidden;
-      background-color: #323232;
+      background-color: rgba(255, 255, 255, 0.95);
       .app-menu-item {
         display: block;
         text-align: center;
-        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        line-height: 50px;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
       }
       .app-menu-link {
+        line-height: 50px;
         &:after {
           display: none;
         }
         &.current {
-          color: #fff;
+          color: @colorPrimary;
+          font-weight: 600;
+          background: @color;
+          -webkit-background-clip: text;
+          color: transparent;
         }
         &:hover {
-          color: #fff;
+          color: @colorPrimary;
+          background: @color;
+          -webkit-background-clip: text;
+          color: transparent;
         }
       }
     }
