@@ -1,11 +1,11 @@
 <template>
   <div class="page">
     <billboard :poster="banneImg" poster-blue="0" height="640px" is-home-page>
-      <div class="page-slogan">做一枚 <rotating-text :words="words" width="2em" /> 的前端</div>
-      <div class="page-slogan-sub">To be a <rotating-text :words="words2" width="3.8em" /> front-end developer</div>
+      <div class="page-slogan"><rotating-text :words="words" width="2em" />，终将收获更好的自己</div>
+      <div class="page-slogan-sub"><rotating-text :words="words2" width="3.8em" />, will eventually harvest better oneself.</div>
       <div class="banner-btn-wrap">
-        <btn @click="handleGoGithub" theme="success" shape="circle" size="large" class="banner-btn" icon="github">Github</btn>
-        <btn :to="{ path: '/article' }" shape="circle" size="large" ghost class="banner-btn">进入博客</btn>
+        <a @click="handleGoGithub" class="banner-btn bbtn1"><i class="iconfont icongithub"></i><span>Github</span></a>
+        <a @click="handleGoBlog" class="banner-btn bbtn2"><span>进入博客</span></a>
       </div>
     </billboard>
     <div class="page-content">
@@ -211,7 +211,6 @@ import SectionCard from '@/components/page/home/section-card.vue'
 
 import Billboard from '@/components/kit/Billboard/Billboard'
 import RotatingText from '@/components/kit/RotatingText/RotatingText'
-import Btn from '@/components/base/Btn/Btn'
 import Icon from '@/components/base/Icon/Icon'
 
 const banneImg = require('@/assets/images/home/banner.jpg')
@@ -225,7 +224,6 @@ export default {
   components: {
     Billboard,
     RotatingText,
-    Btn,
     Icon,
     SectionTitle,
     SectionCard
@@ -240,37 +238,37 @@ export default {
       poster4: demoImg4,
       words: [
         {
-          label: '精致',
+          label: '坚持',
           color: '#2d8cf0'
         },
         {
-          label: '优雅',
+          label: '坚持',
           color: '#2db7f5'
         },
         {
-          label: '极致',
+          label: '坚持',
           color: '#19be6b'
         },
         {
-          label: '快乐',
+          label: '坚持',
           color: '#ff9900'
         }
       ],
       words2: [
         {
-          label: 'delicate',
+          label: 'Insist',
           color: '#2d8cf0'
         },
         {
-          label: 'elegant',
+          label: 'Insist',
           color: '#2db7f5'
         },
         {
-          label: 'acme',
+          label: 'Insist',
           color: '#19be6b'
         },
         {
-          label: 'happy',
+          label: 'Insist',
           color: '#ff9900'
         }
       ]
@@ -279,6 +277,9 @@ export default {
   methods: {
     handleGoGithub() {
       window.open('https://github.com/zhangquanming/nuxt-blog', '_blank')
+    },
+    handleGoBlog() {
+      this.$router.push('/article')
     }
   },
   head() {
@@ -320,10 +321,53 @@ export default {
   margin-bottom: 20px;
 }
 .banner-btn {
-  width: 200px;
-  padding: 7px 15px;
+  i {
+    font-size: 26px;
+    margin-right: 10px;
+  }
+  i,
+  span {
+    vertical-align: middle;
+    line-height: 1;
+  }
+  display: inline-block;
+  width: 240px;
+  height: 50px;
+  padding: 10px;
+  border: none;
+  line-height: 30px;
   font-size: 18px;
-  margin: 20px 20px 0;
+  margin: 20px;
+  border: none;
+  border-radius: 50px;
+  color: #fff;
+  background-color: transparent;
+  cursor: pointer;
+  &.bbtn1 {
+    background-image: linear-gradient(90deg, rgba(78, 187, 170, 0.75), rgba(107, 195, 13, 0.75));
+    &:hover {
+      background-image: linear-gradient(90deg, #4ebbaa, #6bc30d);
+      color: #fff;
+    }
+  }
+  &.bbtn2 {
+    padding: 8px 10px;
+    border: 2px solid @colorBorder;
+    opacity: 0.75;
+    &:hover {
+      opacity: 1;
+      background-color: transparent;
+      border-color: @colorPrimary;
+      span {
+        background-image: @color;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+      }
+    }
+  }
 }
 .section-part {
   // background-color: #fafafa;
