@@ -239,7 +239,7 @@ export default {
       words: [
         {
           label: '坚持',
-          color: '#2d8cf0'
+          color: '#6bc30d'
         },
         {
           label: '坚持',
@@ -247,17 +247,17 @@ export default {
         },
         {
           label: '坚持',
-          color: '#19be6b'
+          color: '#e6a23c'
         },
         {
           label: '坚持',
-          color: '#ff9900'
+          color: '#f56c6c'
         }
       ],
       words2: [
         {
           label: 'Insist',
-          color: '#2d8cf0'
+          color: '#6bc30d'
         },
         {
           label: 'Insist',
@@ -265,11 +265,11 @@ export default {
         },
         {
           label: 'Insist',
-          color: '#19be6b'
+          color: '#e6a23c'
         },
         {
           label: 'Insist',
-          color: '#ff9900'
+          color: '#f56c6c'
         }
       ]
     }
@@ -307,18 +307,19 @@ export default {
   background-color: @colorBgBody;
 }
 .page-slogan {
-  font-size: 36px;
+  padding: 0 30px;
+  font-size: 40px;
   font-weight: normal;
   margin-bottom: 5px;
   color: #fff;
 }
 .page-slogan-sub {
-  font-size: 26px;
+  font-family: Roboto;
+  font-size: 32px;
   color: #fff;
 }
 .banner-btn-wrap {
-  margin-top: 30px;
-  margin-bottom: 20px;
+  margin-top: 60px;
 }
 .banner-btn {
   i {

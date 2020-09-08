@@ -13,7 +13,7 @@
         <span class="cat"> <i class="iconfont iconyouxiang"></i> <a target="_blank" href="#">419654548@qq.com</a></span>
       </div>
 
-      <div class="copyright">© zhang quan ming</div>
+      <div class="copyright">Copyright © 2019-2020 Mingme. All Rights Reserved.京ICP备123456789号.</div>
     </div>
   </div>
 </template>
@@ -41,8 +41,8 @@ export default {
 .app-footer {
   width: 100%;
   height: @heightFooter;
-  background-color: #ffd000;
-  color: @colorTextTitle;
+  background-color: #151515;
+  color: @colorFooterText;
   .app-footer-cont {
     margin: 0 auto;
     text-align: center;
@@ -55,10 +55,10 @@ export default {
         display: flex;
         justify-content: center;
         align-items: center;
-        color: @colorTextWhite;
+        color: @colorFooterText;
         transition: all 0.3s;
-        width: 40px;
-        height: 40px;
+        width: 36px;
+        height: 36px;
         margin: 0 30px;
         border-radius: 50%;
         &:after {
@@ -71,18 +71,18 @@ export default {
           right: 0px;
           border-radius: 100%;
           background: transparent;
-          border: 1px solid @colorTextWhite;
+          border: 1px solid @colorFooterText;
           -webkit-animation: pulse 2s infinite;
           animation: pulse 2s infinite;
         }
         &:hover {
           &:after {
-            border-color: @colorTextTitle;
+            border-color: @colorTextWhite;
           }
-          color: @colorTextTitle;
+          color: @colorTextWhite;
         }
         i {
-          font-size: 30px;
+          font-size: 24px;
           line-height: 1;
           &:last-child {
             margin-right: 0;
@@ -100,12 +100,14 @@ export default {
         font-weight: 400;
         i {
           display: inline-block;
-          font-size: 18px;
+          font-size: 20px;
           margin-right: 10px;
         }
       }
     }
     .copyright {
+      border-top: 1px solid @colorTextContent;
+      line-height: 30px;
       text-align: center;
       letter-spacing: 1px;
       font-size: 12px;
@@ -113,11 +115,11 @@ export default {
     }
   }
 }
-@media only screen and (min-width: @breakpoints-lg) {
+@media only screen and (min-width: @containerMaxWidth-xl) {
   .app-footer {
-    padding: 50px 0;
+    padding-top: 50px;
     .app-footer-cont {
-      width: 960px;
+      width: 1280px;
       .social {
         margin-bottom: 30px;
       }
@@ -125,15 +127,15 @@ export default {
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 0 100px;
+        padding: 0 200px;
         margin-bottom: 30px;
       }
     }
   }
 }
-@media only screen and (min-width: @containerMaxWidth-md) and (max-width: @breakpoints-lg) {
+@media only screen and (min-width: @containerMaxWidth-lg) and (max-width: @containerMaxWidth-xl) {
   .app-footer {
-    padding: 50px 0;
+    padding-top: 50px;
     .app-footer-cont {
       width: 100%;
       .social {
@@ -143,15 +145,15 @@ export default {
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 0 100px;
+        padding: 0 200px;
         margin-bottom: 30px;
       }
     }
   }
 }
-@media only screen and (max-width: @containerMaxWidth-md) {
+@media only screen and (max-width: @containerMaxWidth-lg) {
   .app-footer {
-    padding-top: 30px;
+    padding-top: 20px;
     .app-footer-cont {
       width: 100%;
       .social {
@@ -161,9 +163,16 @@ export default {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
         overflow: hidden;
         width: 100%;
+        .cat {
+          line-height: 24px;
+        }
+      }
+      .copyright {
+        line-height: 18px;
+        padding: 7px 40px;
       }
     }
   }
