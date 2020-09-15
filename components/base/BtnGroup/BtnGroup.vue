@@ -8,6 +8,7 @@
 .z-btn-group {
   display: inline-block;
   font-size: 0;
+  line-height: 0;
   vertical-align: middle;
   .z-btn {
     &:first-child {

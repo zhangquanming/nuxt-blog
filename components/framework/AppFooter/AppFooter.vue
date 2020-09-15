@@ -2,9 +2,9 @@
   <div class="app-footer">
     <div class="app-footer-cont">
       <div class="social">
-        <a target="_blank" href="#"><i class="iconfont icongithub"></i></a>
-        <a target="_blank" href="#"><i class="iconfont iconjuejin-logo"></i></a>
-        <a target="_blank" href="#"><i class="iconfont iconsegmentfault"></i></a>
+        <a target="_blank" href="https://github.com/zhangquanming/nuxt-blog"><i class="iconfont icongithub"></i></a>
+        <a target="_blank" href="https://juejin.im/user/448256473565480"><i class="iconfont iconjuejin-logo"></i></a>
+        <a target="_blank" href="https://segmentfault.com/u/mingme"><i class="iconfont iconsegmentfault"></i></a>
       </div>
 
       <div class="contact">
@@ -39,6 +39,7 @@ export default {
   }
 }
 .app-footer {
+  position: relative;
   width: 100%;
   height: @heightFooter;
   background-color: #151515;

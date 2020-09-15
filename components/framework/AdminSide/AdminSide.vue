@@ -1,8 +1,8 @@
 <template>
   <div class="admin-side-wrap">
-    <router-link to="/admin" active-class="current" class="admin-side-brand">
+    <nuxt-link to="/" class="admin-side-brand">
       <logo :w="160" />
-    </router-link>
+    </nuxt-link>
     <div class="admin-side-menu">
       <router-link v-for="(nav, index) in sideMenu" :key="index" :to="nav.path" active-class="current" class="menu-link">{{ nav.name }}</router-link>
     </div>
@@ -64,10 +64,12 @@ export default {
   height: 100%;
   width: 100%;
   .admin-side-brand {
-    text-align: center;
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: @colorPrimary;
     color: #fff;
+    height: @heightHeader;
     & > .iconfont {
       display: block;
       line-height: @heightHeader;

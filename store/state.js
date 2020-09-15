@@ -1,9 +1,5 @@
 const state = () => ({
   navList: [
-    // {
-    //   name: '首页',
-    //   path: '/'
-    // },
     {
       name: '文章',
       path: '/article'
