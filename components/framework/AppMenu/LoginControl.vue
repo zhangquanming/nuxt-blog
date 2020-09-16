@@ -89,7 +89,7 @@ export default {
     background-color: rgba(255, 255, 255, 0.9);
   }
   .dropdown-menu-black {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: @colorTextTitle;
   }
   &:hover .dropdown-menu {
     display: block;

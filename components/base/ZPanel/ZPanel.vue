@@ -55,7 +55,7 @@ export default {
       top: 13px;
       bottom: 13px;
       width: 3px;
-      background: linear-gradient(@colorInfo, @colorSuccess);
+      background: @colorCol;
     }
   }
   &-title {

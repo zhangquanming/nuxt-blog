@@ -1,23 +1,23 @@
 const state = () => ({
   navList: [
     {
-      name: '文章',
+      name: '个人文章',
       path: '/article'
     },
     {
-      name: 'WEB圈',
+      name: '前端资源',
       path: '/resource'
     },
     {
-      name: '电影',
+      name: '豆瓣电影',
       path: '/movie'
     },
     {
-      name: '小说',
+      name: '电子书',
       path: '/ebook'
     },
     {
-      name: '后台',
+      name: '后台管理',
       path: '/admin'
     }
   ],

@@ -5,7 +5,7 @@
         <router-link to="/" class="app-header-brand">
           <logo :h="40" />
         </router-link>
-        <AppMenu />
+        <app-menu />
       </div>
     </div>
   </div>

@@ -1,6 +1,6 @@
 <template>
   <div :style="styles" @click="handleClick" class="logo">
-    <img :src="logoColor" alt="Mingme" />
+    <img src="https://fakeimg.pl/160x40/" alt="Mingme" />
   </div>
 </template>
 
@@ -8,10 +8,6 @@
 export default {
   name: 'Logo',
   props: {
-    color: {
-      type: String,
-      default: 'black'
-    },
     w: {
       type: [Number, String],
       default: 'auto'
@@ -22,13 +18,6 @@ export default {
     }
   },
   computed: {
-    logoColor() {
-      if (this.color === 'black') {
-        return require('@/assets/images/logo.png')
-      } else {
-        return require('@/assets/images/logo2.png')
-      }
-    },
     styles() {
       return {
         width: typeof this.w === 'number' ? `${this.w}px` : this.w,

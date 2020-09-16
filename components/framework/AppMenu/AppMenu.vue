@@ -29,7 +29,7 @@ export default {
   props: {
     theme: {
       type: String,
-      default: 'black'
+      default: 'white'
     }
   },
   data() {
@@ -40,7 +40,7 @@ export default {
   computed: {
     ...mapGetters(['navList']),
     classes() {
-      return this.isShowMenu ? 'app-menu-show' : ''
+      return [this.isShowMenu ? 'app-menu-show' : '', `app-menu-${this.theme}`]
     }
   },
   watch: {},
@@ -66,7 +66,12 @@ export default {
 }
 .app-menu {
   font-size: 0;
-  color: @colorTextTitle;
+  &.app-menu-black {
+    color: @colorTextWhite;
+  }
+  &.app-menu-white {
+    color: @colorTextTitle;
+  }
   .app-menu-handle {
     display: none;
     padding: 10px;

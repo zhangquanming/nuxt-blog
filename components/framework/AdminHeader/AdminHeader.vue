@@ -1,7 +1,7 @@
 <template>
   <div class="admin-header-wrap">
     <div></div>
-    <app-menu />
+    <app-menu theme="black" />
   </div>
 </template>
 
@@ -23,6 +23,6 @@ export default {
   flex-direction: row;
   justify-content: space-between;
   padding: 0 16px;
-  background: rgba(0, 0, 0, 0.8);
+  background: @colorTextTitle;
 }
 </style>

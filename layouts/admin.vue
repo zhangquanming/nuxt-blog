@@ -43,7 +43,7 @@ export default {
   .admin-layout-left {
     float: left;
     position: relative;
-    width: 240px;
+    width: 200px;
     height: 100%;
   }
   .admin-layout-main {
