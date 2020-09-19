@@ -37,7 +37,7 @@ export default {
   padding: 10px 15px;
   border-bottom: 1px solid darken(@colorBg, 8%);
   color: @colorTextContent;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   &:before {
     display: block;
     content: '';
@@ -45,12 +45,12 @@ export default {
     left: 0;
     top: 13px;
     bottom: 13px;
-    width: 3px;
-    background: linear-gradient(@colorInfo, @colorSuccess);
+    width: 4px;
+    background: @colorCol;
   }
 }
 .z-title-bar-left {
-  font-size: 18px;
+  font-size: 20px;
   font-size: @colorTextTitle;
   font-weight: bold;
 }

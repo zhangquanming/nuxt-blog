@@ -30,7 +30,7 @@ export default {
   },
   head() {
     return {
-      title: '后台管理系统'
+      title: '后台管理系统-明么的博客'
     }
   }
 }

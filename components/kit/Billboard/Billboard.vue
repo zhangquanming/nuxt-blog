@@ -31,7 +31,7 @@ export default {
   },
   computed: {
     bgSrc() {
-      return this.poster || 'https://picsum.photos/1280/240?image=' + this.getDate()
+      return this.poster || require('@/assets/images/home/banner.jpg')
     },
     wrapStyles() {
       return {

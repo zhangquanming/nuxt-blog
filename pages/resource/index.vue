@@ -1,47 +1,60 @@
 <template>
-  <div class="z-container">
-    <template v-if="resourceList && resourceList.length > 0">
-      <div v-for="resource in resourceList" :key="resource._id">
-        <title-bar :title="resource.name"></title-bar>
-        <div v-if="resource.resource && resource.resource.length > 0" class="z-row">
-          <div v-for="resourceItem in resource.resource" :key="resourceItem._id" class="resource-item-wrap z-col-xl-12 z-col-lg-15 z-col-md-20 z-col-sm-30 z-col-xs-30">
-            <card padding="0">
-              <a :href="resourceItem.url" class="resource-item-link no-img-placeholder-colorful no-img-placeholder-horizon" target="_blank">
-                <img :src="resourceItem.posterUrl" alt="" class="resource-item-poster" />
-              </a>
-              <div class="resource-info-wrap">
-                <h4 class="resource-header">{{ resourceItem.name }}</h4>
-                <p :title="resourceItem.desc || resourceItem.metaDesc" class="resource-dis">{{ resourceItem.desc || resourceItem.metaDesc }}</p>
+  <div class="page">
+    <billboard :poster="banneImg" poster-blue="0" height="300px">
+      <div class="page-slogan">WEB前端资源</div>
+      <div class="page-slogan-sub">前端学习不用愁，我来给你加加油！</div>
+    </billboard>
+    <div class="z-container cont-list">
+      <template v-if="resourceList && resourceList.length > 0">
+        <div v-for="resource in resourceList" :key="resource._id">
+          <title-bar :title="resource.name"></title-bar>
+          <div v-if="resource.resource && resource.resource.length > 0" class="z-row" style="margin-bottom: 20px;">
+            <div v-for="resourceItem in resource.resource" :key="resourceItem._id" class="resource-item-wrap z-col-xl-12 z-col-lg-15 z-col-md-20 z-col-sm-30 z-col-xs-30">
+              <div class="resource-item">
+                <a :href="resourceItem.url" class="resource-item-link" target="_blank">
+                  <div class="resource-info-title">
+                    <div class="resource-item-poster no-img-placeholder-colorful no-img-placeholder-horizon">
+                      <img :src="resourceItem.posterUrl" alt="" />
+                    </div>
+                    <h4 class="resource-header">{{ resourceItem.name }}</h4>
+                  </div>
+                  <p :title="resourceItem.desc || resourceItem.metaDesc" class="resource-dis">{{ resourceItem.desc || resourceItem.metaDesc }}</p>
+                </a>
               </div>
-            </card>
+            </div>
           </div>
+          <no-data v-else style="height: 220px;" />
         </div>
-        <no-data v-else style="height: 220px;" />
-      </div>
-    </template>
+      </template>
 
-    <template v-else style="height: 200px;">
-      <card>
-        <no-data />
-      </card>
-    </template>
+      <template v-else style="height: 300px;">
+        <card>
+          <no-data />
+        </card>
+      </template>
+    </div>
   </div>
 </template>
 
 <script>
+import Billboard from '@/components/kit/Billboard/Billboard'
 import TitleBar from '@/components/kit/TitleBar/TitleBar'
 import Card from '@/components/base/Card/Card'
 import NoData from '@/components/kit/NoData/NoData'
 
+const banneImg = require('@/assets/images/home/banner.jpg')
+
 export default {
   name: 'Resource',
   components: {
+    Billboard,
     TitleBar,
     Card,
     NoData
   },
   data() {
     return {
+      banneImg,
       isLoading: false,
       resourceList: []
     }
@@ -54,43 +67,122 @@ export default {
   },
   head() {
     return {
-      title: 'WEN圈'
+      title: '前端资源-明么的博客'
     }
   }
 }
 </script>
 
 <style lang="less" scoped>
-.resource-item-wrap {
-  position: relative;
-  .resource-item-link {
-    position: relative;
-    display: block;
-    padding-top: 60%;
-  }
-  .resource-item-poster {
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-  .resource-info-wrap {
-    padding: 10px;
-    background-color: #fff;
-    border-top: 1px solid @colorBorder;
-  }
-  .resource-header {
-    font-size: 16px;
+.page {
+  margin-top: -@heightHeader - 20;
+  .page-slogan {
+    padding: 60px 30px 0px;
+    font-size: 36px;
     font-weight: normal;
+    margin-bottom: 5px;
+    color: #fff;
+    text-shadow: 0 4px 8px rgba(7, 17, 27, 0.4);
+    letter-spacing: 5px;
   }
-  .resource-dis {
-    height: 3em;
-    width: 100%;
-    margin-top: 5px;
-    overflow: hidden;
-    font-size: 12px;
-    line-height: 1.5;
-    color: @colorTextSub;
+  .page-slogan-sub {
+    font-family: Roboto;
+    font-size: 28px;
+    color: #fff;
+    text-shadow: 0 4px 8px rgba(7, 17, 27, 0.4);
+    letter-spacing: 5px;
+  }
+  .cont-list {
+    margin-top: 20px;
+    padding: 20px;
+    background: #fff;
+    .resource-item-wrap {
+      position: relative;
+      .resource-item {
+        position: relative;
+        margin-bottom: 30px;
+        &::before {
+          content: '';
+          background-color: #fff;
+          height: 3px;
+          margin-left: auto;
+          margin-right: auto;
+          position: absolute;
+          left: 0.25rem;
+          right: 0.5rem;
+          bottom: -4px;
+          border: 1px solid @colorBorder;
+          border-top: none;
+          box-shadow: 0 4px 8px 0 rgba(7, 17, 27, 0.1);
+          z-index: 2;
+        }
+        &::after {
+          content: '';
+          background-color: #fff;
+          height: 8px;
+          margin-left: auto;
+          margin-right: auto;
+          position: absolute;
+          bottom: -8px;
+          left: 0.5rem;
+          right: 0.25rem;
+          border: 1px solid @colorBorder;
+          border-top: none;
+          box-shadow: 0 4px 8px 0 rgba(7, 17, 27, 0.1);
+          z-index: 1;
+        }
+        &:hover .resource-item-link {
+          transform: translateY(10px);
+          box-shadow: 0 4px 8px 0 rgba(7, 17, 27, 0.1);
+        }
+        .resource-item-link {
+          position: relative;
+          display: block;
+          padding: 10px;
+          border: 1px solid @colorBorder;
+          transform: translate(0);
+          transition: transform 0.26s, box-shadow 0.26s;
+          z-index: 10;
+          background: #fff;
+          .resource-info-title {
+            display: flex;
+            align-items: center;
+            .resource-item-poster {
+              flex: none;
+              width: 38px;
+              height: 38px;
+              overflow: hidden;
+              border-radius: 50%;
+              img {
+                width: 100%;
+                height: 100%;
+              }
+            }
+            .resource-header {
+              flex: 1;
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              margin-left: 10px;
+              font-size: 16px;
+              font-weight: normal;
+            }
+          }
+          .resource-dis {
+            margin-top: 10px;
+            height: 4.5em;
+            width: 100%;
+            overflow: hidden;
+            font-size: 12px;
+            line-height: 1.5;
+            color: @colorTextSub;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+          }
+        }
+      }
+    }
   }
 }
 </style>

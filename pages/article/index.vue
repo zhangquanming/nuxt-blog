@@ -104,7 +104,7 @@ export default {
   },
   head() {
     return {
-      title: '全部文章'
+      title: '个人文章-明么的博客'
     }
   }
 }

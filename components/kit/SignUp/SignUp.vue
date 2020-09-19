@@ -9,8 +9,8 @@
       <input v-model="formData.confirmPassword" class="common-input" type="password" placeholder="确认密码" autocomplete="off" />
     </div>
     <div slot="footer">
-      <btn @click="singUp" :loading="isSignUpLoading" theme="success" long>确定注册</btn>
-      <btn @click="goToLogIn" theme="primary" long style="margin-top: 10px;">直接登录</btn>
+      <btn @click="singUp" :loading="isSignUpLoading" theme="gradient" long>确定注册</btn>
+      <btn @click="goToLogIn" long style="margin-top: 10px;">直接登录</btn>
     </div>
   </modal>
 </template>

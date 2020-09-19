@@ -9,7 +9,7 @@
       </div>
     </div>
     <div slot="footer">
-      <btn @click="login" :loading="isLoginLoading" theme="primary" long>确定登录</btn>
+      <btn @click="login" :loading="isLoginLoading" theme="gradient" long>确定登录</btn>
       <btn @click="goToRegister" long style="margin-top: 10px;">我要注册</btn>
     </div>
   </modal>
