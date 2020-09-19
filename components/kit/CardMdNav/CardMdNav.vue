@@ -122,9 +122,19 @@ export default {
   position: absolute;
   z-index: 1;
   top: 0;
+  right: 0;
   height: 28px;
   width: 100%;
-  border-right: 4px solid @colorSuccess;
-  background-color: @colorBg;
+  &::after {
+    content: ' ';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 4px;
+    height: 100%;
+    background-color: @colorPrimary;
+    background: @colorCol;
+  }
 }
 </style>

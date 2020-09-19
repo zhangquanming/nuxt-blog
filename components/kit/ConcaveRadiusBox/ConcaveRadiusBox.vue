@@ -72,7 +72,7 @@ export default {
 }
 .concave-radius-white {
   &:before {
-    background: radial-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 69%, rgba(0, 0, 0, 0.1), 70.6%, #fff 70.7%, #fff 100%);
+    background: radial-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 69%, rgba(0, 0, 0, 0.1), 70.6%, rgba(255, 255, 255, 0.9) 70.7%, rgba(255, 255, 255, 0.9) 90%);
   }
 }
 .concave-radius-black {

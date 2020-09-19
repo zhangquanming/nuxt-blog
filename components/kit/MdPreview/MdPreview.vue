@@ -36,7 +36,7 @@ export default {
     },
     padding: {
       type: [String, Number],
-      default: '10px'
+      default: '20px'
     }
   },
   computed: {

@@ -4,7 +4,7 @@
       <li v-for="comments in commentsList" :key="comments.id" class="comments-list-item">
         <div class="comments-body">
           <div class="comments-user no-img-placeholder-colorful no-img-placeholder-horizon">
-            <img :src="comments.from ? comments.from.avatar : ''" class="comments-user-avatar" alt="" />
+            <img v-if="comments.from" :src="comments.from ? comments.from.avatar : ''" class="comments-user-avatar" alt="" />
           </div>
           <div class="comments-main">
             <div class="comments-mate">
@@ -25,7 +25,7 @@
               </li>
             </ul>
             <div v-if="commentId && commentId === comments.id" style="margin-top: 10px;">
-              <CommentsForm @on-success="handleCommentsSuccess" :commentId="commentId" :toUserId="toUserId"></CommentsForm>
+              <comments-form @on-success="handleCommentsSuccess" :commentId="commentId" :toUserId="toUserId"></comments-form>
             </div>
           </div>
         </div>
@@ -35,9 +35,12 @@
 </template>
 
 <script>
+import CommentsForm from '@/components/kit/CommentsForm/CommentsForm'
 export default {
   name: 'CommentsList',
-  components: {},
+  components: {
+    CommentsForm
+  },
   props: {
     commentsList: {
       type: Array,
@@ -104,11 +107,13 @@ export default {
   .comments-user {
     height: 50px;
     width: 50px;
+    border-radius: 50%;
     margin-right: 15px;
   }
   .comments-user-avatar {
     height: 100%;
     width: 100%;
+    border-radius: 50%;
     object-fit: cover;
   }
   .comments-main {
@@ -123,8 +128,11 @@ export default {
     font-size: 12px;
   }
   .comments-mate-username {
+    font-weight: 600;
+    font-size: 16px;
     margin-right: 10px;
-    color: @colorInfo;
+    color: @colorAssist;
+    @colorActive();
   }
   .comments-mate-time {
     color: @colorTextLight;

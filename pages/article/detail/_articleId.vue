@@ -5,17 +5,14 @@
         <card padding="0">
           <billboard :poster="blogResult.poster" :title="blogResult.title" :titleSub="blogResult.createdAt | dateFormatFilter('YYYY 年 MM 月 DD 日')">
             <div class="tags">
-              <tag size="small" theme="error" icon="iconuser" shape="rect"> {{ blogResult.authorObj ? blogResult.authorObj.userName : '' }}</tag>
-              <tag v-for="(tag, index) in blogResult.tagArray" :key="index" size="small" theme="info" shape="rect">{{ tag.name }}</tag>
-              <btn v-if="isLiked" @click="handleUnLike" :loading="isLikeLoading" size="small" theme="success" shape="rect" icon="iconliked"></btn>
-              <btn v-else @click="handleLike" :loading="isLikeLoading" size="small" theme="success" shape="rect" icon="iconlike"></btn>
-              <btn v-if="userInfo && userInfo._id === authorObj._id" :to="{ path: `/user/write?articleId=${blogResult.id}` }" size="small" theme="primary" shape="rect" ghost
-                >编辑</btn
-              >
+              <tag v-for="(tag, index) in blogResult.tagArray" :key="index" size="large" theme="gradient" shape="rect">{{ tag.name }}</tag>
+              <btn v-if="isLiked" @click="handleUnLike" :loading="isLikeLoading" shape="rect" theme="gradient" icon="iconliked"></btn>
+              <btn v-else @click="handleLike" :loading="isLikeLoading" shape="rect" theme="gradient" icon="iconlike"></btn>
+              <btn v-if="userInfo && userInfo._id === authorObj._id" :to="{ path: `/user/write?articleId=${blogResult.id}` }" theme="assist" shape="rect">编辑</btn>
             </div>
           </billboard>
         </card>
-        <card padding="0">
+        <card padding="0" style="margin-bottom: 20px;">
           <md-preview :content="blogResult.content" />
         </card>
         <card>
@@ -28,7 +25,7 @@
         </card>
       </div>
       <div class="z-col-lg-18 z-col-xl-15 visible-lg visible-xl">
-        <div id="briefWrap">
+        <div id="briefWrap" style="margin-bottom: 20px;">
           <card-brief-blog :blogResult="blogResult" v-if="blogResult && blogResult.content" />
           <card-no-data v-else style="height: 385px;" />
         </div>
@@ -116,6 +113,7 @@ export default {
       vm.scrollHandler()
     }, 20)
     window.addEventListener('scroll', this.throttleScroll)
+    document.documentElement.scrollTop = document.documentElement.scrollTop + 1
   },
   beforeDestroy() {
     window.removeEventListener('scroll', this.throttleScroll)

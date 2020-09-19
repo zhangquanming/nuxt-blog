@@ -19,11 +19,11 @@ export default {
     shadow: Boolean,
     padding: {
       type: [String, Number],
-      default: '15px'
+      default: '20px'
     },
     borderRadius: {
       type: [String, Number],
-      default: '5px'
+      default: '0px'
     }
   },
   computed: {
@@ -50,11 +50,8 @@ export default {
 <style lang="less" scoped>
 .z-card {
   background-color: #fff;
-  margin-bottom: 20px;
   overflow: hidden;
   transition: all 0.2s linear;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-
   .z-card-shadow {
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   }
@@ -66,9 +63,9 @@ export default {
     font-size: 18px;
     line-height: 50px;
     text-align: center;
+    font-weight: bold;
     border-bottom: 1px solid @colorBorderLight;
     color: @colorTextTitle;
-    font-weight: normal;
   }
   .z-card-body {
     height: 100%;

@@ -20,17 +20,15 @@
     <div class="z-row">
       <div v-loading="isLoading" class="z-col-md-42 z-col-xl-45">
         <template v-if="blogList.length > 0">
-          <Card v-for="(blog, index) in blogList" :key="index">
-            <topic-item :topic="blog"></topic-item>
-          </Card>
+          <topic-item v-for="(blog, index) in blogList" :key="index" :topic="blog"></topic-item>
         </template>
         <card-no-data v-else style="height: 300px;" />
         <pagenation v-if="blogList && blogList.length > 0 && itemTotal > 10" :all="pageTotal" :cur="page" :callback="changePage" style="margin-top: 20px;" />
       </div>
       <div class="list-side z-col-md-18 z-col-xl-15">
-        <Card class="search-wrap">
+        <card class="search-wrap">
           <search-blog @on-search="handleSearch"></search-blog>
-        </Card>
+        </card>
       </div>
     </div>
   </div>
@@ -154,10 +152,9 @@ export default {
 
 <style lang="less" scoped>
 .filter-bar {
+  padding: 20px;
   margin-bottom: 20px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid darken(@colorBorder, 5%);
-  background-color: @colorBgBody;
+  background-color: #fff;
 }
 .list-side {
   position: sticky;
@@ -166,7 +163,6 @@ export default {
 }
 .z-card.search-wrap {
   margin: 5px 0;
-  // background-color: transparent;
-  background-image: linear-gradient(90deg, @colorSuccess, @colorInfo);
+  background-image: @color;
 }
 </style>

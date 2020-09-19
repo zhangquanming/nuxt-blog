@@ -23,7 +23,7 @@ export default {
     theme: {
       type: String,
       validator(value) {
-        return oneOf(value, ['default', 'primary', 'info', 'success', 'warning', 'error'])
+        return oneOf(value, ['gradient', 'default', 'primary', 'info', 'success', 'warning', 'error'])
       },
       default: 'default'
     },
@@ -145,6 +145,18 @@ export default {
   }
 
   // theme
+  &-gradient {
+    color: @colorPrimary;
+    border-color: @colorPrimary;
+    background-color: transparent;
+    border-image-source: @color;
+    border-image-slice: 1;
+    @colorActive();
+    &:hover {
+      background-color: transparent;
+      border-color: @colorPrimaryLight;
+    }
+  }
   &-primary {
     color: #fff;
     border-color: @colorPrimary;

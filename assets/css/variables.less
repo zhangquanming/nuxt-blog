@@ -32,6 +32,12 @@
 @color: linear-gradient(90deg, @colorAssist, @colorPrimary);
 @colorReverse: linear-gradient(270deg, @colorAssist, @colorPrimary);
 @colorCol: linear-gradient(@colorAssist, @colorPrimary);
+@colorActive: {
+  background-image: @color;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  box-decoration-break: clone;
+}
 
 
 /*===== 字体颜色配置 =====*/

@@ -163,8 +163,6 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@radiusSize: 4px;
-
 .filter-select {
   position: relative;
   .active {
@@ -172,7 +170,7 @@ export default {
     padding: 10px;
     color: @colorTextTitle;
     cursor: pointer;
-    border-radius: @radiusSize @radiusSize 0 0;
+    border: 1px solid @colorBorder;
   }
   .active-text {
     margin: 0 5px;
@@ -188,7 +186,7 @@ export default {
   &:hover {
     .active {
       background-color: #fff;
-      box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.2);
+      box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
     }
     .filter-options {
       display: block;
@@ -206,8 +204,7 @@ export default {
     width: 100%;
     z-index: 99;
     background-color: #fff;
-    border-radius: 0 0 @radiusSize @radiusSize;
-    box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
 
     max-height: 300px;
     overflow: auto;

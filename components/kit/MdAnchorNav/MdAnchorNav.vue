@@ -1,8 +1,10 @@
 <template>
   <ul class="md-anchor-nav">
     <li v-for="(nav, index) in list" :key="index">
-      <a :id="nav.index | anchor" :class="{ active: highLightIndex === nav.index }" @click="scrollToEle(nav.index)" href="javascript:;">{{ nav.title }}</a>
-      <MdAnchorNav :list="nav.children" :offsetTopList="offsetTopList" v-if="nav.children.length > 0" />
+      <a :id="nav.index | anchor" :class="{ active: highLightIndex === nav.index }" @click="scrollToEle(nav.index)" href="javascript:;">
+        <span>{{ nav.title }}</span>
+      </a>
+      <md-anchor-nav :list="nav.children" :offsetTopList="offsetTopList" v-if="nav.children.length > 0" />
     </li>
   </ul>
 </template>
@@ -49,7 +51,7 @@ export default {
     scrollToEle(eleIndex) {
       const targetOffsetTop = this.offsetTopList[eleIndex]
       // window.scrollTo(0, targetOffsetTop - 100);
-      this.scrollMove(targetOffsetTop - 100, 200)
+      this.scrollMove(targetOffsetTop - 84, 200)
     },
     scrollMove(scrollTo, time) {
       const scrollFrom = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
@@ -90,13 +92,15 @@ export default {
     text-decoration: none;
   }
 
-  &:hover {
+  &:hover span {
     color: @colorSuccess;
+    @colorActive();
     text-decoration: underline;
   }
 
-  &.active {
+  &.active span {
     color: @colorSuccess;
+    @colorActive();
   }
 }
 </style>

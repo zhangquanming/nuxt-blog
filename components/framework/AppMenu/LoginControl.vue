@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="userInfo" class="dropdown-menu-wrap">
-      <btn :to="{ path: '/user' }" theme="success" size="small" shape="circle" icon="iconuser">{{ userInfo.nicName || userInfo.userName }}</btn>
+      <btn :to="{ path: '/user' }" theme="gradient" size="small" shape="circle" icon="iconuser">{{ userInfo.nicName || userInfo.userName }}</btn>
       <div :class="['dropdown-menu', `dropdown-menu-${theme}`]">
         <concave-radius-box :size="18" :theme="theme">
           <btn :theme="theme === 'white' ? 'text' : 'white'" :to="{ path: '/user/write' }" icon="iconwenzhang" shape="rect" long>发布文章</btn>

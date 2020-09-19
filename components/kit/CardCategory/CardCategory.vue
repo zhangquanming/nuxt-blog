@@ -94,11 +94,11 @@ export default {
   }
 
   .category-item-link:hover {
-    color: @colorTextContent;
+    color: @colorTextTitle;
   }
 
   .current {
-    color: @colorTextContent;
+    color: @colorTextTitle;
   }
 
   .category-item-slider {
@@ -108,7 +108,7 @@ export default {
     left: 0;
     height: 40px;
     width: 100%;
-    border-right: 4px solid @colorInfo;
+    border-right: 4px solid @colorTextTitle;
     background-color: lighten(@colorBorderLight, 2%);
     transition: top 0.2s;
   }

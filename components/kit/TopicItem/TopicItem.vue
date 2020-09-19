@@ -4,22 +4,16 @@
       <div class="topic-head-title">
         <router-link :to="{ path: `/article/detail/${topic._id}` }" class="head-title" tag="h1">{{ topic.title }}</router-link>
         <div class="topic-article-info">
-          <div class="info-author">
-            <Icon type="iconuser" title="作者"></Icon>
+          <div class="info-item">
+            <span class="label">作者：</span>
             <router-link :to="{ path: `/article/search/?author=${topic.authorObj._id}` }" v-if="topic.authorObj" class="topic-info-link">
               {{ topic.authorObj.userName }}
             </router-link>
           </div>
-          <div class="info-category">
-            <Icon type="iconcategory" title="分类"></Icon>
+          <div class="info-item">
+            <span class="label">分类：</span>
             <router-link :to="{ path: `/${parentPath}/${topic.categoryObj.value}` }" class="topic-info-link">
               {{ topic.categoryObj.name }}
-            </router-link>
-          </div>
-          <div class="info-tag">
-            <Icon type="icontag" title="标签"></Icon>
-            <router-link v-for="(item, index) in topic.tagArray" :key="index" :to="{ path: `/article/search/?tag=${item._id}` }" class="topic-info-link">
-              {{ item.name }}
             </router-link>
           </div>
         </div>
@@ -35,10 +29,28 @@
     <div class="topic-body clearfix">
       <div class="topic-img-wrap">
         <router-link :to="{ path: `/article/detail/${topic._id}` }" class="topic-img-link no-img-placeholder-colorful no-img-placeholder-horizon">
-          <img :src="topic.poster" class="topic-img" alt="" />
+          <img v-if="topic.poster" :src="topic.poster" class="topic-img" alt="" />
         </router-link>
       </div>
       <md-preview :content="firstParagraph" :padding="0" />
+    </div>
+    <div class="topic-foot">
+      <div class="info-tags">
+        <Icon type="iconbiaoqian" title="标签" size="20px"></Icon>
+        <router-link v-for="(item, index) in topic.tagArray" :key="index" :to="{ path: `/article/search/?tag=${item._id}` }" class="tags-link">
+          {{ item.name }}
+        </router-link>
+      </div>
+      <div class="topic-count">
+        <div class="count-item">
+          <Icon type="iconliulan" title="浏览" size="18px"></Icon>
+          <span class="number">{{ topic.viewed }}</span>
+        </div>
+        <div class="count-item">
+          <Icon type="iconliked" title="点赞" size="18px"></Icon>
+          <span class="number">{{ topic.likes ? topic.likes.length : 0 }}</span>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -77,34 +89,54 @@ export default {
 
 <style lang="less" scoped>
 .topic-content {
+  background: #fff;
+  padding: 20px;
+  transition: border 0.3s ease;
+  margin-bottom: 2px;
+  &:hover {
+    .topic-head {
+      &::after {
+        width: 100%;
+      }
+    }
+  }
   .topic-head {
+    position: relative;
     display: flex;
+    align-content: center;
     justify-content: space-between;
-    margin-bottom: 15px;
-    margin-right: -15px;
-    margin-left: -15px;
-    padding-left: 15px;
-    padding-right: 15px;
     padding-bottom: 10px;
     border-bottom: 1px solid @colorBorderLight;
-
+    &::after {
+      content: '';
+      height: 2px;
+      bottom: -1px;
+      position: absolute;
+      left: 0;
+      width: 0;
+      background-color: @colorPrimary;
+      background-image: @color;
+      transition: width 0.3s;
+    }
     .topic-head-title {
       .head-title {
-        font-size: 24px;
-        font-weight: 400;
+        font-size: 20px;
+        font-weight: 500;
         line-height: 1.1;
         color: @colorTextTitle;
-        margin-bottom: 5px;
+        margin-bottom: 10px;
         cursor: pointer;
+        &:hover {
+          color: @colorPrimary;
+          @colorActive();
+        }
       }
 
       .topic-article-info {
         display: flex;
         color: @colorTextSub;
-        font-size: 14px;
-        .info-author,
-        .info-category,
-        .info-tag {
+        font-size: 13px;
+        .info-item {
           display: flex;
           align-items: center;
           margin-right: 20px;
@@ -120,6 +152,7 @@ export default {
         vertical-align: middle;
         &:hover {
           color: @colorPrimary;
+          @colorActive();
         }
       }
       .topic-info-link + .topic-info-link {
@@ -132,12 +165,13 @@ export default {
     .topic-head-time {
       position: relative;
       display: flex;
-
+      color: @colorTextSub;
       .time-day {
         font-size: 40px;
         color: @colorSuccess;
         line-height: 1;
         margin-right: 3px;
+        @colorActive();
       }
       .time-month-year {
         display: flex;
@@ -156,6 +190,7 @@ export default {
   }
 
   .topic-body {
+    margin: 20px 0;
     .topic-img-wrap {
       float: left;
       width: 300px;
@@ -192,6 +227,38 @@ export default {
         height: auto;
         float: none;
         margin-bottom: 10px;
+      }
+    }
+  }
+
+  .topic-foot {
+    display: flex;
+    justify-content: space-between;
+    .topic-count {
+      display: flex;
+      align-items: center;
+      color: @colorTextSub;
+      .count-item {
+        margin-left: 20px;
+        display: flex;
+        align-items: center;
+        .number {
+          line-height: 20px;
+          margin-left: 5px;
+        }
+      }
+    }
+    .info-tags {
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      color: @colorTextSub;
+      .tags-link {
+        margin-left: 10px;
+        &:hover {
+          color: @colorPrimary;
+          @colorActive();
+        }
       }
     }
   }

@@ -3,9 +3,7 @@
     <div class="z-row">
       <div class="z-col-md-42 z-col-xl-45">
         <template v-if="blogList.length > 0">
-          <card v-for="(blog, index) in blogList" :key="index">
-            <topic-item :topic="blog"></topic-item>
-          </card>
+          <topic-item v-for="(blog, index) in blogList" :key="index" :topic="blog"></topic-item>
         </template>
         <card-no-data v-else style="height: 300px;" />
         <pagenation v-if="blogList && blogList.length > 0 && itemTotal > 10" :all="pageTotal" :cur="page" :callback="changePage" style="margin-top: 20px;" />
@@ -118,6 +116,6 @@ export default {
   top: @heightHeader + 20;
 }
 .z-card.search-wrap {
-  background-image: linear-gradient(90deg, @colorSuccess, @colorInfo);
+  background-image: @color;
 }
 </style>

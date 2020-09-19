@@ -3,20 +3,20 @@
     <div class="comments-form-body">
       <div class="comments-form-user">
         <div class="comments-form-user-avatar no-img-placeholder-colorful no-img-placeholder-horizon">
-          <img :src="userInfo ? userInfo.avatar : ''" alt="" />
+          <img v-if="userInfo" :src="userInfo ? userInfo.avatar : ''" alt="" />
         </div>
         <span v-if="userInfo" class="comments-form-user-name">{{ userInfo.userName }}</span>
         <btn v-else @click="handleLogin" theme="text">请登录</btn>
       </div>
       <div class="comments-form-content">
         <div class="comments-form-content-input">
-          <textarea v-model="formData.content" placeholder="聊一聊...（评论需要审核通过才可以展示哦~）" rows="7"></textarea>
+          <textarea v-model="formData.content" placeholder="说点什么吧..." rows="5"></textarea>
         </div>
         <span style="position: absolute;left: 0;top: 105%;color: #ccc;">{{ formData.content ? formData.content.length : 0 }} / 500</span>
       </div>
     </div>
     <div class="comments-form-footer">
-      <btn @click="handleComment" :loading="isAddCommentLoading" type="primary" shape="rect">{{ commentId ? '回复' : '发表' }}</btn>
+      <btn @click="handleComment" :loading="isAddCommentLoading" theme="gradient" shape="rect">{{ commentId ? '回复' : '发表' }}</btn>
     </div>
   </div>
 </template>
@@ -123,10 +123,12 @@ export default {
     &-avatar {
       height: 50px;
       width: 50px;
+      border-radius: 50%;
       margin: 0 auto;
       img {
         height: 100%;
         width: 100%;
+        border-radius: 50%;
         object-fit: cover;
       }
     }

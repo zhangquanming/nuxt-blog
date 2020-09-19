@@ -24,7 +24,7 @@ export default {
     theme: {
       type: String,
       validator(value) {
-        return oneOf(value, ['default', 'primary', 'info', 'success', 'warning', 'error', 'dashed', 'text', 'white', 'assist'])
+        return oneOf(value, ['gradient', 'default', 'primary', 'info', 'success', 'warning', 'error', 'dashed', 'text', 'white', 'assist'])
       },
       default: 'default'
     },
@@ -173,8 +173,8 @@ export default {
   }
 
   &-icon-only {
-    padding: 5px 15px 6px;
-    font-size: 12px;
+    padding: 0px 15px;
+    font-size: 20px;
   }
 
   // long
@@ -252,6 +252,21 @@ export default {
   }
 
   // theme
+  &-gradient {
+    color: #fff;
+    border: none;
+    border-color: @colorPrimary;
+    background: @color;
+    opacity: 0.9;
+    &:hover {
+      color: #fff;
+      border: none;
+      background-color: @colorPrimaryLight;
+      background: @color;
+      opacity: 1;
+    }
+  }
+
   &-primary {
     color: #fff;
     background-color: @colorPrimary;
