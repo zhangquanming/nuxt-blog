@@ -12,8 +12,8 @@
       </div>
     </div>
     <btn-group v-else>
-      <btn @click="handleSignIn" theme="primary" size="small" shape="circle" icon="iconsignin">登录</btn>
       <btn @click="handleSignUp" theme="assist" size="small" shape="circle" icon="iconsignup">注册</btn>
+      <btn @click="handleSignIn" theme="primary" size="small" shape="circle" icon="iconsignin">登录</btn>
     </btn-group>
   </div>
 </template>

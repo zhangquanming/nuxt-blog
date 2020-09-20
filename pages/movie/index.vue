@@ -24,7 +24,7 @@ import SearchMovie from '@/components/kit/SearchMovie/SearchMovie'
 import MovieHomeList from '@/components/page/movie/MovieHomeList'
 import Btn from '@/components/base/Btn/Btn'
 
-const banneImg = require('@/assets/images/home/banner.jpg')
+const banneImg = require('@/assets/images/home/banner3.jpg')
 
 export default {
   name: 'MovieHome',

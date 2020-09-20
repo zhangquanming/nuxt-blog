@@ -117,37 +117,37 @@ export default {
       words: [
         {
           label: '坚持',
-          color: '#6bc30d'
-        },
-        {
-          label: '坚持',
           color: '#2db7f5'
         },
         {
           label: '坚持',
-          color: '#e6a23c'
+          color: '#38B9CC'
         },
         {
           label: '坚持',
-          color: '#f56c6c'
+          color: '#49BC8D'
+        },
+        {
+          label: '坚持',
+          color: '#6bc30d'
         }
       ],
       words2: [
         {
           label: 'Insist',
-          color: '#6bc30d'
-        },
-        {
-          label: 'Insist',
           color: '#2db7f5'
         },
         {
           label: 'Insist',
-          color: '#e6a23c'
+          color: '#38B9CC'
         },
         {
           label: 'Insist',
-          color: '#f56c6c'
+          color: '#49BC8D'
+        },
+        {
+          label: 'Insist',
+          color: '#6bc30d'
         }
       ]
     }
@@ -223,9 +223,9 @@ export default {
   background-color: transparent;
   cursor: pointer;
   &.bbtn1 {
-    background-image: linear-gradient(90deg, rgba(78, 187, 170, 0.75), rgba(107, 195, 13, 0.75));
+    background-image: linear-gradient(90deg, rgba(45, 183, 245, 0.75), rgba(107, 195, 13, 0.75));
     &:hover {
-      background-image: linear-gradient(90deg, #4ebbaa, #6bc30d);
+      background-image: linear-gradient(90deg, #2db7f5, #6bc30d);
       color: #fff;
     }
   }

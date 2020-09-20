@@ -85,7 +85,7 @@ export default {
     display: block;
     line-height: @heightHeader;
     position: relative;
-    padding: 0 25px;
+    padding: 0 20px;
     font-size: 16px;
     cursor: pointer;
     transition: color 0.25s ease;

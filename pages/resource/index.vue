@@ -39,7 +39,7 @@ import TitleBar from '@/components/kit/TitleBar/TitleBar'
 import Card from '@/components/base/Card/Card'
 import NoData from '@/components/kit/NoData/NoData'
 
-const banneImg = require('@/assets/images/home/banner.jpg')
+const banneImg = require('@/assets/images/home/banner3.jpg')
 
 export default {
   name: 'Resource',

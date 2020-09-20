@@ -32,7 +32,7 @@ export default {
   },
   computed: {
     bgSrc() {
-      return this.poster || require('@/assets/images/home/banner.jpg')
+      return this.poster || require('@/assets/images/home/banner3.jpg')
     },
     wrapStyles() {
       return {
@@ -145,14 +145,15 @@ export default {
       font-weight: normal;
       margin-bottom: 5px;
       color: #fff;
-      text-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+      text-shadow: 0 4px 8px rgba(7, 17, 27, 0.4);
       letter-spacing: 5px;
     }
     .billboard-inner-slogan-sub {
       font-family: Roboto;
       font-size: 28px;
       color: #fff;
-      text-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+      background: transparent;
+      text-shadow: 0 4px 8px rgba(7, 17, 27, 0.4);
       letter-spacing: 5px;
     }
   }
