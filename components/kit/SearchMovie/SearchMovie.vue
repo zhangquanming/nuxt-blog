@@ -217,7 +217,7 @@ export default {
     font-size: 12px;
     color: @colorTextContent;
     border-radius: 100px;
-    border: 1px solid @colorInfo;
+    border: 1px solid @colorPrimary;
     outline: 0;
     background-color: transparent;
     transition: width 0.3s ease;
@@ -233,7 +233,8 @@ export default {
     cursor: pointer;
     color: #fff;
     // font-weight: bold;
-    background-color: @colorInfo;
+    background-color: @colorPrimary;
+    background: @color;
     border: 0;
     border-top-right-radius: 100px;
     border-bottom-right-radius: 100px;

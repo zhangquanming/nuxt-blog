@@ -101,11 +101,11 @@ module.exports = {
         '^/douban': ''
       }
     },
-    '/douban/movie/': {
-      target: 'http://api.douban.com/v2/movie',
+    '/yushu': {
+      target: 'http://t.yushu.im/v2',
       changeOrigin: true,
       pathRewrite: {
-        '^/douban/movie/': ''
+        '^/yushu': ''
       }
     },
     '/doubanOld/': {

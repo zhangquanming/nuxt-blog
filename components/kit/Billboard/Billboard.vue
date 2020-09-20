@@ -1,5 +1,5 @@
 <template>
-  <div :class="['billboard', isHomePage ? 'billboard-homepage' : '']" :style="wrapStyles">
+  <div :class="['billboard', isHomePage ? 'billboard-homepage' : '', isPage ? 'billboard-page' : '']" :style="wrapStyles">
     <div :style="posterStyles" class="billboard-poster"></div>
     <div class="billboard-box">
       <div class="billboard-inner">
@@ -27,7 +27,8 @@ export default {
     },
     poster: String,
     sticky: Boolean,
-    isHomePage: Boolean
+    isHomePage: Boolean,
+    isPage: Boolean
   },
   computed: {
     bgSrc() {
@@ -66,6 +67,7 @@ export default {
   top: 0;
   width: 100%;
   height: @billboardHeight;
+  overflow: hidden;
   &-homepage {
     padding-top: @heightHeader;
     .billboard-poster {
@@ -85,6 +87,7 @@ export default {
       background-size: cover;
     }
   }
+
   &-poster {
     position: absolute;
     top: 0;
@@ -109,6 +112,7 @@ export default {
     display: inline-table;
     width: 100%;
     height: 100%;
+    padding: 20px;
   }
 
   &-inner {
@@ -133,6 +137,24 @@ export default {
     border-radius: 5px;
     background-color: rgba(0, 0, 0, 0.2);
     margin-bottom: 10px;
+  }
+  &-page {
+    .billboard-inner-slogan {
+      padding: 60px 30px 0px;
+      font-size: 36px;
+      font-weight: normal;
+      margin-bottom: 5px;
+      color: #fff;
+      text-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+      letter-spacing: 5px;
+    }
+    .billboard-inner-slogan-sub {
+      font-family: Roboto;
+      font-size: 28px;
+      color: #fff;
+      text-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+      letter-spacing: 5px;
+    }
   }
 }
 </style>

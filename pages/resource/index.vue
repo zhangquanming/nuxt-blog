@@ -1,9 +1,6 @@
 <template>
   <div class="page">
-    <billboard :poster="banneImg" poster-blue="0" height="300px">
-      <div class="page-slogan">WEB前端资源</div>
-      <div class="page-slogan-sub">前端学习不用愁，我来给你加加油！</div>
-    </billboard>
+    <billboard :poster="banneImg" title="WEB前端资源" title-sub="前端学习不用愁，我来给你加加油！" is-page poster-blue="0" height="300px"> </billboard>
     <div class="z-container cont-list">
       <template v-if="resourceList && resourceList.length > 0">
         <div v-for="resource in resourceList" :key="resource._id">
@@ -76,22 +73,6 @@ export default {
 <style lang="less" scoped>
 .page {
   margin-top: -@heightHeader - 20;
-  .page-slogan {
-    padding: 60px 30px 0px;
-    font-size: 36px;
-    font-weight: normal;
-    margin-bottom: 5px;
-    color: #fff;
-    text-shadow: 0 4px 8px rgba(7, 17, 27, 0.4);
-    letter-spacing: 5px;
-  }
-  .page-slogan-sub {
-    font-family: Roboto;
-    font-size: 28px;
-    color: #fff;
-    text-shadow: 0 4px 8px rgba(7, 17, 27, 0.4);
-    letter-spacing: 5px;
-  }
   .cont-list {
     margin-top: 20px;
     padding: 20px;

@@ -8,7 +8,7 @@
     <template v-if="list && list.length > 0">
       <ul class="list z-row">
         <li v-for="item in list" :key="item.id" class="list-item z-col-xs-30 z-col-sm-20 z-col-md-15 z-col-lg-12">
-          <card padding="0" hover>
+          <card padding="0" hover class="list-item-card">
             <router-link :to="{ path: `/movie/detail/${item.id}` }" class="list-item-poster-wrap" target="_blank">
               <z-image :src="item.images.large" class="list-item-poster" />
             </router-link>
@@ -66,6 +66,10 @@ export default {
   &-item {
     list-style: none;
     // margin-bottom: @columns-padding * 2;
+    &-card {
+      margin-bottom: 20px;
+      border: 1px solid @colorBorder;
+    }
     &-poster-wrap {
       position: relative;
       display: block;
@@ -73,6 +77,21 @@ export default {
       padding-top: 140%;
       width: 100%;
       overflow: hidden;
+      &:after {
+        content: '';
+        height: 100%;
+        width: 100px;
+        background-image: linear-gradient(90deg, hsla(0, 0%, 100%, 0), hsla(0, 0%, 100%, 0.3) 50%, hsla(0, 0%, 100%, 0));
+        position: absolute;
+        left: -160%;
+        top: 0;
+        z-index: 2;
+      }
+      &:hover:after {
+        transform: skewX(-25deg) translateZ(0);
+        transition: left 1s ease-in-out;
+        left: 160%;
+      }
     }
     &-poster {
       position: absolute;
