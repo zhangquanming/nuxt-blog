@@ -66,7 +66,7 @@ module.exports = {
   toast: {
     theme: 'bubble',
     position: 'top-center',
-    duration: 3000,
+    duration: 8081,
     singleton: true
   },
   /*
@@ -88,7 +88,8 @@ module.exports = {
    */
   proxy: {
     '/api': {
-      target: process.env.NODE_ENV === 'production' ? 'http://localhost:3000/' : 'https://zhangjinpei.cn/',
+      target: process.env.NODE_ENV === 'development' ? 'http://localhost:2000/' : 'http://localhost:3000/',
+      // 'https://zhangjinpei.cn/'
       changeOrigin: true,
       pathRewrite: {
         '^/api': ''
