@@ -9,7 +9,7 @@
           <div class="comments-main">
             <div class="comments-mate">
               <span class="comments-mate-username">{{ comments.from ? comments.from.userName : '未知' }}</span>
-              <span class="comments-mate-time">{{ comments.updatedAt | dateFormatFilter }}</span>
+              <span class="comments-mate-time">{{ comments.createdAt | dateFormatFilter('YYYY-MM-DD HH:mm:ss') }}</span>
               <span v-if="commentId && commentId === comments.id" @click="handleUnRepay(comments)" class="comments-mate-unrepay">取消回复</span>
               <span v-else @click="handleRepay(comments)" class="comments-mate-repay">回复</span>
               <div class="comments-mate-order">#{{ comments.orderIndex }}</div>
@@ -19,7 +19,7 @@
               <li v-for="repay in comments.reply" :key="repay.id" class="repay-list-item">
                 <div class="comments-mate">
                   <span class="comments-mate-username">{{ repay.from ? repay.from.userName : '未知' }}</span>
-                  <span class="comments-mate-time">{{ repay.updatedAt | dateFormatFilter }}</span>
+                  <span class="comments-mate-time">{{ repay.createdAt | dateFormatFilter('YYYY-MM-DD HH:mm:ss') }}</span>
                 </div>
                 <div class="comments-content">{{ repay.content }}</div>
               </li>
@@ -95,9 +95,7 @@ export default {
   }
   .repay-list-item {
     padding: 5px;
-  }
-  .repay-list-item + .repay-list-item {
-    border-top: 1px solid @colorBorder;
+    border-top: 1px dashed @colorBorder;
   }
 
   .comments-body {
