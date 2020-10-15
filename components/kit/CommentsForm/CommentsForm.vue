@@ -65,6 +65,10 @@ export default {
      * @desc 请求 发表评论
      */
     requestComments() {
+      if (!this.formData.content.trim()) {
+        this.$toast.error('请输入评论内容')
+        return false
+      }
       const params = {
         blogId: this.$route.params.articleId,
         from: this.userInfo._id,
@@ -86,6 +90,10 @@ export default {
      * @desc 请求 发表回复
      */
     requestRepay() {
+      if (!this.formData.content.trim()) {
+        this.$toast.error('请输入回复内容')
+        return false
+      }
       const params = {
         commentId: this.commentId,
         from: this.userInfo._id,
