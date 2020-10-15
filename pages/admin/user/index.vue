@@ -185,7 +185,7 @@ export default {
       this.$myApi.users
         .index(params)
         .then((res) => {
-          this.tableData = res.result.list
+          this.tableData = res.result.docs
           this.pageTotal = res.result.pages
           this.isLoading = false
         })

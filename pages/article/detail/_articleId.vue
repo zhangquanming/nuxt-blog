@@ -178,7 +178,7 @@ export default {
         .index(params)
         .then((res) => {
           this.isCommentsListLoading = false
-          this.commentsList = res.result.list
+          this.commentsList = res.result.docs
           this.pageTotal = res.result.pages
           this.totalEle = res.result.total
         })

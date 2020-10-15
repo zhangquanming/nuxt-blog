@@ -68,7 +68,7 @@ export default {
     const res = await app.$myApi.blogs.index(sendParams)
 
     return {
-      blogList: res.result.list,
+      blogList: res.result.docs,
       pageTotal: res.result.pages,
       itemTotal: res.result.total
     }
@@ -104,7 +104,7 @@ export default {
       this.$myApi.blogs
         .index(params)
         .then((res) => {
-          this.blogList = res.result.list
+          this.blogList = res.result.docs
           this.pageTotal = res.result.pages
           this.itemTotal = res.result.total
           this.isLoading = false

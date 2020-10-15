@@ -163,7 +163,7 @@ export default {
       this.$myApi.categories
         .index(params)
         .then((res) => {
-          this.tableData = res.result.list
+          this.tableData = res.result.docs
           this.pageTotal = res.result.pages
           this.isLoading = false
         })
@@ -312,7 +312,7 @@ export default {
     handleValidateUserAuth() {
       let isUserAuth = false
       if (this.userInfo) {
-        if (this.userInfo.userName === 'mingme') {
+        if (this.userInfo.userName === 'admin') {
           isUserAuth = true
         } else {
           this.$toast.error('非admin，无权限！')

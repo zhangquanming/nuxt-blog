@@ -242,7 +242,7 @@ export default {
         this.$myApi.blogs
           .index(params)
           .then((res) => {
-            this.blogList = res.result.list
+            this.blogList = res.result.docs
             this.pageTotal = res.result.pages
             this.totalEle = res.result.total
             this.isLoading = false
