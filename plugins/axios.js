@@ -53,7 +53,7 @@ export default function(ctx) {
     console.log('onError', error)
 
     if (error && error.message.indexOf('401') > 1) {
-      app.$toast.error('登录过期了')
+      app.$toast.error('登录过期了，请重新登录！')
       sessionStorage.clear()
       store.dispatch('changeUserInfo', null)
       store.dispatch('changeToken', '')
