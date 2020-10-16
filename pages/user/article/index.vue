@@ -133,15 +133,15 @@ export default {
         },
         // {
         //   title: '浏览',
-        //   key: 'viewed',
+        //   key: 'viewed'
         // },
         // {
         //   title: '赞',
-        //   key: 'liked',
+        //   key: 'liked'
         // },
         // {
         //   title: '评论',
-        //   key: 'comment',
+        //   key: 'comment'
         // },
         {
           title: '状态',
