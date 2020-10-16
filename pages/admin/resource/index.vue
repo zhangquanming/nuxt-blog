@@ -111,10 +111,12 @@ export default {
         {
           title: '名称',
           key: 'name',
+          minWidth: '100px',
           align: 'left'
         },
         {
           title: '资源分类',
+          minWidth: '100px',
           align: 'left',
           render: (h, params) => {
             return h('span', params.row.resourceTypeObj.name)
@@ -123,7 +125,8 @@ export default {
         {
           title: '地址',
           key: 'url',
-          align: 'left'
+          align: 'left',
+          minWidth: '200px'
         },
         {
           title: '简介',
@@ -138,6 +141,7 @@ export default {
         },
         {
           title: '时间',
+          minWidth: '140px',
           render: (h, params) => {
             const createdAtFormat = this.$options.filters.dateFormatFilter(params.row.createdAt, 'YYYY-MM-DD HH:mm')
             const updatedAtFormat = this.$options.filters.dateFormatFilter(params.row.updatedAt, 'YYYY-MM-DD HH:mm')
@@ -146,6 +150,7 @@ export default {
         },
         {
           title: '操作',
+          minWidth: '120px',
           render: (h, params) => {
             return h('div', [
               h(

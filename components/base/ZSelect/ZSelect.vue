@@ -80,7 +80,7 @@ export default {
       prefixCls: 'z-select',
       isShowOptions: false,
       selectedArray: [],
-      cursorIndex: 0
+      cursorIndex: -1
     }
   },
   computed: {
@@ -112,7 +112,7 @@ export default {
      */
     initValue() {
       const { value, options } = this
-      if (value && value.length > 0 && options && options.length > 0) {
+      if (value && value.length >= 0 && options && options.length > 0) {
         this.selectedArray = options.filter((item) => value.includes(item[this.valueKey]))
       }
     },
@@ -261,7 +261,7 @@ export default {
     handleHideOptions() {
       this.isShowOptions = false
       this.$refs.zSelect.blur()
-      this.cursorIndex = 0
+      this.cursorIndex = -1
     }
   }
 }

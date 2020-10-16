@@ -120,6 +120,7 @@ export default {
     th,
     td {
       border-left: 1px solid @colorBorder;
+      word-break: break-all;
     }
   }
   &-size-small {

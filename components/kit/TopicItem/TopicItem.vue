@@ -122,7 +122,7 @@ export default {
       .head-title {
         font-size: 20px;
         font-weight: 500;
-        line-height: 1.1;
+        line-height: 1.2;
         color: @colorTextTitle;
         margin-bottom: 10px;
         cursor: pointer;
