@@ -5,7 +5,7 @@
       <input v-model.trim="formData.userName" class="form-item-input form-item-input-readonly" type="text" readonly />
     </form-item>
     <form-item label="昵称">
-      <input v-model.trim="formData.nicName" class="form-item-input" type="text" placeholder="请填写昵称" />
+      <input v-model.trim="formData.nickName" class="form-item-input" type="text" placeholder="请填写昵称" />
     </form-item>
     <form-item required label="邮箱">
       <input v-model.trim="formData.email" class="form-item-input" type="text" placeholder="请填写邮箱" />
@@ -55,8 +55,8 @@ export default {
     if (userInfo && userInfo.userName) {
       this.$set(this.formData, 'userName', userInfo.userName)
     }
-    if (userInfo && userInfo.nicName) {
-      this.$set(this.formData, 'nicName', userInfo.nicName)
+    if (userInfo && userInfo.nickName) {
+      this.$set(this.formData, 'nickName', userInfo.nickName)
     }
     if (userInfo && userInfo.phone) {
       this.$set(this.formData, 'phone', userInfo.phone)

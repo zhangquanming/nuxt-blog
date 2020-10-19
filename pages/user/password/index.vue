@@ -111,7 +111,9 @@ export default {
      */
     requestUpdatePassword() {
       const params = {
-        ...this.userInfo
+        id: this.userInfo._id,
+        userName: this.userInfo.userName,
+        ...this.formData
       }
       this.isEditLoading = true
       this.$myApi.users
