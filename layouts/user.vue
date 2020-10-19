@@ -46,6 +46,7 @@ export default {
   display: flex;
 }
 .user-page-side {
+  flex: none;
   width: 240px;
   margin-right: 20px;
 }
