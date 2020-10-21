@@ -10,8 +10,9 @@
               <div class="resource-item">
                 <a :href="resourceItem.url" class="resource-item-link" target="_blank">
                   <div class="resource-info-title">
-                    <div class="resource-item-poster no-img-placeholder-colorful no-img-placeholder-horizon">
-                      <img :src="resourceItem.posterUrl" alt="" />
+                    <div class="resource-item-poster">
+                      <img v-if="resourceItem.posterUrl" :src="resourceItem.posterUrl" alt="" />
+                      <div v-else class="no-img">{{ resourceItem.name.substring(0, 1) }}</div>
                     </div>
                     <h4 class="resource-header">{{ resourceItem.name }}</h4>
                   </div>
@@ -132,11 +133,21 @@ export default {
               flex: none;
               width: 38px;
               height: 38px;
+              text-align: center;
               overflow: hidden;
-              border-radius: 50%;
               img {
                 width: 100%;
                 height: 100%;
+              }
+              .no-img {
+                width: 100%;
+                height: 100%;
+                line-height: 38px;
+                background-color: #c3c4ce;
+                border-radius: 50%;
+                font-size: 22px;
+                font-weight: 700;
+                color: #fff;
               }
             }
             .resource-header {

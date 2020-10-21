@@ -11,6 +11,27 @@
     <modal v-show="isShowResourceModal" @close="handleHideResourceModal">
       <h3 slot="header">{{ editMode === 'edit' ? '修改资源' : '添加资源' }}</h3>
       <div slot="body">
+        <div class="uplaod-box">
+          <div class="uplaod-preview-img">
+            <img v-if="formData.poster" :src="formData.poster" />
+          </div>
+          <div class="uplaod-cont">
+            <p class="upload-tip">SVG、JPG、GIF、JPEG、PNG格式，文件小于2M</p>
+            <upload
+              :format="['png', 'jpeg', 'jpg', 'gif', 'svg']"
+              :data="uploadParams"
+              :max-size="2048"
+              :on-format-error="handleFormatError"
+              :on-exceeded-size="handleMaxSize"
+              :on-success="handleUploadSuccess"
+              :action="uploadUrl"
+              class="upload-input"
+              accept="image/*"
+            >
+              <btn long>上传海报</btn>
+            </upload>
+          </div>
+        </div>
         <z-select v-model="formData.resourceTypeId" :options="resourceTypeList" placeholder="请选择文章分类" label-key="name" value-key="_id"></z-select>
         <input v-model="formData.name" class="common-input" type="text" placeholder="资源名称" />
         <input v-model="formData.url" class="common-input" type="text" placeholder="资源地址" />
@@ -48,6 +69,7 @@ import Btn from '@/components/base/Btn/Btn'
 import Pagenation from '@/components/base/Pagenation/Pagenation'
 import Modal from '@/components/base/Modal/Modal'
 import ZSelect from '@/components/base/ZSelect/ZSelect'
+import Upload from '@/components/base/Upload/Upload'
 
 import { mapGetters, mapActions } from 'vuex'
 
@@ -60,7 +82,8 @@ export default {
     Pagenation,
     Modal,
     Btn,
-    ZSelect
+    ZSelect,
+    Upload
   },
   data() {
     return {
@@ -81,6 +104,7 @@ export default {
       isShowResourceModal: false,
       editMode: 'add',
       formData: {},
+      uploadParams: { usedFor: 'poster' },
       columns: [
         {
           title: '序号',
@@ -89,7 +113,7 @@ export default {
         },
         {
           title: '海报',
-          key: 'poster',
+          key: 'posterUrl',
           width: '80px',
           render: (h, params) => {
             return h('img', {
@@ -97,7 +121,7 @@ export default {
                 src: params.row.posterUrl
               },
               style: {
-                width: '80px',
+                width: '40px',
                 cursor: 'pointer'
               },
               on: {
@@ -196,7 +220,10 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['userInfo'])
+    ...mapGetters(['userInfo']),
+    uploadUrl() {
+      return process.env.NODE_ENV === 'development' ? '/api/api/upload' : '/api/upload'
+    }
   },
   mounted() {
     this.requestResourceTypeList()
@@ -307,6 +334,27 @@ export default {
     },
 
     /**
+     * @desc 上传 格式出错
+     */
+    handleFormatError(file) {
+      this.$toast.error(`文件 ${file.name} 格式不对, 请选择 JPG、GIF、SVG、JPEG or PNG.`, { duration: 4000 })
+    },
+
+    /**
+     * @desc 上传 大小限制
+     */
+    handleMaxSize(file) {
+      this.$toast.error(`文件 ${file.name} 太大, 不可超过2M`)
+    },
+
+    /**
+     * @desc 上传 成功
+     */
+    handleUploadSuccess(res) {
+      this.$set(this.formData, 'poster', res.result.path)
+    },
+
+    /**
      * @desc 分页点击
      */
     handleChangePage(page) {
@@ -328,7 +376,7 @@ export default {
       this.formData = {
         name: data.name,
         url: data.url,
-        oldUrl: data.url,
+        poster: data.posterUrl,
         desc: data.desc,
         metaDesc: data.metaDesc,
         resourceTypeId: [data.resourceTypeId]
@@ -470,3 +518,37 @@ export default {
   }
 }
 </script>
+
+<style lang="less" scoped>
+.uplaod-box {
+  overflow: visible;
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  .uplaod-preview-img {
+    flex: none;
+    width: 80px;
+    height: 80px;
+    box-sizing: border-box;
+    margin: auto;
+    display: block;
+    border: 1px solid #dcdee2;
+    background-color: #fff;
+    border-radius: 4px;
+    overflow: hidden;
+    text-align: center;
+    img {
+      max-width: 100%;
+      height: 100%;
+    }
+  }
+  .uplaod-cont {
+    margin-left: 10px;
+    .upload-tip {
+      margin: 6px 0;
+      font-size: 12px;
+      color: @colorTextSub;
+    }
+  }
+}
+</style>
