@@ -32,7 +32,7 @@ export default ($axios) => (resource) => {
   if (resource.indexOf('ebooks') > 0) {
     api = {
       // 获取首页数据
-      getHomeData: (params, options) => $axios.$get(`${resource}`, params, options),
+      getHomeData: (params, options) => $axios.$get(`${resource}/home`, params, options),
 
       // 获取分类书籍
       getCategoryBook: (params, options) => $axios.$get(`${resource}/category/${params.categoryName}`, null, options),

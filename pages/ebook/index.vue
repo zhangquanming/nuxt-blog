@@ -244,8 +244,12 @@ export default {
       ]
     }
   },
-  created() {
-    this.getEbookHomeData()
+  async asyncData({ app }) {
+    const res = await app.$myApi.ebooks.getHomeData()
+    return { ebookHomeData: res.result }
+  },
+  mounted() {
+    // this.getEbookHomeData()
   },
   methods: {
     /**
