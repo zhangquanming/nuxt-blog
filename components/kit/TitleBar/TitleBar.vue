@@ -1,5 +1,5 @@
 <template>
-  <div class="z-title-bar">
+  <div :style="stylesMBottom" class="z-title-bar">
     <components :is="tagName" class="z-title-bar-left">{{ title }}</components>
     <div v-if="showTitleRight" class="z-title-bar-right">
       <slot name="titleRight"></slot>
@@ -15,11 +15,22 @@ export default {
     tagName: {
       type: String,
       default: 'h3'
+    },
+    bottom: {
+      type: [String, Number],
+      default: '20px'
     }
   },
   data() {
     return {
       showTitleRight: false
+    }
+  },
+  computed: {
+    stylesMBottom() {
+      return {
+        'margin-bottom': typeof this.bottom === 'number' ? `${this.bottom}px` : this.bottom
+      }
     }
   },
   mounted() {
@@ -37,7 +48,6 @@ export default {
   padding: 10px 15px;
   border-bottom: 1px solid darken(@colorBg, 8%);
   color: @colorTextContent;
-  margin-bottom: 20px;
   &:before {
     display: block;
     content: '';

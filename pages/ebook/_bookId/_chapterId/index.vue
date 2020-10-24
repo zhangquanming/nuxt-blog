@@ -13,31 +13,13 @@
         <router-link :to="{ path: `/ebook/${chapterData.bookId}` }">目录</router-link>
         <router-link :to="{ path: `/ebook/${chapterData.bookId}/${chapterData.chapterNextId}` }">下一章</router-link>
       </div>
-      <div id="chapterSideBar" class="chapter-side-bar ebook-paper-bg">
-        <btn theme="text">目录</btn>
-        <btn theme="text">设置</btn>
-        <btn theme="text">手机</btn>
-        <btn theme="text">书页</btn>
-      </div>
-
-      <div>阅读主题 字体大小 页面宽度</div>
     </div>
   </div>
 </template>
 
 <script>
-import Btn from '@/components/base/Btn/Btn'
-import { throttle } from '@/assets/js/tools'
-
 export default {
   name: 'EbookChapter',
-  components: {
-    Btn
-  },
-  // async asyncData({ app, params }: ctxProps) {
-  //   const res = await app.$myApi.ebooks.getChapter({ bookId: params.bookId, chapterId: params.chapterId });
-  //   return { chapterData: res.result };
-  // },
   data() {
     return {
       isLoading: false,
@@ -48,35 +30,9 @@ export default {
   },
   mounted() {
     this.getChapter()
+  },
 
-    const vm = this
-    this.throttleScroll = throttle(function() {
-      vm.scrollHandler()
-    }, 0)
-    window.addEventListener('scroll', this.throttleScroll)
-  },
-  destroyed() {
-    window.removeEventListener('scroll', this.throttleScroll)
-  },
-  // beforeRouteUpdate(to, from, next) {
-  //   if (to.path.indexOf('/chapter/') > -1) {
-  //     this.getChapter(to.params.bookId, to.params.chapterId);
-  //   }
-  //   next();
-  // },
   methods: {
-    scrollHandler() {
-      const t = document.documentElement.scrollTop || document.body.scrollTop
-      const chapterSideBar = document.getElementById('chapterSideBar') || document.createElement('div')
-      const ebookPageWrap = document.getElementById('ebookPageWrap') || document.createElement('div')
-
-      if (t >= ebookPageWrap.offsetTop) {
-        chapterSideBar.style.top = t - ebookPageWrap.offsetTop + 'px'
-      } else {
-        chapterSideBar.style.top = '0'
-      }
-    },
-
     /**
      * @desc 获取分类书籍
      */
@@ -101,7 +57,7 @@ export default {
 
 .page-content-wrap {
   position: relative;
-  max-width: 800px;
+  max-width: 1000px;
   min-height: 700px;
   margin: 0 auto;
 
@@ -153,12 +109,6 @@ export default {
         background-color: lighten(@colorTextSub, 20%);
       }
     }
-  }
-  .chapter-side-bar {
-    position: absolute;
-    top: 0;
-    right: 100%;
-    margin-right: 10px;
   }
 }
 

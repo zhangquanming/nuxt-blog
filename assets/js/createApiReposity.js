@@ -31,11 +31,14 @@ export default ($axios) => (resource) => {
   }
   if (resource.indexOf('ebooks') > 0) {
     api = {
-      // 关键字查询书籍
-      getBookByWd: (params, options) => $axios.$get(`${resource}/search?wd=${params.wd}`, null, options),
+      // 获取首页数据
+      getHomeData: (params, options) => $axios.$get(`${resource}`, params, options),
 
       // 获取分类书籍
       getCategoryBook: (params, options) => $axios.$get(`${resource}/category/${params.categoryName}`, null, options),
+
+      // 关键字查询书籍
+      getBookByWd: (params, options) => $axios.$post(`${resource}/search`, params, options),
 
       // 获取排行榜书籍
       getRankingBook: (params, options) => $axios.$get(`${resource}/rank/${params.rankType === 'all' ? '' : params.rankType}`, null, options),
@@ -47,18 +50,7 @@ export default ($axios) => (resource) => {
       getAuthorWorks: (params, options) => $axios.$get(`${resource}/author/${params.authorId}`, params, options),
 
       // 获取章节内容
-      getChapter: (params, options) => $axios.$get(`${resource}/chapter/${params.bookId}/${params.chapterId}`, null, options),
-
-      // 获取首页数据
-      getHomeData: (params, options) => $axios.$get(`${resource}`, params, options),
-
-      postSearch: (params) =>
-        $axios.$post('/ebookSearch/', params, {
-          headers: {
-            Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        })
+      getChapter: (params, options) => $axios.$get(`${resource}/chapter/${params.bookId}/${params.chapterId}`, null, options)
     }
   }
   return api

@@ -5,7 +5,7 @@
         <input v-model="wd" @keyup.enter="handleEnter" class="ebook-search-input" type="text" placeholder="搜索书名或作者" />
       </div>
       <div class="ebook-search-btn-box">
-        <btn @click="handleSearch" theme="error" shape="rect" icon="search"></btn>
+        <btn @click="handleSearch" theme="error" shape="rect" icon="iconsearch"></btn>
       </div>
     </div>
   </div>

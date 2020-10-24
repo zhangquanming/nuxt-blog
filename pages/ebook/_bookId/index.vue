@@ -1,6 +1,6 @@
 <template>
-  <div v-loading="isLoading" style="background-color: #fafafa;">
-    <div class="z-container">
+  <div v-loading="isLoading">
+    <div class="z-container" style="background: #fff;">
       <div class="book-baseinfo">
         <div class="book-baseinfo-poster">
           <img :src="bookInfoData.poster" alt="" />
@@ -24,7 +24,7 @@
 
       <div v-for="part in bookInfoData.chaptersList" :key="part.category" class="z-row ebook-catalog-part">
         <div class="z-col-60">
-          <title-bar :title="part.category"></title-bar>
+          <title-bar :title="part.category" :bottom="0"></title-bar>
         </div>
         <div v-for="item in part.list" :key="`${item.bookId}-${item.chapterId}`" class="z-col-md-20 z-col-sm-30 ebook-catalog-link-wrap">
           <router-link :to="{ path: `/ebook/${item.bookId}/${item.chapterId}` }" :title="item.title" class="ebook-catalog-link">{{ item.title }}</router-link>
@@ -86,13 +86,16 @@ export default {
   margin-top: 10px;
   padding: 10px;
   overflow: hidden;
+  display: flex;
   .book-baseinfo-poster {
-    float: left;
-    // padding: 10px;
+    flex: none;
     margin-right: 10px;
     img {
       height: 150px;
     }
+  }
+  .book-baseinfo-main {
+    float: 1;
   }
   .book-baseinfo-main-name {
     font-size: 26px;

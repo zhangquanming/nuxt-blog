@@ -88,7 +88,7 @@ export default {
   },
   head() {
     return {
-      title: '豆瓣电影',
+      title: '豆瓣电影-明么的博客',
       meta: [{ hid: 'movie-home referrer', name: 'referrer', content: 'never' }]
     }
   }

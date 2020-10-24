@@ -5,7 +5,7 @@
       <ebook-menu />
     </div>
     <div class="z-container">
-      <div class="z-row">
+      <div class="z-row" style="margin-bottom: 15px;">
         <div class="z-col-sm-40">
           <div style="background-color: #fff;clear:both;">
             <div class="z-row">
@@ -14,7 +14,7 @@
                   <div class="z-col-20">
                     <ebook-poster :dataSource="item" />
                   </div>
-                  <div class="z-col-40">
+                  <div class="z-col-40" style="min-height: 133.5px;">
                     <h2 :title="item.name" class="hotlist-item-name">{{ item.name }}</h2>
                     <p class="hotlist-item-author">{{ item.author }}</p>
                     <p class="hotlist-item-brief">{{ item.brief.replace(/\s+/g, '') }}</p>
@@ -32,17 +32,17 @@
 
       <div class="z-row">
         <div v-for="(rank, index) in ebookHomeData.rankList" :key="index" class="z-col-md-20 rank-wrap">
-          <title-bar :title="rank.category"></title-bar>
+          <title-bar :title="rank.category" :bottom="0"></title-bar>
           <div class="rank-top clearfix">
             <div class="rank-top-info fl">
-              <router-link :to="{ path: `/ebook/catalog/${rank.top.bookId}` }" class="rank-top-info-link">
+              <router-link :to="{ path: `/ebook/${rank.top.bookId}` }" class="rank-top-info-link">
                 <span class="rank-top-label-tj">推荐</span>
                 {{ rank.top.name }}
               </router-link>
               <p class="rank-top-info-brief">{{ rank.top.brief }}</p>
             </div>
             <div class="rank-top-poster fl">
-              <router-link :to="{ path: `/ebook/catalog/${rank.top.bookId}` }" class="rank-top-poster-link no-img-placeholder-colorful no-img-placeholder-vertical">
+              <router-link :to="{ path: `/ebook/${rank.top.bookId}` }" class="rank-top-poster-link no-img-placeholder-colorful no-img-placeholder-vertical">
                 <img :src="rank.top.poster" alt="" />
               </router-link>
               <span class="rank-top-poster-shadow"></span>
@@ -54,11 +54,11 @@
 
       <div class="z-row">
         <div class="z-col-md-40">
-          <title-bar :title="ebookHomeData.lastUpdateTitle"></title-bar>
+          <title-bar :title="ebookHomeData.lastUpdateTitle" :bottom="0"></title-bar>
           <z-table :columns="columnsLastUpdate" :data="ebookHomeData.lastUpdate" :showHeader="false" :border="false" size="small" />
         </div>
         <div class="z-col-md-20">
-          <title-bar :title="ebookHomeData.lastRecordTitle"></title-bar>
+          <title-bar :title="ebookHomeData.lastRecordTitle" :bottom="0"></title-bar>
           <z-table :columns="columnsLastRecord" :data="ebookHomeData.lastRecord" :showHeader="false" :border="false" size="small" />
         </div>
       </div>
@@ -111,7 +111,7 @@ export default {
               {
                 props: {
                   to: {
-                    path: `/ebook/catalog/${params.row.bookId}`
+                    path: `/ebook/${params.row.bookId}`
                   }
                 },
                 class: 'ebook-catalog-link'
@@ -157,7 +157,7 @@ export default {
               {
                 props: {
                   to: {
-                    path: `/ebook/catalog/${params.row.bookId}`
+                    path: `/ebook/${params.row.bookId}`
                   }
                 },
                 class: 'ebook-catalog-link'
@@ -176,7 +176,7 @@ export default {
               {
                 props: {
                   to: {
-                    path: `/ebook/catalog/${params.row.bookId}/chapter/${params.row.chapterId}`
+                    path: `/ebook/${params.row.bookId}/${params.row.chapterId}`
                   }
                 },
                 class: 'ebook-chapter-link'
@@ -228,7 +228,7 @@ export default {
               {
                 props: {
                   to: {
-                    path: `/ebook/catalog/${params.row.bookId}`
+                    path: `/ebook/${params.row.bookId}`
                   }
                 }
               },
@@ -266,7 +266,7 @@ export default {
   },
   head() {
     return {
-      // title: `${this.blogResult.title} 详情页`,
+      title: '电子书-明么的博客',
       meta: [{ hid: 'ebook-home referrer', name: 'referrer', content: 'never' }]
     }
   }
@@ -275,9 +275,8 @@ export default {
 
 <style lang="less" scoped>
 .hotlist-item {
-  // margin-top: 10px;
-  // margin-bottom: 15px;
-  margin: 15px 0;
+  margin: 12px 0;
+  padding-right: 20px;
   &-name {
     margin-top: 15px;
     color: @colorTextTitle;
@@ -310,7 +309,6 @@ export default {
 .rank-top {
   background: #fff;
   padding: 15px 15px 20px;
-  margin-top: -15px;
   &-info {
     margin-right: 100px;
     &-link {

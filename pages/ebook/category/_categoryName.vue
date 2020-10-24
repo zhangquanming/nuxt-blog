@@ -15,11 +15,11 @@
         </div>
         <br />
         <div class="z-col-md-40">
-          <title-bar :title="categoryData.newListTitle"></title-bar>
+          <title-bar :title="categoryData.newListTitle" :bottom="0"></title-bar>
           <z-table :columns="columnsNewList" :data="categoryData.newList" :show-header="false" :border="false" size="small" />
         </div>
         <div class="z-col-md-20">
-          <title-bar :title="categoryData.clickRankTitle"></title-bar>
+          <title-bar :title="categoryData.clickRankTitle" :bottom="0"></title-bar>
           <z-table :columns="columnsClickRank" :data="categoryData.clickRank" :show-header="false" :border="false" size="small" />
         </div>
       </div>

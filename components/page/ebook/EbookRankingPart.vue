@@ -1,6 +1,6 @@
 <template>
   <div style="margin-bottom: 15px;">
-    <title-bar :title="dataSource.title"> </title-bar>
+    <title-bar :title="dataSource.title" :bottom="0"></title-bar>
     <z-table :columns="columns" :data="dataSource.list" :show-header="false" :border="false" size="small" />
   </div>
 </template>
@@ -21,32 +21,13 @@ export default {
       default() {
         return {
           title: '',
-          rankFinal: []
+          list: []
         }
       }
     }
   },
   data() {
     return {
-      rankTableKey: 'rankFinal',
-      rankTableArr: [
-        {
-          label: '总',
-          value: 'rankFinal'
-        },
-        {
-          label: '月',
-          value: 'rankMonth'
-        },
-        {
-          label: '周',
-          value: 'rankWeek'
-        }
-        // {
-        //   label: '日',
-        //   value: 'rankDay',
-        // },
-      ],
       columns: [
         {
           title: '序号',
@@ -81,16 +62,11 @@ export default {
           }
         },
         {
-          title: '更新日期',
-          key: 'date',
+          title: '类型',
+          key: 'type',
           align: 'right'
         }
       ]
-    }
-  },
-  methods: {
-    handleChangeRankTableKey(item) {
-      this.rankTableKey = item.value
     }
   }
 }
