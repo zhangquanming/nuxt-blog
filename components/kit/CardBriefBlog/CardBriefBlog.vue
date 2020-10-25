@@ -1,5 +1,5 @@
 <template>
-  <Card padding="0">
+  <card padding="0">
     <div class="card-brief-blog-wrap">
       <div :style="{ 'background-image': blogResult.poster ? 'url(' + blogResult.poster + ')' : '' }" class="brief-poster"></div>
       <div class="author-avatar">
@@ -22,11 +22,13 @@
         </div>
       </div>
     </div>
-  </Card>
+  </card>
 </template>
 
 <script>
 import Card from '@/components/base/Card/Card'
+import defaultAvatar from '@/assets/images/no-data-bg-colorful.png'
+
 export default {
   name: 'CardBriefBlog',
   components: {
@@ -42,7 +44,7 @@ export default {
   },
   computed: {
     avatarUrl() {
-      return this.blogResult.authorObj ? this.blogResult.authorObj.avatar : ''
+      return this.blogResult.authorObj && this.blogResult.authorObj.avatar ? this.blogResult.authorObj.avatar : defaultAvatar
     }
   }
 }
@@ -56,7 +58,7 @@ export default {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    background-color: #d51f45;
+    background-color: @colorTextDisable;
   }
   .author-avatar {
     position: relative;

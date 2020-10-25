@@ -37,7 +37,7 @@
       <div>
         <span>是否上架：</span>
         <z-switch v-model="formData.status" title="是否公开" style="margin-right: 20px;" />
-        <Btn :loading="isPostBlogLoading" @click="handleSubmit" theme="success" title="预览模式">确认发布</Btn>
+        <btn :loading="isPostBlogLoading" @click="handleSubmit" theme="gradient" title="预览模式">确认发布</btn>
       </div>
     </md-editor>
   </div>

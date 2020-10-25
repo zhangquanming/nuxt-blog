@@ -3,7 +3,7 @@
     <z-panel>
       <admin-comment-filter>
         <template v-slot:default="slotProps">
-          <btn :loading="isLoading" @click="handleSearch(slotProps.formData)" theme="info">搜索</btn>
+          <btn :loading="isLoading" @click="handleSearch(slotProps.formData)" theme="gradient">搜索</btn>
         </template>
       </admin-comment-filter>
     </z-panel>

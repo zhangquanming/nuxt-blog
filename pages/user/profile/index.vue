@@ -18,7 +18,7 @@
       <div style="color: #999;">{{ formData.briefDesc ? formData.briefDesc.length : 0 }} / 100</div>
     </form-item>
     <form-item>
-      <btn :loading="isEditLoading" @click="handleUpdate" theme="info">更新个人资料</btn>
+      <btn :loading="isEditLoading" @click="handleUpdate" theme="gradient">更新个人资料</btn>
     </form-item>
   </card>
 </template>

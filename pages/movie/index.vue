@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <billboard :poster="banneImg" title="豆瓣电影" title-sub="豆瓣V2api不能使用了，该模块功能无法使用。" is-page poster-blue="0" height="300px"> </billboard>
+    <billboard :poster="banneImg" title="豆瓣电影" title-sub="因豆瓣V2api关闭，该模块功能暂无法使用。" is-page poster-blue="0" height="300px"> </billboard>
     <div class="z-container cont-list">
       <movie-home-list :title="beingShownData.title" :list="beingShownList" v-loading="isBeingShownLoading">
         <div style="width: 320px;float: right;">

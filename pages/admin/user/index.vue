@@ -2,7 +2,7 @@
   <div>
     <z-panel title="文章用户管理">
       <template v-slot:headerRight>
-        <btn @click="handleAddUser" theme="primary">新增用户</btn>
+        <btn @click="handleAddUser" theme="gradient">新增用户</btn>
       </template>
       <z-table :columns="columns" :data="tableData" :loading="isLoading" />
       <pagenation :all="pageTotal" :cur="page" :callback="handleChangePage" style="margin-top: 20px;" />
@@ -18,7 +18,7 @@
         <input v-if="editMode === 'add'" v-model="formData.confirmPassword" class="common-input" type="password" placeholder="确认密码" />
       </div>
       <div slot="footer">
-        <btn :loading="isAddLoading || isEditLoading" @click="handleSubmitUser" theme="primary" long>{{ editMode === 'edit' ? '确认修改' : '确认添加' }}</btn>
+        <btn :loading="isAddLoading || isEditLoading" @click="handleSubmitUser" theme="gradient" long>{{ editMode === 'edit' ? '确认修改' : '确认添加' }}</btn>
       </div>
     </modal>
 
@@ -124,7 +124,7 @@ export default {
                 Btn,
                 {
                   props: {
-                    theme: 'primary',
+                    theme: 'gradient',
                     size: 'small'
                   },
                   style: {

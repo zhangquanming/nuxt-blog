@@ -19,7 +19,7 @@
       </btn-group>
     </form-item>
     <form-item>
-      <btn :loading="isEditLoading" @click="handleUpdate" theme="info">保存修改</btn>
+      <btn :loading="isEditLoading" @click="handleUpdate" theme="gradient">保存修改</btn>
     </form-item>
   </card>
 </template>

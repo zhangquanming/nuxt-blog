@@ -5,7 +5,7 @@
     </div>
     <router-link
       :to="{ path: `/article/detail/${blogData._id}` }"
-      :style="{ 'background-image': blogData.poster ? 'url(' + blogData.poster + ')' : '' }"
+      :style="{ 'background-image': blogData.poster ? 'url(' + blogData.poster + ')' : 'url(' + defaultAvatar + ')' }"
       class="blog-poster"
     ></router-link>
     <div class="card-body">
@@ -14,7 +14,7 @@
     </div>
     <div class="card-footer">
       <div class="blog-author">
-        <div :style="{ 'background-image': blogData.authorObj.avatar ? 'url(' + blogData.authorObj.avatar + ')' : '' }" class="blog-author-avatar"></div>
+        <div :style="{ 'background-image': blogData.authorObj.avatar ? 'url(' + blogData.authorObj.avatar + ')' : 'url(' + defaultAvatar + ')' }" class="blog-author-avatar"></div>
         <span class="blog-author-name">{{ blogData.authorObj ? blogData.authorObj.nicName || blogData.authorObj.userName : '' }}</span>
       </div>
       <div class="blog-time">{{ blogData.createdAt | relativeTime }}</div>
@@ -30,7 +30,6 @@ import relativeTime from 'dayjs/plugin/relativeTime'
 
 dayjs.locale('zh-cn')
 dayjs.extend(relativeTime)
-
 export default {
   name: 'UserFavoritesCard',
   filters: {
@@ -44,6 +43,11 @@ export default {
       default() {
         return {}
       }
+    }
+  },
+  data() {
+    return {
+      defaultAvatar: require('@/assets/images/no-data-bg-colorful.png')
     }
   }
 }

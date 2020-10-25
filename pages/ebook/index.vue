@@ -1,10 +1,10 @@
 <template>
-  <div v-loading="isLoading">
+  <div>
     <ebook-search />
     <div class="z-container">
       <ebook-menu />
     </div>
-    <div class="z-container">
+    <div v-loading="isLoading" class="z-container">
       <div class="z-row" style="margin-bottom: 15px;">
         <div class="z-col-sm-40">
           <div style="background-color: #fff;clear:both;">

@@ -35,7 +35,7 @@ export default {
           path: '/user/article'
         },
         {
-          name: '我的喜欢',
+          name: '我的点赞',
           path: '/user/favorites'
         },
         {
@@ -53,18 +53,17 @@ export default {
   .menu-link {
     text-align: center;
     padding: 10px;
-    // background-color: @colorBg;
     cursor: pointer;
     &:hover {
-      color: #fff;
-      background-color: @colorInfo;
+      @colorActive();
     }
   }
   .menu-link + .menu-link {
     border-top: 1px dashed @colorBorder;
   }
   .active {
-    color: @colorInfo;
+    font-weight: 700;
+    @colorActive();
   }
 }
 </style>

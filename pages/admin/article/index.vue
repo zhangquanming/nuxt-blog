@@ -2,7 +2,7 @@
   <div>
     <z-panel title="文章管理">
       <template v-slot:headerRight>
-        <Btn :to="{ path: '/admin/write' }" theme="primary">新增</Btn>
+        <btn :to="{ path: '/admin/write' }" theme="gradient">新增</btn>
       </template>
       <z-table :columns="columns" :data="tableData" :loading="isLoading" />
       <pagenation :all="pageTotal" :cur="page" :callback="changePage" style="margin-top: 20px;" />
@@ -14,7 +14,7 @@
         <p>确认删除名为 {{ currentRow.title }} 的文章吗?</p>
       </div>
       <div slot="footer">
-        <Btn @click="requestDeleteBlog" theme="error" long>确认删除</Btn>
+        <btn @click="requestDeleteBlog" theme="error" long>确认删除</btn>
       </div>
     </modal>
   </div>
@@ -174,7 +174,7 @@ export default {
                 Btn,
                 {
                   props: {
-                    theme: 'primary',
+                    theme: 'gradient',
                     size: 'small'
                   },
                   style: {

@@ -34,7 +34,7 @@
         </upload>
         <p class="upload-tip">仅支持JPG、GIF、JPEG、PNG格式、文件小于2M</p>
 
-        <btn :theme="formData.avatar ? 'success' : 'default'" @click="handleConfirm" style="margin-top: 30px;">确定</btn>
+        <btn :theme="formData.avatar ? 'gradient' : 'default'" @click="handleConfirm" style="margin-top: 30px;">确定</btn>
       </div>
     </div>
   </card>

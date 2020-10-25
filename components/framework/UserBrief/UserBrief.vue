@@ -1,5 +1,5 @@
 <template>
-  <Card :padding="0">
+  <card :padding="0">
     <div class="card-brief-blog-wrap">
       <div :style="{ 'background-image': 'url(' + avatar + ')' }" class="brief-poster"></div>
       <div class="author-avatar">
@@ -7,7 +7,7 @@
       </div>
       <h3 class="brief-title">{{ userInfo ? userInfo.nicName || userInfo.userName : '' }}</h3>
     </div>
-  </Card>
+  </card>
 </template>
 
 <script>
@@ -25,8 +25,6 @@ export default {
     ...mapGetters(['userInfo']),
     avatar() {
       return this.userInfo && this.userInfo.avatar ? this.userInfo.avatar + '?x-oss-process=image/resize,m_fill,h_110,w_110' : defaultAvatar
-
-      // return this.userInfo ? this.userInfo.avatar : '';
     }
   }
 }
@@ -40,7 +38,7 @@ export default {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    background-color: #d51f45;
+    background: @colorTextDisable;
   }
   .author-avatar {
     position: relative;
@@ -64,9 +62,8 @@ export default {
   }
   .brief-title {
     margin-top: 15px;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
     color: @colorTextTitle;
-    font-weight: normal;
   }
 }
 </style>

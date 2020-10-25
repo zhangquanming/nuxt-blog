@@ -80,9 +80,9 @@ export default {
     position: relative;
     width: 40px;
     height: 20px;
-    background-color: darken(@colorBorder, 10%);
+    background: linear-gradient(@colorInfo, @colorInfo);
     border-radius: 30px;
-    transition: background-color 0.3s;
+    transition: background 0.3s;
   }
 
   .switch-point {
@@ -105,7 +105,7 @@ export default {
 
 .is-checked {
   .switch-bar {
-    background-color: @colorInfo;
+    background: @color;
   }
 
   .switch-point {

@@ -2,7 +2,7 @@
   <div>
     <z-panel title="文章标签管理">
       <template v-slot:headerRight>
-        <btn @click="handleAddTag" theme="primary">新增标签</btn>
+        <btn @click="handleAddTag" theme="gradient">新增标签</btn>
       </template>
       <z-table :columns="columns" :data="tableData" :loading="isLoading" />
       <pagenation :all="pageTotal" :cur="page" :callback="handleChangePage" style="margin-top: 20px;" />
@@ -15,7 +15,7 @@
         <input v-model="formData.value" class="common-input" type="text" placeholder="标签值" />
       </div>
       <div slot="footer">
-        <btn :loading="isAddLoading || isEditLoading" @click="handleSubmitTag" theme="primary" long>{{ editMode === 'edit' ? '确认修改' : '确认添加' }}</btn>
+        <btn :loading="isAddLoading || isEditLoading" @click="handleSubmitTag" theme="gradient" long>{{ editMode === 'edit' ? '确认修改' : '确认添加' }}</btn>
       </div>
     </modal>
 
@@ -101,7 +101,7 @@ export default {
                 Btn,
                 {
                   props: {
-                    theme: 'primary',
+                    theme: 'gradient',
                     size: 'small'
                   },
                   style: {

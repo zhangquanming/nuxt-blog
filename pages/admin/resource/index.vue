@@ -2,7 +2,7 @@
   <div>
     <z-panel title="文章资源管理">
       <template v-slot:headerRight>
-        <btn @click="handleAddResource" theme="primary">新增资源</btn>
+        <btn @click="handleAddResource" theme="gradient">新增资源</btn>
       </template>
       <z-table :columns="columns" :data="tableData" :loading="isLoading" />
       <pagenation :all="pageTotal" :cur="page" :callback="handleChangePage" style="margin-top: 20px;" />
@@ -38,7 +38,7 @@
         <textarea v-model="formData.desc" class="common-textarea" placeholder="资源描述" cols="30" rows="3"></textarea>
       </div>
       <div slot="footer">
-        <btn :loading="isAddLoading || isEditLoading" @click="handleSubmitResource" theme="primary" long>{{ editMode === 'edit' ? '确认修改' : '确认添加' }}</btn>
+        <btn :loading="isAddLoading || isEditLoading" @click="handleSubmitResource" theme="gradient" long>{{ editMode === 'edit' ? '确认修改' : '确认添加' }}</btn>
       </div>
     </modal>
 
@@ -181,7 +181,7 @@ export default {
                 Btn,
                 {
                   props: {
-                    theme: 'primary',
+                    theme: 'gradient',
                     size: 'small'
                   },
                   style: {

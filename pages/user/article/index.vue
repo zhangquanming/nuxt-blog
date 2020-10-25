@@ -168,7 +168,7 @@ export default {
                 {
                   props: {
                     to: { path: `/user/write/?articleId=${parama.row._id}` },
-                    theme: 'primary',
+                    theme: 'gradient',
                     size: 'small'
                   },
                   style: {

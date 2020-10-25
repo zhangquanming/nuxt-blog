@@ -1,6 +1,7 @@
 <template>
-  <div>
-    管理后台
+  <div class="page">
+    <div class="title">Mingme</div>
+    <div class="desc">后台管理系统</div>
   </div>
 </template>
 
@@ -10,3 +11,23 @@ export default {
   layout: 'admin'
 }
 </script>
+
+<style lang="less" scoped>
+.page {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .title {
+    font-weight: bold;
+    font-size: 60px;
+  }
+  .desc {
+    font-weight: bold;
+    font-size: 50px;
+  }
+}
+</style>

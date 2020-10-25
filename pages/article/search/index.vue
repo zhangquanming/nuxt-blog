@@ -29,6 +29,20 @@
         <card class="search-wrap">
           <search-blog @on-search="handleSearch"></search-blog>
         </card>
+        <card :padding="0" title="热门文章">
+          <ul v-if="rankBlog.length > 0" class="card-rank-list">
+            <li v-for="(blog, index) in rankBlog" :key="index" class="rank-item">
+              <router-link :to="{ path: `/article/detail/${blog._id}` }" active-class="current" class="rank-item-link">
+                <div class="rank-item-title">{{ blog.title }}</div>
+                <div class="rank-item-number">
+                  <icon type="iconliulan" title="浏览" size="16px"></icon>
+                  <span class="number">{{ blog.viewed }}</span>
+                </div>
+              </router-link>
+            </li>
+          </ul>
+          <no-data v-else style="height: 260px;" />
+        </card>
       </div>
     </div>
   </div>
@@ -41,6 +55,8 @@ import TopicItem from '@/components/kit/TopicItem/TopicItem'
 import CardNoData from '@/components/kit/CardNoData/CardNoData'
 import SearchBlog from '@/components/kit/SearchBlog/SearchBlog'
 import Pagenation from '@/components/base/Pagenation/Pagenation'
+import NoData from '@/components/kit/NoData/NoData'
+import Icon from '@/components/base/Icon/Icon'
 
 import { mapGetters } from 'vuex'
 
@@ -52,7 +68,9 @@ export default {
     TopicItem,
     CardNoData,
     SearchBlog,
-    Pagenation
+    Pagenation,
+    NoData,
+    Icon
   },
   data() {
     return {
@@ -62,6 +80,7 @@ export default {
       pageTotal: 0,
       itemTotal: 0,
       blogList: [],
+      rankBlog: [],
       isLoading: false
     }
   },
@@ -88,6 +107,7 @@ export default {
     await store.dispatch('getTagList')
   },
   mounted() {
+    this.requestRankBlog()
     const { keyword, tag } = this.$route.query
     if (keyword) {
       this.formData.keyword = keyword
@@ -97,6 +117,17 @@ export default {
     }
   },
   methods: {
+    /**
+     * @desc 获取热门文章
+     */
+    requestRankBlog() {
+      this.$myApi.blogs
+        .index({ sort: '-viewed' })
+        .then((res) => {
+          this.rankBlog = res.result.docs
+        })
+        .catch(() => {})
+    },
     /**
      * @desc 请求 文章列表
      */
@@ -162,7 +193,41 @@ export default {
   z-index: 10;
 }
 .z-card.search-wrap {
-  margin: 5px 0;
   background-image: @color;
+}
+.card-rank-list {
+  position: relative;
+  .rank-item {
+    padding: 0 15px;
+    z-index: 1;
+  }
+
+  .rank-item-link {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 15px;
+    height: 40px;
+    color: @colorTextSub;
+    line-height: 40px;
+    text-decoration: none;
+    border-bottom: 1px solid lighten(@colorBorderLight, 2%);
+    .rank-item-title {
+      margin-right: 10px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .rank-item-number {
+      flex: none;
+    }
+  }
+
+  .rank-item-link:hover {
+    color: @colorTextTitle;
+  }
+
+  .current {
+    color: @colorTextTitle;
+  }
 }
 </style>

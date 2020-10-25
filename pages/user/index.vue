@@ -12,7 +12,7 @@
         <div class="info-item info-item-theme-primary"></div>
       </div>
       <div class="z-col-15">
-        <div class="info-item info-item-theme-info"></div>
+        <div class="info-item info-item-theme-assist "></div>
       </div>
       <div class="z-col-15">
         <div class="info-item info-item-theme-warning"></div>
@@ -71,8 +71,8 @@ export default {
 .info-item {
   height: 120px;
 }
-.info-item-theme-info {
-  background-color: @colorInfo;
+.info-item-theme-assist {
+  background-color: @colorAssist;
 }
 .info-item-theme-primary {
   background-color: @colorPrimary;

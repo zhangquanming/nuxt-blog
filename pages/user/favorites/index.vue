@@ -1,6 +1,6 @@
 <template>
   <card :padding="20" style="height: 100%;">
-    <user-page-title :title="`您已送出${totalEle}个爱心`" title-sub="提示：赞美别人就是肯定自己。"></user-page-title>
+    <user-page-title :title="`您已送出${totalEle}个赞`" title-sub="提示：赞美别人就是肯定自己。"></user-page-title>
     <div class="z-row">
       <div v-for="(item, index) in blogList" :key="index" class="z-col-15">
         <user-favorites-card :blog-data="item">
@@ -10,7 +10,7 @@
     </div>
     <pagenation :total-ele="totalEle" :all="pageTotal" :cur="page" :callback="changePage" style="margin-top: 30px;" />
     <modal v-if="isShowUnlikeModal" @close="handleHideUnlikeModal">
-      <h3 slot="header">确认取消喜欢?</h3>
+      <h3 slot="header">确认取消点赞?</h3>
       <div slot="footer">
         <btn :loading="isUnLikeLoading" @click="requestUnLike" theme="error" long>确认取消</btn>
       </div>

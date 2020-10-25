@@ -1,6 +1,6 @@
 <template>
   <components :is="tagName" :class="classes" :disabled="disabled" v-bind="tagProps" @click="handleClickLink">
-    <icon v-if="loading" class="z-load-loop" type="loading"></icon>
+    <icon v-if="loading" class="z-load-loop" type="iconloading"></icon>
     <icon v-if="icon && !loading && !iconOnRight" :type="icon"></icon>
     <span ref="slot" v-if="showSlot"><slot></slot></span>
     <icon v-if="icon && !loading && iconOnRight" :type="icon"></icon>
@@ -254,13 +254,11 @@ export default {
   // theme
   &-gradient {
     color: #fff;
-    border: none;
     border-color: @colorPrimary;
     background: @color;
     opacity: 0.9;
     &:hover {
       color: #fff;
-      border: none;
       background-color: @colorPrimaryLight;
       background: @color;
       opacity: 1;

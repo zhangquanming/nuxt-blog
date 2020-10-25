@@ -1,33 +1,33 @@
 <template>
   <div>
-    <ZPanel title="文章分类管理">
+    <z-panel title="文章分类管理">
       <template v-slot:headerRight>
-        <Btn @click="handleAddCategory" theme="primary">新增分类</Btn>
+        <btn @click="handleAddCategory" theme="gradient">新增分类</btn>
       </template>
-      <ZTable :columns="columns" :data="tableData" :loading="isLoading" />
-      <Pagenation :all="pageTotal" :cur="page" :callback="handleChangePage" style="margin-top: 20px;" />
-    </ZPanel>
+      <z-table :columns="columns" :data="tableData" :loading="isLoading" />
+      <pagenation :all="pageTotal" :cur="page" :callback="handleChangePage" style="margin-top: 20px;" />
+    </z-panel>
 
-    <Modal v-show="isShowCategoryModal" @close="handleHideCategoryModal">
+    <modal v-show="isShowCategoryModal" @close="handleHideCategoryModal">
       <h3 slot="header">{{ editMode === 'edit' ? '修改分类' : '添加分类' }}</h3>
       <div slot="body">
         <input v-model="formData.name" class="common-input" type="text" placeholder="分类显示名称" />
         <input v-model="formData.value" class="common-input" type="text" placeholder="分类值" />
       </div>
       <div slot="footer">
-        <Btn :loading="isAddLoading || isEditLoading" @click="handleSubmitCategory" theme="primary" long>{{ editMode === 'edit' ? '确认修改' : '确认添加' }}</Btn>
+        <btn :loading="isAddLoading || isEditLoading" @click="handleSubmitCategory" theme="gradient" long>{{ editMode === 'edit' ? '确认修改' : '确认添加' }}</btn>
       </div>
-    </Modal>
+    </modal>
 
-    <Modal v-show="isShowDeleteModal" @close="handleHideDeleteModal">
+    <modal v-show="isShowDeleteModal" @close="handleHideDeleteModal">
       <h3 slot="header">确认删除?</h3>
       <div slot="body">
         <p>确认删除名为 {{ currentRow.name }} 的分类吗?</p>
       </div>
       <div slot="footer">
-        <Btn @click="requestDeleteCategory" theme="error" long>确认删除</Btn>
+        <btn @click="requestDeleteCategory" theme="error" long>确认删除</btn>
       </div>
-    </Modal>
+    </modal>
   </div>
 </template>
 
@@ -101,7 +101,7 @@ export default {
                 Btn,
                 {
                   props: {
-                    theme: 'primary',
+                    theme: 'gradient',
                     size: 'small'
                   },
                   style: {

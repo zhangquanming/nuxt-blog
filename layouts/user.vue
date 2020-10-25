@@ -43,12 +43,15 @@ export default {
 
 <style lang="less" scoped>
 .user-page-wrap {
+  min-height: calc(100vh - @heightHeader - @heightFooter - 40px);
   display: flex;
 }
 .user-page-side {
   flex: none;
   width: 240px;
-  margin-right: 20px;
+  min-height: 100%;
+  margin-right: 10px;
+  background: #fff;
 }
 .user-page-main {
   flex: 1;

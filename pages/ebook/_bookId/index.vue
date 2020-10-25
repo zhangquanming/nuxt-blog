@@ -1,6 +1,6 @@
 <template>
-  <div v-loading="isLoading">
-    <div class="z-container" style="background: #fff;">
+  <div>
+    <div v-loading="isLoading" class="z-container" style="background: #fff;">
       <div class="book-baseinfo">
         <div class="book-baseinfo-poster">
           <img :src="bookInfoData.poster" alt="" />
