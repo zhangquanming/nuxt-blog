@@ -88,7 +88,7 @@ module.exports = {
    */
   proxy: {
     '/api': {
-      target: process.env.NODE_ENV === 'development' ? 'http://localhost:3000/' : 'http://localhost:3000/',
+      target: process.env.NODE_ENV === 'development' ? 'http://mingme.net:3000/' : 'http://localhost:3000/',
       changeOrigin: true,
       pathRewrite: {
         '^/api': ''
