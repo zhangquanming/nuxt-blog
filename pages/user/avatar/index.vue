@@ -26,7 +26,7 @@
           :on-format-error="handleFormatError"
           :on-exceeded-size="handleMaxSize"
           :on-success="handleUploadSuccess"
-          :action="uploadUrl"
+          action="/api/api/upload"
           class="upload-input"
           accept="image/*"
         >
@@ -67,9 +67,6 @@ export default {
   },
   computed: {
     ...mapGetters(['userInfo']),
-    uploadUrl() {
-      return process.env.NODE_ENV === 'development' ? '/api/api/upload' : '/api/upload'
-    },
     previewImg() {
       if (this.formData.avatar) {
         return this.formData.avatar
