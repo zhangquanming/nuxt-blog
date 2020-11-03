@@ -53,11 +53,11 @@
         </div>
       </section>
 
-      <section class="section-part section-part-about">
-        <section-title title="关于我" decs="只是一段关于我的介绍"></section-title>
+      <!-- <section class="section-part section-part-links">
+        <section-title title="这是标题" decs="这是一段副标题"></section-title>
 
         <div class="z-container"></div>
-      </section>
+      </section> -->
 
       <section class="section-part section-part-contact">
         <section-title title="你可以在这些场所找到我" theme="light"></section-title>
@@ -82,10 +82,13 @@
         </div>
       </section>
 
-      <section class="section-part section-part-links">
-        <section-title title="这是标题" decs="这是一段副标题"></section-title>
-
-        <div class="z-container"></div>
+      <section class="section-part section-part-about">
+        <section-title title="关于我的"></section-title>
+        <div class="text">
+          我叫张全明，你也可以称呼我为明么。<br />一位来自90后的前端程序员。<br />在一个偶然的机会下接触到前端这个职业，沉醉其中，直至...<br />喜欢安安静静的写代码，在代码的世界里奔跑。
+        </div>
+        <div class="bike"></div>
+        <div class="text">如果你也喜欢前端，<br />让我们喝杯白酒，交个朋友吧！</div>
       </section>
     </div>
   </div>
@@ -256,6 +259,39 @@ export default {
   background: #fff;
 }
 .section-part-about {
+  @keyframes changes {
+    0% {
+      background-position: 0 0;
+    }
+    20% {
+      background-position: -190px 0;
+    }
+    40% {
+      background-position: -380px 0;
+    }
+    60% {
+      background-position: 0 -100px;
+    }
+    80% {
+      background-position: -190px -100px;
+    }
+    100% {
+      background-position: -380px -100px;
+    }
+  }
+  .bike {
+    margin: 50px auto;
+    width: 190px;
+    height: 100px;
+    background: url(~assets/images/home/sprite-velo.png);
+    animation: changes 0.5s steps(1, start) infinite;
+  }
+  .text {
+    text-align: center;
+    font-size: 18px;
+    line-height: 32px;
+    color: #282828;
+  }
 }
 .section-part-contact {
   position: relative;
