@@ -16,7 +16,7 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: '//at.alicdn.com/t/font_1905390_9pfc2hefpni.css' }
+      { rel: 'stylesheet', href: '//at.alicdn.com/t/font_1905390_4787yf2qxju.css' }
     ]
   },
   /*
@@ -130,7 +130,7 @@ module.exports = {
     /*
      ** You can extend webpack config here
      */
-    extend (config, ctx) { }
+    extend(config, ctx) {}
   },
   server: {
     port: 8000, // default: 3000

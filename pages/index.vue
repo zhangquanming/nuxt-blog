@@ -10,54 +10,36 @@
     </billboard>
     <div class="page-content">
       <section class="section-part section-part-module">
-        <section-title title="网站模块介绍" decs="主要介绍网站各个模块用到了那些技术"></section-title>
+        <section-title title="网站介绍" decs="主要介绍网站各个模块用到了那些技术"></section-title>
 
         <div class="z-container">
           <div class="z-row">
-            <div class="z-col-sm-30 z-col-md-30 z-col-lg-12">
-              <section-card title="前端文章" icon="artical" path="/article">
-                <div>
-                  采用 Nuxt.js 实现一套 ssr 博客系统，支持 md 边写作边预览。
-                </div>
+            <div class="z-col-sm-30 z-col-md-30 z-col-lg-30">
+              <section-card title="个人文章" icon="iconwenzhang1" path="/article">
+                <div>采用 Nuxt.js 实现一套 ssr 博客系统，支持 md 边写作边预览。</div>
               </section-card>
-            </div>
-            <div class="z-col-sm-30 z-col-md-30 z-col-lg-12">
-              <section-card title="前端资源" icon="link" theme="info" path="/resource">
-                <div>
-                  前端添加资源链接，后台通过 puppeteer 截取网站屏幕，上传 ali-oss 阿里云。
-                </div>
+              <section-card title="前端资源" icon="iconlianjie" path="/resource">
+                <div>前端添加资源链接，后台通过 puppeteer 截取网站屏幕，上传 ali-oss 阿里云。</div>
               </section-card>
-            </div>
-            <div class="z-col-sm-30 z-col-md-30 z-col-lg-12">
-              <section-card title="豆瓣电影" icon="movie" theme="success" path="/movie">
-                <div>
-                  线上配置 nginx 转发请求到豆瓣开源 api, 前台自定义播放器，实现播放。
-                </div>
+              <section-card title="豆瓣电影" icon="icondianying" path="/movie">
+                <div>线上配置 nginx 转发请求到豆瓣开源 api, 前台自定义播放器，实现播放。</div>
               </section-card>
-            </div>
-            <div class="z-col-sm-30 z-col-md-30 z-col-lg-12">
-              <section-card title="电子书" icon="book" theme="warning" path="/ebook">
-                <div>
-                  后台 通过 puppeteer 爬取笔趣阁网站内容，分析网页结构，提取数据，保存数据库。
-                </div>
+              <section-card title="电子书" icon="iconxiaoshuo" path="/ebook">
+                <div>后台 通过 puppeteer 爬取笔趣阁网站内容，分析网页结构，提取数据，保存数据库。</div>
               </section-card>
-            </div>
-            <div class="z-col-sm-30 z-col-md-30 z-col-lg-12">
-              <section-card title="后台管理" icon="admin" theme="error" path="/admin">
-                <div>
-                  采用 node.js 的 koa 开发框架, 搭建整个后台项目，采用 mogodb 作为数据库。pm2 管理 node 进程
-                </div>
+              <section-card title="后台api" icon="iconziyuan1" path="/admin">
+                <div>使用 node.js 的 koa 开发框架， 搭建整个后台项目，mongodb 作为数据库，pm2 管理 node 进程。</div>
               </section-card>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- <section class="section-part section-part-links">
+      <section class="section-part section-part-links">
         <section-title title="这是标题" decs="这是一段副标题"></section-title>
 
         <div class="z-container"></div>
-      </section> -->
+      </section>
 
       <section class="section-part section-part-contact">
         <section-title title="你可以在这些场所找到我" theme="light"></section-title>
@@ -84,11 +66,13 @@
 
       <section class="section-part section-part-about">
         <section-title title="关于我的"></section-title>
-        <div class="text">
-          我叫张全明，你也可以称呼我为明么。<br />一位来自90后的前端程序员。<br />在一个偶然的机会下接触到前端这个职业，沉醉其中，直至...<br />喜欢安安静静的写代码，在代码的世界里奔跑。
+        <div class="z-container">
+          <div class="text">
+            我叫张全明，你也可以称呼我为明么。<br />一位来自90后的前端程序员。<br />在一个偶然的机会下接触到前端这个职业，沉醉其中，直至...<br />喜欢安安静静的写代码，在代码的世界里奔跑。
+          </div>
+          <div class="bike"></div>
+          <div class="text">如果你也喜欢前端，<br />让我们喝杯白酒，交个朋友吧！</div>
         </div>
-        <div class="bike"></div>
-        <div class="text">如果你也喜欢前端，<br />让我们喝杯白酒，交个朋友吧！</div>
       </section>
     </div>
   </div>
