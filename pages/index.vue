@@ -10,7 +10,7 @@
     </billboard>
     <div class="page-content">
       <section class="section-part section-part-module">
-        <section-title title="网站介绍" decs="主要介绍网站各个模块用到了那些技术"></section-title>
+        <section-title title="网站介绍" decs="主要介绍网站各个模块用到了哪些技术"></section-title>
 
         <div class="z-container">
           <div class="section-module-cont">
