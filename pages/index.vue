@@ -13,33 +13,34 @@
         <section-title title="网站介绍" decs="主要介绍网站各个模块用到了那些技术"></section-title>
 
         <div class="z-container">
-          <div class="z-row">
-            <div class="z-col-sm-30 z-col-md-30 z-col-lg-30">
+          <div class="section-module-cont">
+            <div class="section-module-img"></div>
+            <div class="section-module-card">
               <section-card title="个人文章" icon="iconwenzhang1" path="/article">
-                <div>采用 Nuxt.js 实现一套 ssr 博客系统，支持 md 边写作边预览。</div>
+                采用 Nuxt.js 实现一套 ssr 博客系统，支持 macdown 边写作边预览。
               </section-card>
               <section-card title="前端资源" icon="iconlianjie" path="/resource">
-                <div>前端添加资源链接，后台通过 puppeteer 截取网站屏幕，上传 ali-oss 阿里云。</div>
+                前端添加资源链接，通过 puppeteer 爬取网站介绍，图片上传 ali-oss 阿里云。
               </section-card>
               <section-card title="豆瓣电影" icon="icondianying" path="/movie">
-                <div>线上配置 nginx 转发请求到豆瓣开源 api, 前台自定义播放器，实现播放。</div>
+                转发请求到豆瓣开源 api, 前台自定义播放器，实现播放。
               </section-card>
               <section-card title="电子书" icon="iconxiaoshuo" path="/ebook">
-                <div>后台 通过 puppeteer 爬取笔趣阁网站内容，分析网页结构，提取数据，保存数据库。</div>
+                通过 puppeteer 爬取笔趣阁网站内容，分析网页结构，提取数据，保存数据库。
               </section-card>
               <section-card title="后台api" icon="iconziyuan1" path="/admin">
-                <div>使用 node.js 的 koa 开发框架， 搭建整个后台项目，mongodb 作为数据库，pm2 管理 node 进程。</div>
+                使用 node.js 的 koa 开发框架，mongodb 作为数据库，pm2 管理 node 进程。
               </section-card>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="section-part section-part-links">
+      <!-- <section class="section-part section-part-links">
         <section-title title="这是标题" decs="这是一段副标题"></section-title>
 
         <div class="z-container"></div>
-      </section>
+      </section> -->
 
       <section class="section-part section-part-contact">
         <section-title title="你可以在这些场所找到我" theme="light"></section-title>
@@ -241,6 +242,35 @@ export default {
 }
 .section-part-module {
   background: #fff;
+  .section-module-cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .section-module-img {
+      flex: none;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      border: 20px solid @colorTextDisable;
+    }
+    .section-module-card {
+      position: relative;
+      overflow: hidden;
+      padding-left: 140px;
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: -360px;
+        transform: translateY(-50%);
+        width: 500px;
+        height: 500px;
+        border-radius: 50%;
+        border: 2px solid @colorTextSilver;
+      }
+    }
+  }
 }
 .section-part-about {
   @keyframes changes {
