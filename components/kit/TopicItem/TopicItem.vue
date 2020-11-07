@@ -78,7 +78,11 @@ export default {
       return this.$route.path.split('/')[1]
     },
     firstParagraphIndex() {
-      return this.topic.content.search(/\n/)
+      let index = this.topic.content.indexOf('\n', 100)
+      if (index === -1) {
+        index = this.topic.content.indexOf('\n', 0)
+      }
+      return index
     },
     firstParagraph() {
       return this.topic.content.substring(0, this.firstParagraphIndex)
