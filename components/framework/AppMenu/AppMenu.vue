@@ -43,9 +43,16 @@ export default {
       return [this.isShowMenu ? 'app-menu-show' : '', `app-menu-${this.theme}`]
     }
   },
-  watch: {},
+  watch: {
+    $route: {
+      handler(val, oldVal) {
+        this.isShowMenu = false
+      },
+      deep: true
+    }
+  },
   created() {},
-  mounted() {},
+  updated() {},
   methods: {
     handleToggleMenu() {
       this.isShowMenu = !this.isShowMenu
