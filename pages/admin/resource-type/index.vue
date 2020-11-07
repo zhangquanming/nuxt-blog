@@ -12,6 +12,7 @@
       <h3 slot="header">{{ editMode === 'edit' ? '修改资源类别' : '添加资源类别' }}</h3>
       <div slot="body">
         <input v-model="formData.name" class="common-input" type="text" placeholder="资源类别名称" />
+        <input v-model="formData.rank" class="common-input" type="number" placeholder="排序值，默认0" />
       </div>
       <div slot="footer">
         <btn :loading="isEditLoading || isAddLoading" @click="handleSubmitResourceType" theme="gradient" long>{{ editMode === 'edit' ? '确认修改' : '确认添加' }}</btn>
@@ -69,6 +70,10 @@ export default {
           title: '序号',
           type: 'index',
           width: 60
+        },
+        {
+          title: '排序',
+          key: 'rank'
         },
         {
           title: '名称',
@@ -248,7 +253,8 @@ export default {
     handleRecoveryFormData(data) {
       this.formData = {
         name: data.name,
-        value: data.value
+        value: data.value,
+        rank: data.rank
       }
     },
 
