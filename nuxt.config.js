@@ -80,7 +80,6 @@ module.exports = {
       'X-Requested-With': 'XMLHttpRequest',
       'Content-Type': 'application/json; charset=UTF-8'
     },
-    prefix: '/api',
     credentials: true
   },
   /*
@@ -88,11 +87,8 @@ module.exports = {
    */
   proxy: {
     '/api': {
-      target: process.env.NODE_ENV === 'development' ? 'http://mingme.net:3000/' : 'http://localhost:3000/',
-      changeOrigin: true,
-      pathRewrite: {
-        '^/api': ''
-      }
+      target: process.env.NODE_ENV === 'development' ? 'https://mingme.net/' : 'https://mingme.net/',
+      changeOrigin: true
     },
     '/douban/': {
       target: 'http://api.douban.com/v2',
