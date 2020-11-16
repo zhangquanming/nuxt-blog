@@ -13,10 +13,7 @@
         <span class="cat"> <i class="iconfont iconyouxiang"></i> <a target="_blank" href="#">419654548@qq.com</a></span>
       </div>
 
-      <div class="copyright">
-        Copyright © 2019-2020 Mingme. All Rights Reserved.
-        <!-- 京ICP备123456789号. -->
-      </div>
+      <div class="copyright">Copyright © 2020-2021 Mingme. All Rights Reserved. <a target="_blank" href="https://beian.miit.gov.cn/">京ICP备 2020042020 号.</a></div>
     </div>
   </div>
 </template>
