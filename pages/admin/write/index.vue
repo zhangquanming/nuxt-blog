@@ -22,7 +22,7 @@
                 :on-format-error="handleFormatError"
                 :on-exceeded-size="handleMaxSize"
                 :on-success="handleUploadSuccess"
-                action="/api/api/upload"
+                action="/api/upload"
                 accept="image/*"
               >
                 <btn style="margin:5px 0;height: 38px;" long>选择文件</btn>

@@ -15,7 +15,7 @@
           :on-exceeded-size="handleMaxSize"
           :on-success="handleUploadSuccess"
           style="display: inline-block"
-          action="/api/api/upload"
+          action="/api/upload"
           accept="image/*"
         >
           <btn theme="primary" ghost size="small">添加图片</btn>

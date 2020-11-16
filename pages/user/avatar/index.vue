@@ -26,7 +26,7 @@
           :on-format-error="handleFormatError"
           :on-exceeded-size="handleMaxSize"
           :on-success="handleUploadSuccess"
-          action="/api/api/upload"
+          action="/api/upload"
           class="upload-input"
           accept="image/*"
         >
