@@ -6,6 +6,9 @@ function getMKTitles(mkContent) {
     .replace(/```/g, function() {
       return '\f'
     })
+    .replace(/\((.+?)\)|\[(.+?)\]|\{(.+?)\}/g, function() {
+      return ''
+    })
     .replace(/\f[^\f]*?\f/g, function() {
       return ''
     })

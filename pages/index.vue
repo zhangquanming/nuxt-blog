@@ -14,7 +14,7 @@
 
         <div class="z-container">
           <div class="section-module-cont">
-            <div class="section-module-img"></div>
+            <div class="section-module-img hidden-xs hidden-sm"></div>
             <div class="section-module-card">
               <section-card title="个人文章" icon="iconwenzhang1" path="/article">
                 采用 Nuxt.js 实现一套 ssr 博客系统，支持 macdown 边写作边预览。
@@ -366,6 +366,18 @@ export default {
     &:hover {
       border-color: #fff;
       color: #009a61;
+    }
+  }
+}
+@media (min-width: @breakpoints-xs) and (max-width: @breakpoints-md) {
+  .section-part-module {
+    .section-module-cont {
+      .section-module-card {
+        padding-left: 0;
+        &::before {
+          display: none;
+        }
+      }
     }
   }
 }

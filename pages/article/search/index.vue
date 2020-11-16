@@ -1,23 +1,27 @@
 <template>
   <div class="z-container">
     <div class="filter-bar">
-      <div class="z-row">
-        <div class="z-col-sm-10">
-          <filter-select
-            v-model="formData.category"
-            @on-change="handleChangeCategory"
-            :options="categoryListFormat"
-            placeholder="不限分类"
-            label-key="name"
-            value-key="_id"
-          ></filter-select>
-        </div>
-        <div class="z-col-sm-10">
-          <filter-select v-model="formData.tag" :options="tagList" @on-change="handleChangeTag" multiple placeholder="不限标签" label-key="name" value-key="_id"></filter-select>
-        </div>
-      </div>
+      <filter-search
+        v-model="formData.category"
+        @on-change="handleChangeCategory"
+        :options="categoryListFormat"
+        title="分类"
+        icon="iconwenzhangfenlei"
+        label-key="name"
+        value-key="_id"
+      ></filter-search>
+      <filter-search
+        v-model="formData.tag"
+        :options="tagList"
+        @on-change="handleChangeTag"
+        multiple
+        title="标签"
+        icon="iconbiaoqian"
+        label-key="name"
+        value-key="_id"
+      ></filter-search>
     </div>
-    <div class="z-row">
+    <div class="z-row blog-mobile">
       <div v-loading="isLoading" class="z-col-md-42 z-col-xl-45">
         <template v-if="blogList.length > 0">
           <topic-item v-for="(blog, index) in blogList" :key="index" :topic="blog"></topic-item>
@@ -29,7 +33,7 @@
         <card class="search-wrap">
           <search-blog @on-search="handleSearch"></search-blog>
         </card>
-        <card :padding="0" title="热门文章">
+        <card :padding="0" title="热门文章" class="hidden-xs hidden-sm">
           <ul v-if="rankBlog.length > 0" class="card-rank-list">
             <li v-for="(blog, index) in rankBlog" :key="index" class="rank-item">
               <router-link :to="{ path: `/article/detail/${blog._id}` }" active-class="current" class="rank-item-link">
@@ -49,7 +53,7 @@
 </template>
 
 <script>
-import FilterSelect from '@/components/kit/FilterSelect/FilterSelect'
+import FilterSearch from '@/components/kit/FilterSearch/FilterSearch'
 import Card from '@/components/base/Card/Card'
 import TopicItem from '@/components/kit/TopicItem/TopicItem'
 import CardNoData from '@/components/kit/CardNoData/CardNoData'
@@ -63,7 +67,7 @@ import { mapGetters } from 'vuex'
 export default {
   name: 'BlogSearch',
   components: {
-    FilterSelect,
+    FilterSearch,
     Card,
     TopicItem,
     CardNoData,
@@ -183,9 +187,19 @@ export default {
 
 <style lang="less" scoped>
 .filter-bar {
-  padding: 20px;
+  position: relative;
+  padding: 20px 20px 20px 22px;
   margin-bottom: 20px;
   background-color: #fff;
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: @colorCol;
+  }
 }
 .list-side {
   position: sticky;
@@ -228,6 +242,17 @@ export default {
 
   .current {
     color: @colorTextTitle;
+  }
+}
+@media (min-width: @breakpoints-xs) and (max-width: @breakpoints-md) {
+  .blog-mobile {
+    display: flex;
+    flex-direction: column-reverse;
+    .list-side {
+      position: relative;
+      top: 0;
+      margin-bottom: 20px;
+    }
   }
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="z-container">
-    <div class="z-row">
+    <div class="z-row blog-mobile">
       <div class="z-col-md-42 z-col-xl-45">
         <template v-if="blogList && blogList.length > 0">
           <topic-item v-for="(blog, index) in blogList" :key="index" :topic="blog"></topic-item>
@@ -122,12 +122,23 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .list-side {
   position: sticky;
   top: @heightHeader + 20;
 }
 .z-card.search-wrap {
   background-image: @color;
+}
+@media (min-width: @breakpoints-xs) and (max-width: @breakpoints-md) {
+  .blog-mobile {
+    display: flex;
+    flex-direction: column-reverse;
+    .list-side {
+      position: relative;
+      top: 0;
+      margin-bottom: 20px;
+    }
+  }
 }
 </style>

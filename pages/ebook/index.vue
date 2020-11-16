@@ -5,8 +5,8 @@
       <ebook-menu />
     </div>
     <div v-loading="isLoading" class="z-container">
-      <div class="z-row" style="margin-bottom: 15px;">
-        <div class="z-col-sm-40">
+      <div class="z-row">
+        <div class="z-col-sm-40 rank-wrap">
           <div style="background-color: #fff;clear:both;">
             <div class="z-row">
               <div v-for="item in ebookHomeData.hotList" :key="item.bookId" class=" z-col-sm-30 hotlist-item">
@@ -24,8 +24,8 @@
             </div>
           </div>
         </div>
-        <div class="z-col-sm-20">
-          <title-bar title="推荐Top9" class="visible-xs"></title-bar>
+        <div class="z-col-sm-20 rank-wrap">
+          <title-bar :bottom="0" title="推荐Top9" class="visible-xs"></title-bar>
           <z-table :columns="columnsLastRecord" :data="ebookHomeData.tjList" :showHeader="false" :border="false" size="small" />
         </div>
       </div>
@@ -53,11 +53,11 @@
       </div>
 
       <div class="z-row">
-        <div class="z-col-md-40">
+        <div class="z-col-md-40 rank-wrap">
           <title-bar :title="ebookHomeData.lastUpdateTitle" :bottom="0"></title-bar>
           <z-table :columns="columnsLastUpdate" :data="ebookHomeData.lastUpdate" :showHeader="false" :border="false" size="small" />
         </div>
-        <div class="z-col-md-20">
+        <div class="z-col-md-20 rank-wrap">
           <title-bar :title="ebookHomeData.lastRecordTitle" :bottom="0"></title-bar>
           <z-table :columns="columnsLastRecord" :data="ebookHomeData.lastRecord" :showHeader="false" :border="false" size="small" />
         </div>

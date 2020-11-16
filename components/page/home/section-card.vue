@@ -84,4 +84,9 @@ export default {
     }
   }
 }
+@media (min-width: @breakpoints-xs) and (max-width: @breakpoints-md) {
+  .section-card {
+    left: 0 !important;
+  }
+}
 </style>
