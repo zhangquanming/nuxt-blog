@@ -7,19 +7,19 @@ const state = () => ({
     {
       name: '前端资源',
       path: '/resource'
+    },
+    {
+      name: '豆瓣电影',
+      path: '/movie'
+    },
+    {
+      name: '电子书',
+      path: '/ebook'
+    },
+    {
+      name: '后台管理',
+      path: '/admin'
     }
-    // {
-    //   name: '豆瓣电影',
-    //   path: '/movie'
-    // },
-    // {
-    //   name: '电子书',
-    //   path: '/ebook'
-    // },
-    // {
-    //   name: '后台管理',
-    //   path: '/admin'
-    // }
   ],
   token: '',
   userInfo: null,

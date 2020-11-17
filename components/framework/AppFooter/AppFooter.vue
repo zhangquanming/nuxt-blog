@@ -13,7 +13,16 @@
         <span class="cat"> <i class="iconfont iconyouxiang"></i> <a target="_blank" href="#">419654548@qq.com</a></span>
       </div>
 
-      <div class="copyright">Copyright © 2020-2021 Mingme. All Rights Reserved. <a target="_blank" href="https://beian.miit.gov.cn/">京ICP备 2020042020 号.</a></div>
+      <div class="copyright">
+        <span>Copyright © 2020-2021 Mingme. All Rights Reserved. </span>
+        <a target="_blank" href="https://beian.miit.gov.cn/">京ICP备 2020042020号.</a>
+        <span class="gwab">
+          <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802033443">
+            <img src="../../../assets/images/beian_icon.png" />
+            <span>京公网安备 11010802033443号</span>
+          </a>
+        </span>
+      </div>
     </div>
   </div>
 </template>
@@ -108,11 +117,22 @@ export default {
     }
     .copyright {
       border-top: 1px solid @colorTextContent;
-      line-height: 30px;
+      line-height: 40px;
       text-align: center;
       letter-spacing: 1px;
       font-size: 12px;
       font-weight: 400;
+      a {
+        &:hover {
+          color: @colorTextLight;
+        }
+      }
+      .gwab a {
+        img {
+          width: 18px;
+          height: 18px;
+        }
+      }
     }
   }
 }
@@ -122,37 +142,37 @@ export default {
     .app-footer-cont {
       width: 1280px;
       .social {
-        margin-bottom: 30px;
+        margin-bottom: 40px;
       }
       .contact {
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 0 200px;
+        padding: 0 20%;
         margin-bottom: 30px;
       }
     }
   }
 }
-@media only screen and (min-width: @containerMaxWidth-lg) and (max-width: @containerMaxWidth-xl) {
+@media only screen and (min-width: @containerMaxWidth-md) and (max-width: @containerMaxWidth-xl) {
   .app-footer {
     padding-top: 50px;
     .app-footer-cont {
       width: 100%;
       .social {
-        margin-bottom: 30px;
+        margin-bottom: 40px;
       }
       .contact {
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 0 200px;
+        padding: 0 10%;
         margin-bottom: 30px;
       }
     }
   }
 }
-@media only screen and (max-width: @containerMaxWidth-lg) {
+@media only screen and (max-width: @containerMaxWidth-md) {
   .app-footer {
     padding-top: 20px;
     .app-footer-cont {
