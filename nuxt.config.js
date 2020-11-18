@@ -15,17 +15,17 @@ module.exports = {
       {
         hid: 'description',
         name: 'description',
-        content: '明么(Mingme)。一位来自90后的前端程序员。在一个偶然的机会下接触到前端这个职业，沉醉其中，喜欢安安静静的写代码，在代码的世界里奔跑。'
+        content: '明么(Mingme),一位来自90后的前端程序员;在一个偶然的机会下接触到前端这个职业,沉醉其中,喜欢安安静静的写代码,在代码的世界里奔跑.'
       },
       {
         hid: 'author',
         name: 'author',
-        content: 'Mingme、明么'
+        content: 'Mingme,明么'
       },
       {
         hid: 'keywords',
         name: 'keywords',
-        content: '明么的博客、明么、Mingme、Mingme的博客、mingme、mingme的博客、明么的博客首页、个人博客、前端文章、前端博客、前端技术'
+        content: '明么的博客,明么,Mingme,Mingme的博客,mingme,mingme的博客,明么的博客首页,个人博客,前端文章,前端博客,前端技术'
       }
     ],
     link: [
