@@ -226,7 +226,7 @@ export default {
     text-decoration: none;
     border-bottom: 1px solid lighten(@colorBorderLight, 2%);
     .rank-item-title {
-      margin-right: 10px;
+      margin-right: 30px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;

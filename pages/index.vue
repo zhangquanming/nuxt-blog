@@ -150,14 +150,7 @@ export default {
   },
   head() {
     return {
-      title: '明么的博客',
-      meta: [
-        {
-          hid: 'home description',
-          name: 'description',
-          content: '坚持，终将收获更好的自己！'
-        }
-      ]
+      title: '明么的博客 - 坚持终将收获更好的自己'
     }
   }
 }
