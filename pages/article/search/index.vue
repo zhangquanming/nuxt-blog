@@ -179,7 +179,7 @@ export default {
   },
   head() {
     return {
-      title: '文章-搜索结果'
+      title: '文章搜索-明么的博客'
     }
   }
 }

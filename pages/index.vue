@@ -155,7 +155,7 @@ export default {
         {
           hid: 'home description',
           name: 'description',
-          content: '采用 nuxt 搭建的 ssr 个人博客。前端是 vue，后端是 node koa，数据库是 mongodb。'
+          content: '坚持，终将收获更好的自己！'
         }
       ]
     }

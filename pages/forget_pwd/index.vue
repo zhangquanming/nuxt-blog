@@ -75,7 +75,7 @@ export default {
   },
   head() {
     return {
-      title: '忘记密码'
+      title: '忘记密码-明么的博客'
     }
   }
 }

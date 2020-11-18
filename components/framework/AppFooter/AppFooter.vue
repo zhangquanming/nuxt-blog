@@ -129,6 +129,7 @@ export default {
       }
       .gwab a {
         img {
+          vertical-align: sub;
           width: 18px;
           height: 18px;
         }

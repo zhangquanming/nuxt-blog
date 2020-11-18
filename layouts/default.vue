@@ -11,6 +11,11 @@ export default {
   name: 'AppLayoutDefault',
   components: {
     AppLayout
+  },
+  head() {
+    return {
+      title: '明么的博客'
+    }
   }
 }
 </script>
