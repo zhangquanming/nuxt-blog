@@ -3,7 +3,7 @@
     <div class="z-container">
       <div class="app-header">
         <router-link to="/" class="app-header-brand">
-          <logo :h="40" />
+          <logo :h="38" />
         </router-link>
         <app-menu />
       </div>

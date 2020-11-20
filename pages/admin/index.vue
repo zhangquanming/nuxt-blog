@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <div class="title">Mingme</div>
+    <img :src="logoUrl" class="logo" alt="logo" />
     <div class="desc">后台管理系统</div>
   </div>
 </template>
@@ -8,7 +8,12 @@
 <script>
 export default {
   name: 'AdminPage',
-  layout: 'admin'
+  layout: 'admin',
+  data() {
+    return {
+      logoUrl: require('~/assets/images/logo.png')
+    }
+  }
 }
 </script>
 
@@ -21,13 +26,13 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  .title {
-    font-weight: bold;
-    font-size: 60px;
+  .logo {
+    height: 100px;
   }
   .desc {
-    font-weight: bold;
-    font-size: 50px;
+    margin-top: 30px;
+    font-weight: 600;
+    font-size: 80px;
   }
 }
 </style>

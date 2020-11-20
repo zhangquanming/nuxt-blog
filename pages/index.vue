@@ -245,6 +245,10 @@ export default {
       height: 200px;
       border-radius: 50%;
       border: 20px solid @colorTextDisable;
+      background-image: url('../assets/images/logo_img_200.png');
+      background-size: 50%;
+      background-position: center;
+      background-repeat: no-repeat;
     }
     .section-module-card {
       position: relative;
