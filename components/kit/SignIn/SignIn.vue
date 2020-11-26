@@ -2,7 +2,7 @@
   <modal v-if="showSignInModal" @close="handleCloseModel">
     <h3 slot="header">登录</h3>
     <div slot="body">
-      <input v-model="formData.account" class="common-input" type="text" placeholder="用户名" style="width: 100%" />
+      <input v-model="formData.account" class="common-input" type="text" placeholder="用户名或邮箱" style="width: 100%" />
       <input v-model="formData.password" class="common-input" type="password" placeholder="密码" style="width: 100%" />
       <div style="text-align: right;">
         <span @click="handleForgetPwd" style="font-size: 12px;color: #999;cursor: pointer;">忘记密码？</span>

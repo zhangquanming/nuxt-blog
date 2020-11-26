@@ -122,7 +122,7 @@ export default {
           this.isEditLoading = false
           this.$toast.success('修改成功！')
           this.$store.dispatch('changeUserInfo', res.result)
-          this.$store.dispatch('changeToken', res.result.token)
+          // this.$store.dispatch('changeToken', res.result.token)
         })
         .catch(() => {
           this.isEditLoading = false

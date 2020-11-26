@@ -4,7 +4,7 @@
       <div style="text-align: center;">
         <logo :w="170" />
       </div>
-      <card>请输入您的用户名或电子邮箱地址。您会收到一封包含新密码的电子邮件。</card>
+      <card style="margin-top: 50px;">请输入您的用户名或电子邮箱地址。您会收到一封包含新密码的电子邮件。</card>
       <card>
         <div>用户名或电子邮件地址</div>
         <input v-model="nameOrmail" class="form-item-input" type="text" />

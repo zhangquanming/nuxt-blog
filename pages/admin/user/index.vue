@@ -11,7 +11,7 @@
     <modal v-show="isShowUserModal" @close="handleHideUserModal">
       <h3 slot="header">{{ editMode === 'edit' ? '修改用户' : '添加用户' }}</h3>
       <div slot="body">
-        <input v-model="formData.userName" class="common-input" type="text" placeholder="昵称" />
+        <input v-model="formData.userName" class="common-input" type="text" placeholder="用户名" />
         <input v-model="formData.phone" class="common-input" type="text" placeholder="手机号" />
         <input v-model="formData.email" class="common-input" type="text" placeholder="邮箱" />
         <input v-model="formData.password" :placeholder="editMode === 'edit' ? '新密码' : '密码'" class="common-input" type="password" />
@@ -91,8 +91,13 @@ export default {
           }
         },
         {
-          title: '姓名',
+          title: '用户名',
           key: 'userName',
+          align: 'left'
+        },
+        {
+          title: '昵称',
+          key: 'nickName',
           align: 'left'
         },
         {
@@ -198,8 +203,12 @@ export default {
      * @desc 请求 新增标签
      */
     requestAddUser() {
+      const { phone, ...data } = this.formData
       const params = {
-        ...this.formData
+        ...data
+      }
+      if (phone) {
+        params.phone = phone
       }
       this.isAddLoading = true
       this.$myApi.users
@@ -319,10 +328,10 @@ export default {
       const { userName, phone, email, password, confirmPassword } = this.formData
       const isAddMode = this.editMode === 'add'
       if (!userName) {
-        this.$toast.error('请填写昵称！')
+        this.$toast.error('请填写用户名！')
         return false
       }
-      if (!validatorsExp.phone.test(phone)) {
+      if (phone && !validatorsExp.phone.test(phone)) {
         this.$toast.error('请正确填写手机号！')
         return false
       }
@@ -330,11 +339,11 @@ export default {
         this.$toast.error('请正确填写邮箱！')
         return false
       }
-      if (!password) {
+      if (isAddMode && !password) {
         this.$toast.error('请填写密码！')
         return false
       }
-      if (password.length < 6) {
+      if (password && password.length < 6) {
         this.$toast.error('密码至少为 6 位')
         return false
       }
@@ -350,15 +359,15 @@ export default {
     },
 
     /**
-     * @desc 验证是否已登录，是否为 admin 用户
+     * @desc 验证是否已登录，是否为 超级 用户
      */
     handleValidateUserAuth() {
       let isUserAuth = false
       if (this.userInfo) {
-        if (this.userInfo.userName === 'admin') {
+        if (this.userInfo.userName === 'Mingme') {
           isUserAuth = true
         } else {
-          this.$toast.error('非admin，无权限！')
+          this.$toast.error('无操作权限！')
         }
       } else {
         this.$toast.info('请登录')

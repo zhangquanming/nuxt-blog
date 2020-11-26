@@ -300,15 +300,15 @@ export default {
     },
 
     /**
-     * @desc 验证是否已登录，是否为 admin 用户
+     * @desc 验证是否已登录，是否为 超级 用户
      */
     handleValidateUserAuth() {
       let isUserAuth = false
       if (this.userInfo) {
-        if (this.userInfo.userName === 'admin') {
+        if (this.userInfo.userName === 'Mingme') {
           isUserAuth = true
         } else {
-          this.$toast.error('非admin，无权限！')
+          this.$toast.error('无操作权限！')
         }
       } else {
         this.$toast.info('请登录')

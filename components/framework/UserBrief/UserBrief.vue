@@ -24,7 +24,7 @@ export default {
   computed: {
     ...mapGetters(['userInfo']),
     avatar() {
-      return this.userInfo && this.userInfo.avatar ? this.userInfo.avatar + '?x-oss-process=image/resize,m_fill,h_110,w_110' : defaultAvatar
+      return this.userInfo && this.userInfo.avatar ? this.userInfo.avatar : defaultAvatar
     }
   }
 }
