@@ -116,7 +116,7 @@ export default {
   },
   head() {
     return {
-      title: `文章分类-${this.$route.params.category}`
+      title: `${this.$route.params.category} - 明么的博客`
     }
   }
 }

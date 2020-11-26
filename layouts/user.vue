@@ -35,7 +35,7 @@ export default {
   },
   head() {
     return {
-      title: '个人中心-明么的博客'
+      title: '个人中心 - 明么的博客'
     }
   }
 }

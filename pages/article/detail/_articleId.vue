@@ -254,7 +254,7 @@ export default {
   },
   head() {
     return {
-      title: `${this.blogResult.title}-详情页`,
+      title: `${this.blogResult.title} - 明么的博客`,
       meta: [{ hid: 'article-detail referrer', name: 'referrer', content: 'never' }]
     }
   }

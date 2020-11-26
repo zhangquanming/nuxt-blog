@@ -270,7 +270,7 @@ export default {
   },
   head() {
     return {
-      title: '电子书-明么的博客',
+      title: '电子书 - 明么的博客',
       meta: [{ hid: 'ebook-home referrer', name: 'referrer', content: 'never' }]
     }
   }

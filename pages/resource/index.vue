@@ -65,7 +65,7 @@ export default {
   },
   head() {
     return {
-      title: '前端资源-明么的博客'
+      title: '前端资源 - 明么的博客'
     }
   }
 }
