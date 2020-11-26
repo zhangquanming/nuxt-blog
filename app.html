@@ -1,29 +1,50 @@
 <!DOCTYPE html>
 <html {{ HTML_ATTRS }} lang="zh-CN">
-  <head {{ HEAD_ATTRS }}>
-    <!-- <meta name="referrer", content="never"> -->
 
-    {{ HEAD }}
+<head {{ HEAD_ATTRS }}>
+  <!-- <meta name="referrer", content="never"> -->
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+  <meta name="baidu-site-verification" content="code-QmMMgETCTZ" />
+  {{ HEAD }}
 
-    <script>
-      function imgError(ele) {
-        ele.remove();
-        // ele.src = '/movie-gray.png';
-        // ele.onerror = null;
-      }
-    </script>
-  </head>
-  <body {{ BODY_ATTRS }}>
-    {{ APP }}
-    <!-- 百度统计 -->
-    <script>
-      var _hmt = _hmt || [];
-      (function() {
+  <script>
+    function imgError(ele) {
+      ele.remove();
+      // ele.src = '/movie-gray.png';
+      // ele.onerror = null;
+    }
+  </script>
+</head>
+
+<body {{ BODY_ATTRS }}>
+  {{ APP }}
+  <!-- 百度统计 -->
+  <script>
+    var _hmt = _hmt || [];
+    if (location.host === 'mingme.net') {
+      (function () {
         var hm = document.createElement("script");
         hm.src = "https://hm.baidu.com/hm.js?a8c3b0acf939e80da5d607bd6113c803";
-        var s = document.getElementsByTagName("script")[0]; 
+        var s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(hm, s);
       })();
-    </script>
-  </body>
+    }
+  </script>
+  <!-- 百度推送 -->
+  <script>
+    (function () {
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+</body>
+
 </html>

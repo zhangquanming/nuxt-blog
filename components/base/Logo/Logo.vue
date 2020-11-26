@@ -1,6 +1,6 @@
 <template>
   <div :style="styles" @click="handleClick" class="logo">
-    <img src="https://fakeimg.pl/160x40/" alt="Mingme" />
+    <img :src="imgUrl" alt="Mingme" />
   </div>
 </template>
 
@@ -15,6 +15,10 @@ export default {
     h: {
       type: [Number, String],
       default: 'auto'
+    },
+    theme: {
+      type: String,
+      default: 'black'
     }
   },
   computed: {
@@ -23,6 +27,12 @@ export default {
         width: typeof this.w === 'number' ? `${this.w}px` : this.w,
         height: typeof this.h === 'number' ? `${this.h}px` : this.h
       }
+    },
+    imgUrl() {
+      if (this.theme === 'white') {
+        return require('~/assets/images/logo2.png')
+      }
+      return require('~/assets/images/logo.png')
     }
   },
   methods: {

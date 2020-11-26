@@ -7,7 +7,7 @@ import marked from 'marked'
 import highlight from 'highlight.js'
 
 import 'github-markdown-css/github-markdown.css'
-import 'highlight.js/styles/github-gist.css'
+import 'highlight.js/styles/googlecode.css'
 
 marked.setOptions({
   renderer: new marked.Renderer(),

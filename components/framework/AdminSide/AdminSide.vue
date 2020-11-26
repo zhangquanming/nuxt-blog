@@ -1,7 +1,7 @@
 <template>
   <div class="admin-side-wrap">
     <nuxt-link to="/" class="admin-side-brand">
-      <logo :w="160" />
+      <logo :h="38" theme="white" />
     </nuxt-link>
     <div class="admin-side-menu">
       <router-link v-for="(nav, index) in sideMenu" :key="index" :to="nav.path" active-class="current" class="menu-link">
