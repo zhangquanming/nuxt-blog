@@ -78,14 +78,14 @@ export default {
         {
           title: '头像',
           key: 'poster',
-          width: '80px',
+          width: '50px',
           render: (h, parama) => {
             return h('img', {
               attrs: {
                 src: parama.row.avatarUrl
               },
               style: {
-                width: '80px'
+                width: '50px'
               }
             })
           }
