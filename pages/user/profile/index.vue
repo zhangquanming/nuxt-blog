@@ -50,6 +50,26 @@ export default {
   computed: {
     ...mapGetters(['userInfo'])
   },
+  watch: {
+    userInfo() {
+      const { userInfo = {} } = this
+      if (userInfo && userInfo.userName) {
+        this.$set(this.formData, 'userName', userInfo.userName)
+      }
+      if (userInfo && userInfo.nickName) {
+        this.$set(this.formData, 'nickName', userInfo.nickName)
+      }
+      if (userInfo && userInfo.phone) {
+        this.$set(this.formData, 'phone', userInfo.phone)
+      }
+      if (userInfo && userInfo.email) {
+        this.$set(this.formData, 'email', userInfo.email)
+      }
+      if (userInfo && userInfo.briefDesc) {
+        this.$set(this.formData, 'briefDesc', userInfo.briefDesc)
+      }
+    }
+  },
   mounted() {
     const { userInfo = {} } = this
     if (userInfo && userInfo.userName) {
@@ -123,7 +143,7 @@ export default {
           this.isEditLoading = false
           this.$toast.success('修改成功！')
           this.$store.dispatch('changeUserInfo', res.result)
-          this.$store.dispatch('changeToken', res.result.token)
+          // this.$store.dispatch('changeToken', res.result.token)
         })
         .catch(() => {
           this.isEditLoading = false

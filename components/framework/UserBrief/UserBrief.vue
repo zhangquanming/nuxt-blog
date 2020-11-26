@@ -38,7 +38,7 @@ export default {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    background: @colorTextDisable;
+    background-color: @colorTextDisable;
   }
   .author-avatar {
     position: relative;
