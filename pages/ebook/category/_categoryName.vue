@@ -3,17 +3,19 @@
     <div class="z-container">
       <ebook-menu />
       <div v-loading="isLoading" class="z-row">
-        <div v-for="item in categoryData.hotList" :key="item.bookId" class=" z-col-xs-30 z-col-sm-20 z-col-md-10">
-          <div class="hotlist-item">
-            <ebook-poster :data-source="item" />
-            <h2 :title="item.name" class="hotlist-item-name">{{ item.name }}</h2>
-            <p class="hotlist-item-author">
-              <router-link :to="{ path: `/ebook/author/${item.authorId}` }">{{ item.author }}</router-link>
-            </p>
-            <p class="hotlist-item-brief">{{ item.brief.replace(/\s+/g, '') }}</p>
+        <div class="hotlist">
+          <div v-for="item in categoryData.hotList" :key="item.bookId" class="z-col-xs-30 z-col-sm-20 z-col-md-10">
+            <div class="hotlist-item">
+              <ebook-poster :data-source="item" />
+              <h2 :title="item.name" class="hotlist-item-name">{{ item.name }}</h2>
+              <p class="hotlist-item-author">
+                {{ item.author }}
+                <!-- <router-link :to="{ path: `/ebook/author/${item.authorId}` }">{{ item.author }}</router-link> -->
+              </p>
+              <p class="hotlist-item-brief">{{ item.brief }}</p>
+            </div>
           </div>
         </div>
-        <br />
         <div class="z-col-md-40">
           <title-bar :title="categoryData.newListTitle" :bottom="0"></title-bar>
           <z-table :columns="columnsNewList" :data="categoryData.newList" :show-header="false" :border="false" size="small" />
@@ -110,15 +112,15 @@ export default {
           align: 'right',
           render: (h, params) => {
             return h(
-              'router-link',
-              {
-                props: {
-                  to: {
-                    path: `/ebook/author/${params.row.authorId}`
-                  }
-                },
-                class: 'ebook-catalog-link'
-              },
+              'span',
+              // {
+              //   props: {
+              //     to: {
+              //       path: `/ebook/author/${params.row.authorId}`
+              //     }
+              //   },
+              //   class: 'ebook-catalog-link'
+              // },
               params.row.author
             )
           }
@@ -163,7 +165,8 @@ export default {
                   to: {
                     path: `/ebook/${params.row.bookId}`
                   }
-                }
+                },
+                class: 'ebook-catalog-link'
               },
               params.row.name
             )
@@ -175,15 +178,15 @@ export default {
           align: 'right',
           render: (h, params) => {
             return h(
-              'router-link',
-              {
-                props: {
-                  to: {
-                    path: `/ebook/author/${params.row.authorId}`
-                  }
-                },
-                class: 'ebook-catalog-link'
-              },
+              'span',
+              // {
+              //   props: {
+              //     to: {
+              //       path: `/ebook/author/${params.row.authorId}`
+              //     }
+              //   },
+              //   class: 'ebook-catalog-link'
+              // },
               params.row.author
             )
           }
@@ -215,6 +218,10 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.hotlist {
+  overflow: hidden;
+  margin: 10px 0 20px 0;
+}
 .hotlist-item {
   margin-top: 15px;
   &-name {

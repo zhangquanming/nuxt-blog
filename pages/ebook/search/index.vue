@@ -1,136 +1,66 @@
 <template>
   <div>
+    <ebook-search />
     <div class="z-container">
-      <z-table :columns="columns" :data="searchData" :border="false" :loading="isLoading" size="small" />
+      <ebook-menu />
     </div>
-    <div ref="searchEle" v-show="false" v-html="searchDataHtml"></div>
+    <div v-loading="isLoading" class="z-container" style="margin-top: 15px;">
+      <div class="z-row">
+        <div class="z-col-sm-60">
+          <div style="background-color: #fff;clear:both;">
+            <title-bar :title="`搜索“${searchkey}”相关小说`" :bottom="0"></title-bar>
+            <div v-if="searchData && searchData.length > 0" class="z-row">
+              <div v-for="item in searchData" :key="item.bookId" class="z-col-sm-30 z-col-lg-20 hotlist-item">
+                <div class="row">
+                  <div class="z-col-20">
+                    <ebook-poster :dataSource="item" />
+                  </div>
+                  <div class="z-col-40">
+                    <h2 :title="item.name" class="hotlist-item-name">{{ item.name }}</h2>
+                    <p class="hotlist-item-author">{{ item.author }}</p>
+                    <p class="hotlist-item-brief">{{ item.brief }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <no-data v-else style="height: 220px;" />
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import ZTable from '@/components/base/Table/Table'
+import TitleBar from '@/components/kit/TitleBar/TitleBar'
+import EbookSearch from '@/components/page/ebook/EbookSearch'
+import EbookMenu from '@/components/page/ebook/EbookMenu'
+import EbookPoster from '@/components/page/ebook/EbookPoster'
+import NoData from '@/components/kit/NoData/NoData'
 
 export default {
-  name: 'EbookSearch',
+  name: 'EbooksSearch',
   components: {
-    ZTable
+    TitleBar,
+    EbookSearch,
+    EbookMenu,
+    EbookPoster,
+    NoData
   },
   data() {
     return {
-      searchDataHtml: '',
-      wd: '',
+      searchkey: '',
       isLoading: false,
-      searchData: [],
-      columns: [
-        {
-          title: '序号',
-          width: '45px',
-          class: ['hidden-sm'],
-          render: (h, params) => {
-            return h(
-              'span',
-              {
-                class: ['ebook-rank-index']
-              },
-              params.index + 1
-            )
-          }
-        },
-        // {
-        //   title: '作品分类',
-        //   key: 'category',
-        //   align: 'left',
-        //   class: ['hidden-xs']
-        // },
-        {
-          title: '作品名称',
-          key: 'name',
-          align: 'left',
-          render: (h, params) => {
-            return h(
-              'router-link',
-              {
-                props: {
-                  to: {
-                    path: `/ebook/${params.row.bookId}`
-                  }
-                },
-                class: 'ebook-catalog-link'
-              },
-              params.row.name
-            )
-          }
-        },
-        {
-          title: '最新章节',
-          key: 'lastChapter',
-          align: 'left',
-          render: (h, params) => {
-            return h(
-              'router-link',
-              {
-                props: {
-                  to: {
-                    path: `/ebook/${params.row.bookId}/${params.row.chapterId}`
-                  }
-                },
-                class: 'ebook-chapter-link'
-              },
-              params.row.lastChapter
-            )
-          }
-        },
-        {
-          title: '作者',
-          key: 'author',
-          align: 'right',
-          render: (h, params) => {
-            return h(
-              'router-link',
-              {
-                props: {
-                  to: {
-                    path: `/ebook/author/${params.row.authorId}`
-                  }
-                },
-                class: 'ebook-catalog-link'
-              },
-              params.row.author
-            )
-          }
-        }
-        // {
-        //   title: '更新时间',
-        //   key: 'updateTime',
-        //   align: 'center',
-        //   class: ['hidden-xs'],
-        //   render: (h, params) => {
-        //     return h('span', params.row.updateTime.split(' ')[0])
-        //   }
-        // },
-        // {
-        //   title: '状态',
-        //   key: 'status',
-        //   align: 'center',
-        //   minWidth: '45px',
-        //   class: ['hidden-xs']
-        // }
-      ]
+      searchData: []
     }
   },
   mounted() {
     if (this.$route.query.wd) {
+      this.searchkey = this.$route.query.wd
       this.getBookByWd()
     }
   },
   methods: {
-    /**
-     * @desc 查询按钮点击
-     */
-    handleSearch() {
-      this.getBookByWd()
-    },
-
     /**
      * @desc 关键字查询书籍
      */
@@ -154,4 +84,33 @@ export default {
 }
 </script>
 
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+.hotlist-item {
+  margin: 12px 0;
+  padding-right: 20px;
+  &-name {
+    margin-top: 10px;
+    color: @colorTextTitle;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  &-author {
+    margin-top: 3px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  &-brief {
+    font-size: 12px;
+    margin-top: 5px;
+    color: @colorTextContent;
+    text-align: justify;
+    overflow: hidden;
+    height: 4.5em;
+    color: @colorTextSub;
+  }
+}
+</style>

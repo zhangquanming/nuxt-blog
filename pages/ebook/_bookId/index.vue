@@ -9,16 +9,15 @@
           <h2 class="book-baseinfo-main-name">{{ bookInfoData.name }}</h2>
           <p class="book-baseinfo-main-author">
             {{ bookInfoData.author }}
-            <!-- <router-link :to="{ path: `/ebook/author/${bookInfoData.authorId}` }">{{ bookInfoData.author }}</router-link> -->
           </p>
           <p class="book-baseinfo-main-author">{{ bookInfoData.status }}</p>
-          <p class="book-baseinfo-main-author">{{ bookInfoData.count }}</p>
           <p class="book-baseinfo-main-author">
             最新章节：
             <router-link :to="{ path: `/ebook/${$route.params.bookId}/${bookInfoData.chapterId}` }">{{ bookInfoData.lastChapter }}</router-link>
           </p>
           <p class="book-baseinfo-main-update">{{ bookInfoData.updateTime }}</p>
-          <p class="book-baseinfo-main-brief">{{ bookInfoData.brief }}</p>
+          <hr />
+          <p class="book-baseinfo-main-author">{{ bookInfoData.count }}</p>
         </div>
       </div>
 
@@ -86,20 +85,22 @@ export default {
   margin-top: 10px;
   padding: 10px;
   overflow: hidden;
-  display: flex;
   .book-baseinfo-poster {
-    flex: none;
-    margin-right: 10px;
+    float: left;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    background: #fff;
     img {
-      height: 150px;
+      height: 200px;
     }
   }
-  .book-baseinfo-main {
-    float: 1;
+  .book-baseinfo-main-author {
+    margin-bottom: 4px;
   }
   .book-baseinfo-main-name {
     font-size: 26px;
     color: @colorTextTitle;
+    margin-bottom: 10px;
   }
   .book-baseinfo-main-brief {
     color: @colorTextSub;

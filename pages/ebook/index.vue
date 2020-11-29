@@ -14,7 +14,7 @@
                   <div class="z-col-20">
                     <ebook-poster :dataSource="item" />
                   </div>
-                  <div class="z-col-40" style="min-height: 133.5px;">
+                  <div class="z-col-40">
                     <h2 :title="item.name" class="hotlist-item-name">{{ item.name }}</h2>
                     <p class="hotlist-item-author">{{ item.author }}</p>
                     <p class="hotlist-item-brief">{{ item.brief.replace(/\s+/g, '') }}</p>
@@ -25,7 +25,7 @@
           </div>
         </div>
         <div class="z-col-sm-20 rank-wrap">
-          <title-bar :bottom="0" title="推荐Top9" class="visible-xs"></title-bar>
+          <title-bar :bottom="0" title="上期推荐" class="visible-xs"></title-bar>
           <z-table :columns="columnsLastRecord" :data="ebookHomeData.tjList" :showHeader="false" :border="false" size="small" />
         </div>
       </div>

@@ -29,7 +29,8 @@ export default {
      * @desc 查询按钮点击
      */
     handleSearch() {
-      this.$router.push({ path: `/ebook/search?wd=${this.wd}` })
+      window.location.href = `/ebook/search?wd=${this.wd}`
+      // this.$router.push({ path: `/ebook/search?wd=${this.wd}` })
     },
 
     handleEnter() {
