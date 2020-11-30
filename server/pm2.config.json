@@ -3,9 +3,12 @@
     {
       "name": "blog-app",
       "script": "./server/index.js",
-      "instances": 0,
       "watch": false,
-      "exec_mode": "cluster_mode"
+      "exec_mode": "cluster_mode",
+      "instances": 3,
+      "min_uptime": "60s",
+      "max_restarts": 10,
+      "max_memory_restart": "300M"
     }
   ]
 }
