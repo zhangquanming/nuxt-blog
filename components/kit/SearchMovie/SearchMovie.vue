@@ -28,7 +28,7 @@
         @mouseover="handleMouseoverOptionItem(index)"
         target="_blank"
       >
-        <img :src="item.img" class="search-movie-suggest-item-poster" alt="" />
+        <img :src="item.img" class="search-movie-suggest-item-poster" alt="电影海报" />
         <div>
           <p class="search-movie-suggest-item-title">{{ item.title }}（{{ item.year }}）</p>
           <p class="search-movie-suggest-item-desc">{{ item.sub_title }}</p>

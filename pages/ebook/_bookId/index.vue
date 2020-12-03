@@ -3,7 +3,7 @@
     <div v-loading="isLoading" class="z-container" style="background: #fff;">
       <div class="book-baseinfo">
         <div class="book-baseinfo-poster">
-          <img :src="bookInfoData.poster" alt="" />
+          <img :src="bookInfoData.poster" :alt="bookInfoData.name" />
         </div>
         <div class="book-baseinfo-main">
           <h2 class="book-baseinfo-main-name">{{ bookInfoData.name }}</h2>

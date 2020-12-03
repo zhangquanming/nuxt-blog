@@ -43,7 +43,7 @@
             </div>
             <div class="rank-top-poster fl">
               <router-link :to="{ path: `/ebook/${rank.top.bookId}` }" class="rank-top-poster-link no-img-placeholder-colorful no-img-placeholder-vertical">
-                <img :src="rank.top.poster" alt="" />
+                <img :src="rank.top.poster" :alt="rank.top.name" />
               </router-link>
               <span class="rank-top-poster-shadow"></span>
             </div>

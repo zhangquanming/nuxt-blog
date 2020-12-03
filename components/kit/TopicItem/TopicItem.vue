@@ -29,7 +29,7 @@
     <div class="topic-body clearfix">
       <div class="topic-img-wrap">
         <router-link :to="{ path: `/article/detail/${topic._id}` }" class="topic-img-link no-img-placeholder-colorful no-img-placeholder-horizon">
-          <img v-if="topic.poster" :src="topic.poster" class="topic-img" alt="" />
+          <img v-if="topic.poster" :src="topic.poster" :alt="topic.title" class="topic-img" />
         </router-link>
       </div>
       <md-preview :content="firstParagraph" :padding="0" />

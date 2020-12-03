@@ -1,6 +1,6 @@
 <template>
   <li class="reviews-item-wrap">
-    <img :src="review.author.avatar" class="reviews-item-avatar" alt="" />
+    <img :src="review.author.avatar" :alt="review.title" class="reviews-item-avatar" />
     <div class="reviews-item">
       <h3 class="reviews-item-title">{{ review.title }}</h3>
       <div class="reviews-item-content">

@@ -11,7 +11,7 @@
                 <a :href="resourceItem.url" class="resource-item-link" target="_blank">
                   <div class="resource-info-title">
                     <div class="resource-item-poster">
-                      <img v-if="resourceItem.posterUrl" :src="resourceItem.posterUrl" alt="" />
+                      <img v-if="resourceItem.posterUrl" :src="resourceItem.posterUrl" alt="资源海报" />
                       <div v-else class="no-img">{{ resourceItem.name.substring(0, 1) }}</div>
                     </div>
                     <h4 class="resource-header">{{ resourceItem.name }}</h4>

@@ -18,7 +18,7 @@
         <a target="_blank" href="https://beian.miit.gov.cn/">京ICP备 2020042020号.</a>
         <span class="gwab">
           <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802033443">
-            <img src="../../../assets/images/beian_icon.png" />
+            <img src="../../../assets/images/beian_icon.png" width="18" height="18" alt="京公网安备" />
             <span>京公网安备 11010802033443号</span>
           </a>
         </span>

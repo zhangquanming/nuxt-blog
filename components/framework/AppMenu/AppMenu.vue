@@ -151,6 +151,9 @@ export default {
         text-align: center;
         line-height: 50px;
         border-top: 1px solid rgba(0, 0, 0, 0.1);
+        &.app-menu-login {
+          display: none;
+        }
       }
       .app-menu-link {
         line-height: 50px;

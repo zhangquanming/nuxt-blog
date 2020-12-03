@@ -4,7 +4,7 @@
       <li v-for="comments in commentsList" :key="comments.id" class="comments-list-item">
         <div class="comments-body">
           <div class="comments-user no-img-placeholder-colorful no-img-placeholder-horizon">
-            <img v-if="comments.from" :src="comments.from ? comments.from.avatar : ''" class="comments-user-avatar" alt="" />
+            <img v-if="comments.from" :src="comments.from ? comments.from.avatar : ''" class="comments-user-avatar" alt="用户头像" />
           </div>
           <div class="comments-main">
             <div class="comments-mate">

@@ -13,7 +13,7 @@
       <div slot="body">
         <div class="uplaod-box">
           <div class="uplaod-preview-img">
-            <img v-if="formData.poster" :src="formData.poster" />
+            <img v-if="formData.poster" :src="formData.poster" alt="资源海报" />
           </div>
           <div class="uplaod-cont">
             <p class="upload-tip">SVG、JPG、GIF、JPEG、PNG格式，文件小于2M</p>
@@ -55,7 +55,7 @@
     <modal v-show="isShowPreviewModal" @close="handleHidePreviewModal" width="50%">
       <div slot="body">
         <div style="max-height:550px;overflow: auto;">
-          <img :src="previewImgUrl" alt="" style="width:100%;" />
+          <img :src="previewImgUrl" alt="资源海报" style="width:100%;" />
         </div>
       </div>
     </modal>

@@ -8,7 +8,7 @@
             <div class="z-row">
               <div class="z-col-23">
                 <router-link :to="{ path: `/movie/detail/${item.id}` }" class="ranking-link" target="_blank">
-                  <img :src="item.images.large" class="ranking-poster" alt="" />
+                  <img :src="item.images.large" class="ranking-poster" alt="电影海报" />
                 </router-link>
               </div>
               <div class="z-col-37">

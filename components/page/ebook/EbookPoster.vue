@@ -2,10 +2,10 @@
   <div class="book-poster-wrap">
     <div class="book-poster">
       <router-link v-if="dataSource.bookId" :to="{ path: `/ebook/${dataSource.bookId}` }" class="book-poster-link no-img-placeholder-colorful no-img-placeholder-vertical">
-        <img :src="dataSource.poster" class="hotlist-item-poster" alt="" />
+        <img :src="dataSource.poster" class="hotlist-item-poster" alt="小说封面图" />
       </router-link>
       <div v-else class="book-poster-link no-img-placeholder-colorful no-img-placeholder-vertical">
-        <img :src="dataSource.poster" class="hotlist-item-poster" alt="" />
+        <img :src="dataSource.poster" class="hotlist-item-poster" alt="小说封面图" />
       </div>
     </div>
   </div>
