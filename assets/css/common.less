@@ -235,3 +235,31 @@ code {
     box-shadow: 0px 0px 1px #999;
   }
 }
+.go-top-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  right: -60px;
+  bottom: 30px;
+  background-color: rgba(70,70,70,.75);
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,.05);
+  z-index: 100;
+  cursor: pointer;
+  transition: all .36s ease-in-out;
+  opacity: 0;
+  i {
+    font-size: 22px;
+    color: #fff;
+  }
+  &.shown {
+    transform: scale(1) rotate(-1turn) translate(0);
+    right: 30px;
+    opacity: 1;
+  }
+  &:hover {
+    background: @colorCol;
+  }
+}
