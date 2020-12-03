@@ -4,11 +4,11 @@
       "name": "blog-app",
       "script": "./server/index.js",
       "watch": false,
-      "exec_mode": "cluster_mode",
-      "instances": 3,
+      "exec_mode": "fork",
+      "instances": 0,
       "min_uptime": "60s",
       "max_restarts": 10,
-      "max_memory_restart": "300M"
+      "max_memory_restart": "200M"
     }
   ]
 }
