@@ -31,6 +31,10 @@ export default {
     Btn
   },
   props: {
+    type: {
+      type: String,
+      default: 'comment'
+    },
     commentId: String,
     toUserId: String
   },

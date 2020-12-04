@@ -6,6 +6,9 @@
         <li v-for="(nav, index) in navList" :key="index" class="app-menu-item">
           <nuxt-link :to="nav.path" class="app-menu-link" active-class="current">{{ nav.name }}</nuxt-link>
         </li>
+        <li v-if="userInfo && userInfo._id === '5f87ac69bcde488243ec47fb'" class="app-menu-item">
+          <nuxt-link to="/admin" class="app-menu-link" active-class="current">后台管理</nuxt-link>
+        </li>
         <li class="app-menu-item app-menu-login">
           <login-control :theme="theme" />
         </li>
@@ -38,7 +41,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['navList']),
+    ...mapGetters(['navList', 'userInfo']),
     classes() {
       return [this.isShowMenu ? 'app-menu-show' : '', `app-menu-${this.theme}`]
     }
@@ -84,9 +87,16 @@ export default {
     padding: 10px;
   }
   .app-menu-item {
-    margin: 0 10px;
+    margin: 0 8px;
     display: inline-block;
     line-height: @heightHeader;
+  }
+  .app-menu-login {
+    margin-right: 0;
+    vertical-align: top;
+    &:after {
+      display: none;
+    }
   }
   .app-menu-link {
     display: block;
@@ -180,12 +190,6 @@ export default {
       overflow: inherit;
       top: @heightHeader;
     }
-  }
-}
-.app-menu-login {
-  vertical-align: top;
-  &:after {
-    display: none;
   }
 }
 </style>

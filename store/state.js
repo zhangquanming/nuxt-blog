@@ -17,8 +17,8 @@ const state = () => ({
       path: '/ebook'
     },
     {
-      name: '后台管理',
-      path: '/admin'
+      name: '留言板',
+      path: '/message'
     }
   ],
   token: '',
