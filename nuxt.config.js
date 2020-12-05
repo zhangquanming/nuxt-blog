@@ -30,7 +30,7 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: '//at.alicdn.com/t/font_1905390_swtc69c1vfs.css' }
+      { rel: 'stylesheet', href: '//at.alicdn.com/t/font_1905390_l0vkna5ato.css' }
     ]
   },
   /*

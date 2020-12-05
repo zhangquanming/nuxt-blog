@@ -36,12 +36,6 @@
         </div>
       </section>
 
-      <!-- <section class="section-part section-part-links">
-        <section-title title="这是标题" decs="这是一段副标题"></section-title>
-
-        <div class="z-container"></div>
-      </section> -->
-
       <section class="section-part section-part-contact">
         <section-title title="你可以在这些场所找到我" theme="light"></section-title>
         <div class="z-container">
@@ -73,6 +67,17 @@
           </div>
           <div class="bike"></div>
           <div class="text">如果你也喜欢前端，<br />让我们喝杯白酒，交个朋友吧！</div>
+        </div>
+      </section>
+
+      <section class="section-part section-part-links">
+        <section-title title="友情链接"></section-title>
+        <div class="z-container">
+          <ul class="links">
+            <li v-for="link in links" :key="link.id">
+              <a :href="link.url" target="_blank">{{ link.name }}</a>
+            </li>
+          </ul>
         </div>
       </section>
     </div>
@@ -137,7 +142,14 @@ export default {
           label: 'Insist',
           color: '#6bc30d'
         }
-      ]
+      ],
+      links: []
+    }
+  },
+  async asyncData({ app }) {
+    const res = await app.$myApi.links.index({ limit: 1000 })
+    return {
+      links: res.result.docs
     }
   },
   methods: {
@@ -230,8 +242,8 @@ export default {
   }
 }
 .section-part {
-  min-height: 400px;
-  padding: 100px 20px;
+  min-height: 300px;
+  padding: 80px 20px;
 }
 .section-part-module {
   background: #fff;
@@ -269,7 +281,25 @@ export default {
     }
   }
 }
+.section-part-contact {
+  position: relative;
+  background-image: url(~assets/images/home/bg1.jpg);
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+  &::before {
+    content: '';
+    backdrop-filter: blur(7px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+}
 .section-part-about {
+  background: #fff;
   @keyframes changes {
     0% {
       background-position: 0 0;
@@ -299,29 +329,11 @@ export default {
   }
   .text {
     text-align: center;
-    font-size: 18px;
-    line-height: 32px;
+    font-size: 16px;
+    line-height: 30px;
     color: #282828;
   }
 }
-.section-part-contact {
-  position: relative;
-  background-image: url(~assets/images/home/bg1.jpg);
-  background-position: center center;
-  background-size: cover;
-  background-attachment: fixed;
-  &::before {
-    content: '';
-    backdrop-filter: blur(7px);
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-  }
-}
-
 .contact-list {
   display: flex;
   justify-content: center;
@@ -335,8 +347,8 @@ export default {
   .contact-list-item-link {
     position: relative;
     display: block;
-    height: 70px;
-    width: 70px;
+    height: 60px;
+    width: 60px;
     border-radius: 50%;
     border: 1px solid @colorTextDisable;
     color: @colorTextDisable;
@@ -363,6 +375,24 @@ export default {
     &:hover {
       border-color: #fff;
       color: #009a61;
+    }
+  }
+}
+.section-part-links {
+  .links {
+    text-align: center;
+    li {
+      margin: 10px 20px;
+      display: inline-block;
+      &:hover {
+        a {
+          @colorActive();
+        }
+      }
+      a {
+        font-size: 16px;
+        color: @colorTextSub;
+      }
     }
   }
 }

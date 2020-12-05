@@ -14,7 +14,8 @@ export default ({ $axios }, inject) => {
     replys: repositoryWithAxios('/api/replys'),
     ebooks: repositoryWithAxios('/api/ebooks'),
     messages: repositoryWithAxios('/api/messages'),
-    messageReplys: repositoryWithAxios('/api/messageReplys')
+    messageReplys: repositoryWithAxios('/api/messageReplys'),
+    links: repositoryWithAxios('/api/links')
   }
 
   inject('myApi', repositories)

@@ -22,16 +22,16 @@ export default {
 <style lang="less" scoped>
 .section-title {
   position: relative;
-  margin-bottom: 60px;
+  margin-bottom: 50px;
   text-align: center;
   .title {
-    font-size: 32px;
+    font-size: 28px;
     font-weight: 500;
     color: @colorTextTitle;
   }
   .decs {
     margin-top: 10px;
-    font-size: 20px;
+    font-size: 18px;
     color: @colorTextTitle;
   }
   &-light {

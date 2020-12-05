@@ -68,6 +68,11 @@ export default {
           name: '用户管理',
           path: '/admin/user',
           icon: 'iconyonghuguanli'
+        },
+        {
+          name: '友情链接',
+          path: '/admin/links',
+          icon: 'iconyouqinglianjie'
         }
       ]
     }
