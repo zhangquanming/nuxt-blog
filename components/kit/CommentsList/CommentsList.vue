@@ -9,23 +9,27 @@
           <div class="comments-main">
             <div class="comments-mate">
               <span class="comments-mate-username">{{ comments.from ? comments.from.userName : '未知' }}</span>
+              <span v-if="comments.from.userName === 'Mingme'" class="comments-mate-tag">站长</span>
               <span class="comments-mate-time">{{ comments.createdAt | dateFormatFilter('YYYY-MM-DD HH:mm:ss') }}</span>
               <span v-if="commentId && commentId === comments.id" @click="handleUnRepay(comments)" class="comments-mate-unrepay">取消回复</span>
               <span v-else @click="handleRepay(comments)" class="comments-mate-repay">回复</span>
               <div class="comments-mate-order">#{{ comments.orderIndex }}</div>
             </div>
             <div class="comments-content">{{ comments.content }}</div>
+            <div class="comments-address"><i class="iconfont iconweizhi"></i>{{ comments.address ? comments.address : '中国' }}</div>
             <ul v-if="comments.reply && comments.reply.length > 0" class="repay-list">
               <li v-for="repay in comments.reply" :key="repay.id" class="repay-list-item">
                 <div class="comments-mate">
                   <span class="comments-mate-username">{{ repay.from ? repay.from.userName : '未知' }}</span>
+                  <span v-if="comments.from.userName === 'Mingme'" class="comments-mate-tag">站长</span>
                   <span class="comments-mate-time">{{ repay.createdAt | dateFormatFilter('YYYY-MM-DD HH:mm:ss') }}</span>
                 </div>
                 <div class="comments-content">{{ repay.content }}</div>
+                <div class="comments-address"><i class="iconfont iconweizhi"></i>{{ repay.address ? repay.address : '中国' }}</div>
               </li>
             </ul>
-            <div v-if="commentId && commentId === comments.id" style="margin-top: 10px;">
-              <comments-form @on-success="handleCommentsSuccess" :commentId="commentId" :toUserId="toUserId"></comments-form>
+            <div v-if="commentId && commentId === comments.id" style="margin-top: 20px;">
+              <comments-form @on-success="handleCommentsSuccess" :commentId="commentId" :type="type" :toUserId="toUserId"></comments-form>
             </div>
           </div>
         </div>
@@ -42,6 +46,10 @@ export default {
     CommentsForm
   },
   props: {
+    type: {
+      type: String,
+      default: 'comment'
+    },
     commentsList: {
       type: Array,
       default() {
@@ -79,19 +87,15 @@ export default {
   position: relative;
   .comments-list-item {
     padding: 15px;
-  }
-  .comments-list-item + .comments-list-item {
     border-top: 1px solid @colorBorderLight;
+    border-bottom: 1px solid @colorBorderLight;
   }
   .comments-list-item:hover .comments-mate-repay {
     display: inline;
   }
 
   .repay-list {
-    margin: 10px 0 15px;
-    background: @colorBg;
-    padding: 10px;
-    border-radius: 5px;
+    padding: 10px 10px 0;
   }
   .repay-list-item {
     padding: 5px;
@@ -103,8 +107,8 @@ export default {
     align-items: flex-start;
   }
   .comments-user {
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
     border-radius: 50%;
     margin-right: 15px;
   }
@@ -118,19 +122,29 @@ export default {
     flex: 1;
   }
   .comments-content {
+    margin: 10px 0;
+    min-height: 60px;
     text-align: justify;
     line-height: 1.75;
   }
   .comments-mate {
     margin-bottom: 5px;
+    vertical-align: middle;
     font-size: 12px;
   }
   .comments-mate-username {
-    font-weight: 600;
     font-size: 16px;
     margin-right: 10px;
     color: @colorAssist;
     @colorActive();
+  }
+  .comments-mate-tag {
+    display: inline-block;
+    padding: 0px 8px;
+    background: @color;
+    color: #fff;
+    margin-right: 10px;
+    border-radius: 4px;
   }
   .comments-mate-time {
     color: @colorTextLight;
@@ -146,9 +160,21 @@ export default {
     cursor: pointer;
   }
   .comments-mate-order {
+    font-weight: bold;
     float: right;
-    font-size: 12px;
+    font-size: 16px;
+    color: @colorAssist;
+    @colorActive();
+  }
+  .comments-address {
+    display: flex;
+    align-items: center;
     color: @colorTextLight;
+    font-size: 13px;
+    i {
+      margin-right: 5px;
+      font-size: 18px;
+    }
   }
 }
 </style>

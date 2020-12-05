@@ -30,7 +30,7 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: '//at.alicdn.com/t/font_1905390_h2yms4rxpjn.css' }
+      { rel: 'stylesheet', href: '//at.alicdn.com/t/font_1905390_swtc69c1vfs.css' }
     ]
   },
   /*
@@ -101,7 +101,7 @@ module.exports = {
    */
   proxy: {
     '/api': {
-      target: process.env.NODE_ENV === 'development' ? 'https://mingme.net/' : 'https://mingme.net/',
+      target: process.env.NODE_ENV === 'development' ? 'http://localhost:3000/' : 'https://mingme.net/',
       changeOrigin: true
     },
     '/douban/': {

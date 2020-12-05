@@ -55,6 +55,11 @@ export default {
           icon: 'iconziyuanguanli'
         },
         {
+          name: '留言管理',
+          path: '/admin/message',
+          icon: 'iconfuwulan-liuyanguanli'
+        },
+        {
           name: '评论管理',
           path: '/admin/comment',
           icon: 'iconpinglunguanli'

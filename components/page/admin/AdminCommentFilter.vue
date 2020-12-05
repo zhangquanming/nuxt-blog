@@ -1,17 +1,17 @@
 <template>
   <div>
-    <div class="z-row">
-      <!-- <div class="z-col-15">
+    <div class="z-row form-box">
+      <div>
         <form-item :labelWidth="80" label="用户名">
           <input v-model.trim="formData.userName" class="form-item-input" type="text" />
         </form-item>
-      </div> -->
-      <div class="z-col-15">
+      </div>
+      <div>
         <form-item :label-width="80" label="评论内容">
           <input v-model.trim="formData.content" class="form-item-input" type="text" />
         </form-item>
       </div>
-      <div class="z-col-18">
+      <div>
         <form-item :label-width="80" label="状态">
           <zbtn-group>
             <btn v-for="(item, index) in statusList" :key="index" :theme="formData.status === item.value ? 'success' : 'default'" @click="handleChangeStatus(item.value)">
@@ -25,8 +25,8 @@
           <input v-model.trim="formData.blogTitle" class="form-item-input" type="text" />
         </form-item>
       </div> -->
-      <div class="z-col-15">
-        <form-item :label-width="0">
+      <div>
+        <form-item :label-width="80">
           <slot :formData="formData"></slot>
         </form-item>
       </div>
@@ -83,9 +83,11 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.form-box {
+  display: flex;
+}
 .form-item-input {
   padding: 8px 10px;
-  width: 100%;
   font-size: 12px;
   color: @colorTextContent;
   outline: none;
