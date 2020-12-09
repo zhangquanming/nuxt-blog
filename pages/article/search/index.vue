@@ -10,16 +10,8 @@
         label-key="name"
         value-key="_id"
       ></filter-search>
-      <filter-search
-        v-model="formData.tag"
-        :options="tagList"
-        @on-change="handleChangeTag"
-        multiple
-        title="标签"
-        icon="iconbiaoqian"
-        label-key="name"
-        value-key="_id"
-      ></filter-search>
+      <filter-search v-model="formData.tag" :options="tagList" @on-change="handleChangeTag" multiple title="标签" icon="iconbiaoqian" label-key="name" value-key="_id">
+      </filter-search>
     </div>
     <div class="z-row blog-mobile">
       <div v-loading="isLoading" class="z-col-md-42 z-col-xl-45">
@@ -94,6 +86,25 @@ export default {
       return this.categoryList.filter((item) => item.value !== '/')
     }
   },
+  watch: {
+    $route: {
+      deep: true,
+      handler() {
+        const { keyword, tag, author } = this.$route.query
+        if (keyword) {
+          this.formData.keyword = keyword
+        }
+        if (author) {
+          this.formData.author = author
+        }
+        if (tag) {
+          this.$set(this.formData, 'tag', [this.$route.query.tag])
+        }
+        this.page = 1
+        this.requestblogList()
+      }
+    }
+  },
   async asyncData({ app, query }) {
     const params = {
       page: 1,
@@ -112,9 +123,12 @@ export default {
   },
   mounted() {
     this.requestRankBlog()
-    const { keyword, tag } = this.$route.query
+    const { keyword, tag, author } = this.$route.query
     if (keyword) {
       this.formData.keyword = keyword
+    }
+    if (author) {
+      this.formData.author = author
     }
     if (tag) {
       this.$set(this.formData, 'tag', [this.$route.query.tag])

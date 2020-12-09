@@ -143,16 +143,26 @@ export default {
     margin: 10px 0 20px 0;
   }
   .avatar-preview-img {
+    position: relative;
     border-radius: 100%;
     box-sizing: border-box;
     margin: auto;
     display: block;
-    padding: 1px;
-    border: 1px solid rgba(0, 0, 0, 0.05);
     background-color: #fff;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    &::before {
+      content: ' ';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 100%;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+    }
   }
   .avatar-preview-img-large {
     width: 100px;

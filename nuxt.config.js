@@ -101,7 +101,7 @@ module.exports = {
    */
   proxy: {
     '/api': {
-      target: process.env.NODE_ENV === 'development' ? 'http://localhost:3000/' : 'https://mingme.net/',
+      target: process.env.NODE_ENV === 'development' ? 'https://mingme.net/' : 'https://mingme.net/',
       changeOrigin: true
     },
     '/douban/': {
@@ -140,7 +140,7 @@ module.exports = {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    extend (config, ctx) { }
   },
   server: {
     port: 8000, // default: 3000
