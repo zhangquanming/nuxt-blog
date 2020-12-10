@@ -16,16 +16,23 @@
               <div class="comments-mate-order">#{{ comments.orderIndex }}</div>
             </div>
             <div class="comments-content">{{ comments.content }}</div>
-            <div class="comments-address"><i class="iconfont iconweizhi"></i>{{ comments.address ? comments.address : '中国' }}</div>
+            <div class="comments-address"><i class="iconfont iconweizhi"></i>{{ comments.address ? comments.address : '可能在火星' }}</div>
             <ul v-if="comments.reply && comments.reply.length > 0" class="repay-list">
               <li v-for="repay in comments.reply" :key="repay.id" class="repay-list-item">
-                <div class="comments-mate">
-                  <span class="comments-mate-username">{{ repay.from ? repay.from.userName : '未知' }}</span>
-                  <span v-if="comments.from.userName === 'Mingme'" class="comments-mate-tag">站长</span>
-                  <span class="comments-mate-time">{{ repay.createdAt | dateFormatFilter('YYYY-MM-DD HH:mm:ss') }}</span>
+                <div class="comments-body">
+                  <div class="comments-user no-img-placeholder-colorful no-img-placeholder-horizon">
+                    <img v-if="repay.from" :src="repay.from ? repay.from.avatar : ''" class="comments-user-avatar" alt="用户头像" />
+                  </div>
+                  <div class="comments-main">
+                    <div class="comments-mate">
+                      <span class="comments-mate-username">{{ repay.from ? repay.from.userName : '未知' }}</span>
+                      <span v-if="repay.from.userName === 'Mingme'" class="comments-mate-tag">站长</span>
+                      <span class="comments-mate-time">{{ repay.createdAt | dateFormatFilter('YYYY-MM-DD HH:mm:ss') }}</span>
+                    </div>
+                    <div class="comments-content">{{ repay.content }}</div>
+                    <div class="comments-address"><i class="iconfont iconweizhi"></i>{{ repay.address ? repay.address : '可能在火星' }}</div>
+                  </div>
                 </div>
-                <div class="comments-content">{{ repay.content }}</div>
-                <div class="comments-address"><i class="iconfont iconweizhi"></i>{{ repay.address ? repay.address : '中国' }}</div>
               </li>
             </ul>
             <div v-if="commentId && commentId === comments.id" style="margin-top: 20px;">
