@@ -17,7 +17,7 @@
             <div class="section-module-img hidden-xs hidden-sm"></div>
             <div class="section-module-card">
               <section-card title="个人文章" icon="iconwenzhang1" path="/article">
-                采用 Nuxt.js 实现一套 ssr 博客系统，支持 macdown 边写作边预览。
+                采用 Nuxt.js 实现一套 SSR 博客系统，支持 markdown 边写作边预览。
               </section-card>
               <section-card title="前端资源" icon="iconlianjie" path="/resource">
                 前端添加资源链接，通过 puppeteer 爬取网站介绍，图片上传 ali-oss 阿里云。
