@@ -18,9 +18,7 @@
       <div class="comments-form-footer-btns">
         <button @blur="handleBlur" class="mo-btns">
           <i @click="handleClick" class="iconfont iconsmile"></i>
-          <no-ssr>
-            <v-emoji-picker v-show="showDialog" @select="onSelectEmoji" :showSearch="false" :emojiSize="30" class="emoji-picker" lang="pt-BR" />
-          </no-ssr>
+          <emotion v-show="showDialog" @emotion="handleEmotion" class="emoji-picker" />
         </button>
         <span>{{ formData.content ? formData.content.length : 0 }} / 500</span>
       </div>
@@ -31,14 +29,14 @@
 
 <script>
 import Btn from '@/components/base/Btn/Btn'
-import { VEmojiPicker } from 'v-emoji-picker'
+import Emotion from '@/components/base/Emotion/Emotion'
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'CommentsForm',
   components: {
     Btn,
-    VEmojiPicker
+    Emotion
   },
   props: {
     type: {
@@ -73,8 +71,8 @@ export default {
     toogleDialogEmoji() {
       this.showDialog = !this.showDialog
     },
-    onSelectEmoji(emoji) {
-      this.formData.content += emoji.data
+    handleEmotion(emoji) {
+      this.formData.content += `[${emoji.text}]`
     },
     /**
      * @desc 点击 表情按钮
@@ -357,7 +355,6 @@ export default {
         position: absolute;
         top: 40px;
         left: 0px;
-        height: 260px;
       }
     }
   }

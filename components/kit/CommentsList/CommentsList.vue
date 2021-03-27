@@ -15,7 +15,7 @@
               <span v-else @click="handleRepay(comments)" class="comments-mate-repay">回复</span>
               <div class="comments-mate-order">#{{ comments.orderIndex }}</div>
             </div>
-            <div class="comments-content">{{ comments.content }}</div>
+            <div v-html="replaceEmotionText(comments.content)" class="comments-content"></div>
             <div class="comments-address"><i class="iconfont iconweizhi"></i>{{ comments.address ? comments.address : '可能在火星' }}</div>
             <ul v-if="comments.reply && comments.reply.length > 0" class="repay-list">
               <li v-for="repay in comments.reply" :key="repay.id" class="repay-list-item">
@@ -29,7 +29,7 @@
                       <span v-if="repay.from.userName === 'Mingme'" class="comments-mate-tag">站长</span>
                       <span class="comments-mate-time">{{ repay.createdAt | dateFormatFilter('YYYY-MM-DD HH:mm:ss') }}</span>
                     </div>
-                    <div class="comments-content">{{ repay.content }}</div>
+                    <div v-html="replaceEmotionText(repay.content)" class="comments-content"></div>
                     <div class="comments-address"><i class="iconfont iconweizhi"></i>{{ repay.address ? repay.address : '可能在火星' }}</div>
                   </div>
                 </div>
@@ -46,6 +46,7 @@
 </template>
 
 <script>
+import { replaceEmotionText } from '@/components/base/Emotion/emotion.js'
 import CommentsForm from '@/components/kit/CommentsForm/CommentsForm'
 export default {
   name: 'CommentsList',
@@ -71,6 +72,7 @@ export default {
     }
   },
   methods: {
+    replaceEmotionText,
     handleRepay(data) {
       this.commentId = data.id
       this.toUserId = data.from.id

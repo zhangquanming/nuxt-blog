@@ -38,6 +38,7 @@ import ZSwitch from '@/components/base/ZSwitch/ZSwitch'
 import Pagenation from '@/components/base/Pagenation/Pagenation'
 import Modal from '@/components/base/Modal/Modal'
 import AdminCommentFilter from '@/components/page/admin/AdminCommentFilter'
+import { replaceEmotionText } from '@/components/base/Emotion/emotion.js'
 
 import { mapGetters, mapActions } from 'vuex'
 
@@ -93,7 +94,14 @@ export default {
         {
           title: '内容',
           key: 'content',
-          align: 'left'
+          align: 'left',
+          render: (h, parama) => {
+            return h('div', {
+              domProps: {
+                innerHTML: parama.row.content ? replaceEmotionText(parama.row.content) : ''
+              }
+            })
+          }
         },
         {
           title: '回复',
@@ -226,7 +234,14 @@ export default {
         {
           title: '内容',
           key: 'content',
-          align: 'left'
+          align: 'left',
+          render: (h, parama) => {
+            return h('div', {
+              domProps: {
+                innerHTML: parama.row.content ? replaceEmotionText(parama.row.content) : ''
+              }
+            })
+          }
         },
         {
           title: '时间',
