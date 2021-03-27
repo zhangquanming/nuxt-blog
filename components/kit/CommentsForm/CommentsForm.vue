@@ -18,7 +18,7 @@
       <div class="comments-form-footer-btns">
         <button @blur="handleBlur" class="mo-btns">
           <i @click="handleClick" class="iconfont iconsmile"></i>
-          <emotion v-show="showDialog" @emotion="handleEmotion" class="emoji-picker" />
+          <Emotion v-show="showDialog" @emotion="handleEmotion" class="emoji-picker" />
         </button>
         <span>{{ formData.content ? formData.content.length : 0 }} / 500</span>
       </div>
@@ -29,7 +29,7 @@
 
 <script>
 import Btn from '@/components/base/Btn/Btn'
-import Emotion from '@/components/base/Emotion/Emotion'
+import Emotion from '@/components/base/Emotion/Emotion.vue'
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
