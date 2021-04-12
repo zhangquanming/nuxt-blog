@@ -41,7 +41,7 @@
         <div class="z-container">
           <ul class="contact-list">
             <li class="contact-list-item">
-              <a class="contact-list-item-link contact-list-item-link-github" target="_blank" rel="noopener noreferrer" href="https://github.com/zhangquanming/nuxt-blog">
+              <a class="contact-list-item-link contact-list-item-link-github" target="_blank" rel="noopener noreferrer" href="https://github.com/zhangquanming">
                 <icon :size="40" type="icongithub" class="contact-list-item-icon"></icon>
               </a>
             </li>
@@ -154,7 +154,7 @@ export default {
   },
   methods: {
     handleGoGithub() {
-      window.open('https://github.com/zhangquanming/nuxt-blog', '_blank')
+      window.open('https://github.com/zhangquanming', '_blank')
     },
     handleGoBlog() {
       this.$router.push('/article')

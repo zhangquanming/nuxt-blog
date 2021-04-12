@@ -32,9 +32,9 @@
           <div class="social">
             <div class="title">Follow us</div>
             <div class="list">
-              <a target="_blank" href="https://github.com/zhangquanming/nuxt-blog"><i class="iconfont icongithub"></i></a>
-              <a target="_blank" href="https://juejin.im/user/448256473565480"><i class="iconfont iconjuejin-logo"></i></a>
-              <a target="_blank" href="https://segmentfault.com/u/mingme"><i class="iconfont iconsegmentfault"></i></a>
+              <a target="_blank" rel="noopener noreferrer" href="https://github.com/zhangquanming"><i class="iconfont icongithub"></i></a>
+              <a target="_blank" rel="noopener noreferrer" href="https://juejin.im/user/448256473565480"><i class="iconfont iconjuejin-logo"></i></a>
+              <a target="_blank" rel="noopener noreferrer" href="https://segmentfault.com/u/mingme"><i class="iconfont iconsegmentfault"></i></a>
             </div>
           </div>
         </div>
