@@ -1,12 +1,8 @@
 <template>
   <div class="page">
     <billboard :poster="banneImg" poster-blue="0" height="640px" is-home-page>
-      <div class="page-slogan">
-        <rotating-text :words="words" width="2em" />，终将收获更好的自己
-      </div>
-      <div class="page-slogan-sub">
-        <rotating-text :words="words2" width="3.8em" />, will eventually harvest better oneself.
-      </div>
+      <div class="page-slogan"><rotating-text :words="words" width="2em" />，终将收获更好的自己</div>
+      <div class="page-slogan-sub"><rotating-text :words="words2" width="3.8em" />, will eventually harvest better oneself.</div>
       <div class="banner-btn-wrap">
         <a @click="handleGoGithub" class="banner-btn bbtn1"><i class="iconfont icongithub"></i><span>Github</span></a>
         <a @click="handleGoBlog" class="banner-btn bbtn2"><span>进入博客</span></a>
@@ -107,7 +103,7 @@ export default {
     SectionTitle,
     SectionCard
   },
-  data () {
+  data() {
     return {
       loading: true,
       banneImg,
@@ -150,21 +146,21 @@ export default {
       links: []
     }
   },
-  async asyncData ({ app }) {
+  async asyncData({ app }) {
     const res = await app.$myApi.links.index({ limit: 1000 })
     return {
       links: res.result.docs
     }
   },
   methods: {
-    handleGoGithub () {
+    handleGoGithub() {
       window.open('https://github.com/zhangquanming', '_blank')
     },
-    handleGoBlog () {
+    handleGoBlog() {
       this.$router.push('/article')
     }
   },
-  head () {
+  head() {
     return {
       title: '明么的博客 - 坚持终将收获更好的自己'
     }
