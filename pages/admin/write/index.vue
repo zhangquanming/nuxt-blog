@@ -207,7 +207,8 @@ export default {
     requestArticle() {
       const params = {
         ...this.formData,
-        author: this.userInfo._id
+        author: this.userInfo._id,
+        status: false
       }
       this.isPostBlogLoading = true
       this.$myApi.blogs
@@ -230,7 +231,8 @@ export default {
         ...this.formData,
         id: this.articleId,
         blogId: this.articleId,
-        author: this.userInfo._id
+        author: this.userInfo._id,
+        status: false
       }
       this.isPostBlogLoading = true
       this.$myApi.blogs
