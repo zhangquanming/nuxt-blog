@@ -74,6 +74,7 @@ export default {
                     src: parama.row.poster
                   },
                   style: {
+                    height: '50px',
                     width: '80px'
                   }
                 })
@@ -152,7 +153,7 @@ export default {
         //   key: 'comment',
         // },
         {
-          title: '状态',
+          title: '审核状态',
           render: (h, parama) => {
             return h(ZSwitch, {
               props: {

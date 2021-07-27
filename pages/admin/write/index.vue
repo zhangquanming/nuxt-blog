@@ -35,9 +35,9 @@
 
     <md-editor v-model="formData.content">
       <div>
-        <span>是否上架：</span>
-        <z-switch v-model="formData.status" title="是否公开" style="margin-right: 20px;" />
-        <btn :loading="isPostBlogLoading" @click="handleSubmit" theme="gradient" title="预览模式">确认发布</btn>
+        <!-- <span>是否公开</span>
+        <z-switch v-model="formData.status" title="是否公开" style="margin-right: 20px;" /> -->
+        <btn :loading="isPostBlogLoading" @click="handleSubmit" theme="gradient" title="确认发布">确认发布</btn>
       </div>
     </md-editor>
   </div>
@@ -48,7 +48,7 @@ import ZSelect from '@/components/base/ZSelect/ZSelect'
 import Btn from '@/components/base/Btn/Btn'
 import Upload from '@/components/base/Upload/Upload'
 import MdEditor from '@/components/kit/MdEditor/MdEditor'
-import ZSwitch from '@/components/base/ZSwitch/ZSwitch'
+// import ZSwitch from '@/components/base/ZSwitch/ZSwitch'
 
 import { mapGetters, mapActions } from 'vuex'
 
@@ -59,8 +59,8 @@ export default {
     ZSelect,
     Btn,
     Upload,
-    MdEditor,
-    ZSwitch
+    MdEditor
+    // ZSwitch
   },
   data() {
     return {
@@ -68,7 +68,7 @@ export default {
       isBlogDetailLoading: false,
       formData: {
         poster: '',
-        status: true
+        status: false
       },
       isTagLoading: false,
       articleId: this.$route.query.articleId,
@@ -214,6 +214,7 @@ export default {
         .create(params)
         .then((res) => {
           this.isPostBlogLoading = false
+          this.$toast.success('发布成功，将在审核后公开展示...')
           this.$router.push({ path: `/article/detail/${res.result._id}` })
         })
         .catch(() => {
@@ -236,6 +237,7 @@ export default {
         .update(params)
         .then((res) => {
           this.isPostBlogLoading = false
+          this.$toast.success('修改成功，将在审核后公开展示...')
           this.$router.push({ path: `/article/detail/${res.result._id}` })
         })
         .catch(() => {
