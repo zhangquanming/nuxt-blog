@@ -30,7 +30,7 @@
         <textarea v-model="mdText" @input="handleInput"></textarea>
       </div>
       <div class="md-editor-preview">
-        <md-preview :content="value" />
+        <md-preview :content="value" :isBgShow="true" />
       </div>
     </div>
   </div>
@@ -148,6 +148,7 @@ export default {
     left: 0;
   }
   &-preview {
+    padding: 10px;
     right: 0;
   }
 
