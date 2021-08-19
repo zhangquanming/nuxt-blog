@@ -77,15 +77,18 @@ export default {
     parentPath() {
       return this.$route.path.split('/')[1]
     },
-    firstParagraphIndex() {
-      let index = this.topic.content.indexOf('\n', 100)
-      if (index === -1) {
-        index = this.topic.content.indexOf('\n', 0)
-      }
-      return index
-    },
     firstParagraph() {
-      return this.topic.content.substring(0, this.firstParagraphIndex)
+      const str = this.topic.content
+        .replace(/```([\s\S]*?)```[\s]*/g, '') // 全局匹配代码块
+        .replace(/!\[[\s\S]*?\]\([\s\S]*?\)/g, '') // 全局匹配图片
+        .replace(/(#+)(.*)/g, '') // 全局匹配标题
+
+      let index = str.indexOf('\n', 100)
+      if (index === -1) {
+        index = str.indexOf('\n', 0)
+      }
+
+      return str.slice(0, index) + '\n ......'
     }
   }
 }
@@ -197,8 +200,8 @@ export default {
     margin: 20px 0;
     .topic-img-wrap {
       float: left;
-      width: 300px;
-      margin-right: 15px;
+      width: 315px;
+      padding-right: 15px;
       // margin-bottom: 5px;
       overflow: hidden;
       background-color: @colorBg;
@@ -230,6 +233,7 @@ export default {
         width: 100%;
         height: auto;
         float: none;
+        padding-right: 0;
         margin-bottom: 10px;
       }
     }
