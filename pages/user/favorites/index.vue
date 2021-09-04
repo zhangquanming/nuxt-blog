@@ -99,7 +99,7 @@ export default {
             this.isLoading = false
           })
       } else {
-        this.$toast.info('请登录')
+        this.$toast.info('请登录', { icon: 'iconfont toasted-icon iconinfo' })
         this.toggleSignInModal(true)
       }
     },
@@ -116,7 +116,7 @@ export default {
       this.$myApi.blogs
         .PostBlogUnLike(params)
         .then(() => {
-          this.$toast.error('已取消赞！')
+          this.$toast.error('已取消赞！', { icon: 'iconfont toasted-icon iconerror' })
           this.requestblogList()
           this.isUnLikeLoading = false
           this.handleHideUnlikeModal()

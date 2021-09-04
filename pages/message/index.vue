@@ -58,7 +58,7 @@ export default {
      * @desc 评论发表成功 回调
      */
     handleCommentsSuccess() {
-      this.$toast.success('发布成功，将在审核后展示...')
+      this.$toast.success('发布成功，将在审核后展示...', { icon: 'iconfont toasted-icon iconsuccess' })
       this.requestCommentsList()
     },
     /**

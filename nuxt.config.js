@@ -81,7 +81,8 @@ module.exports = {
     theme: 'bubble',
     position: 'top-center',
     duration: 3000,
-    singleton: true
+    singleton: true,
+    iconPack: 'custom-class'
   },
   /*
    ** Axios module configuration
@@ -140,7 +141,7 @@ module.exports = {
     /*
      ** You can extend webpack config here
      */
-    extend (config, ctx) { }
+    extend(config, ctx) {}
   },
   server: {
     port: 8000, // default: 3000

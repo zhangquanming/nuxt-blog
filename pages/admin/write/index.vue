@@ -141,14 +141,14 @@ export default {
      * @desc 上传 格式出错
      */
     handleFormatError(file) {
-      this.$toast.error(`文件 ${file.name} 格式不对, 请选择 jpg or png.`, { duration: 4000 })
+      this.$toast.error(`文件 ${file.name} 格式不对, 请选择 jpg or png.`, { icon: 'iconfont toasted-icon iconerror', duration: 4000 })
     },
 
     /**
      * @desc 上传 大小限制
      */
     handleMaxSize(file) {
-      this.$toast.error(`文件 ${file.name} 太大, 不可超过2M`)
+      this.$toast.error(`文件 ${file.name} 太大, 不可超过2M`, { icon: 'iconfont toasted-icon iconerror' })
     },
 
     /**
@@ -164,20 +164,20 @@ export default {
     checkIsReadyPost() {
       const { title, category, tag, content } = this.formData
       if (!this.userInfo) {
-        this.$toast.info('请登录')
+        this.$toast.info('请登录', { icon: 'iconfont toasted-icon iconinfo' })
         this.toggleSignInModal(true)
       } else if (!title) {
-        this.$toast.error('请填写文章标题')
+        this.$toast.error('请填写文章标题', { icon: 'iconfont toasted-icon iconerror' })
       } else if (!category) {
-        this.$toast.error('请选择文章分类')
+        this.$toast.error('请选择文章分类', { icon: 'iconfont toasted-icon iconerror' })
       } else if (!tag) {
-        this.$toast.error('请选择文章标签')
+        this.$toast.error('请选择文章标签', { icon: 'iconfont toasted-icon iconerror' })
       }
       // else if (!poster) {
-      //   this.$toast.error('请选择文章海报');
+      //   this.$toast.error('请选择文章海报', { icon: 'iconfont toasted-icon iconerror' });
       // }
       else if (!content) {
-        this.$toast.error('请填写文章内容')
+        this.$toast.error('请填写文章内容', { icon: 'iconfont toasted-icon iconerror' })
       } else {
         return true
       }
@@ -211,12 +211,12 @@ export default {
     handleShowBlogAttrModal() {
       const { title, content } = this.formData
       if (!this.userInfo) {
-        this.$toast.info('请登录')
+        this.$toast.info('请登录', { icon: 'iconfont toasted-icon iconinfo' })
         this.toggleSignInModal(true)
       } else if (!title) {
-        this.$toast.error('请填写文章标题')
+        this.$toast.error('请填写文章标题', { icon: 'iconfont toasted-icon iconerror' })
       } else if (!content) {
-        this.$toast.error('请填写文章内容')
+        this.$toast.error('请填写文章内容', { icon: 'iconfont toasted-icon iconerror' })
       } else {
         this.isShowBlogAttrModal = true
       }
@@ -246,7 +246,7 @@ export default {
         .create(params)
         .then((res) => {
           this.isPostBlogLoading = false
-          this.$toast.success('发布成功，将在审核后公开展示...')
+          this.$toast.success('发布成功，将在审核后公开展示...', { icon: 'iconfont toasted-icon iconsuccess' })
           this.$router.push({ path: `/article/detail/${res.result._id}` })
         })
         .catch(() => {
@@ -270,7 +270,7 @@ export default {
         .update(params)
         .then((res) => {
           this.isPostBlogLoading = false
-          this.$toast.success('修改成功，将在审核后公开展示...')
+          this.$toast.success('修改成功，将在审核后公开展示...', { icon: 'iconfont toasted-icon iconsuccess' })
           this.$router.push({ path: `/article/detail/${res.result._id}` })
         })
         .catch(() => {

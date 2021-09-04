@@ -349,7 +349,7 @@ export default {
         .update(params)
         .then(() => {
           this.isToggleStatusLoading = false
-          this.$toast.success('操作成功！')
+          this.$toast.success('操作成功！', { icon: 'iconfont toasted-icon iconsuccess' })
           row.status = value
         })
         .catch(() => {
@@ -367,7 +367,7 @@ export default {
         .then(() => {
           this.isDeleteLoading = false
           this.handleHideDeleteCommentModal()
-          this.$toast.success('删除成功！')
+          this.$toast.success('删除成功！', { icon: 'iconfont toasted-icon iconsuccess' })
           this.requestCommentList()
         })
         .catch(() => {
@@ -386,7 +386,7 @@ export default {
           this.isDeleteLoading = false
           this.handleHideDeleteCommentModal()
           this.handleHideReplyModal()
-          this.$toast.success('删除成功！')
+          this.$toast.success('删除成功！', { icon: 'iconfont toasted-icon iconsuccess' })
           this.requestCommentList()
         })
         .catch(() => {
@@ -414,10 +414,10 @@ export default {
         if (this.userInfo.userName === 'Mingme') {
           isUserAuth = true
         } else {
-          this.$toast.error('无操作权限！')
+          this.$toast.error('无操作权限！', { icon: 'iconfont toasted-icon iconerror' })
         }
       } else {
-        this.$toast.info('请登录')
+        this.$toast.info('请登录', { icon: 'iconfont toasted-icon iconinfo' })
         this.toggleSignInModal(true)
       }
       return isUserAuth

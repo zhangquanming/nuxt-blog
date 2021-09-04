@@ -83,14 +83,14 @@ export default {
      * @desc 上传 格式出错
      */
     handleFormatError(file) {
-      this.$toast.error(`文件 ${file.name} 格式不对, 请选择 jpg or png.`, { duration: 4000 })
+      this.$toast.error(`文件 ${file.name} 格式不对, 请选择 jpg or png.`, { icon: 'iconfont toasted-icon iconerror', duration: 4000 })
     },
 
     /**
      * @desc 上传 大小限制
      */
     handleMaxSize(file) {
-      this.$toast.error(`文件 ${file.name} 太大, 不可超过2M`)
+      this.$toast.error(`文件 ${file.name} 太大, 不可超过2M`, { icon: 'iconfont toasted-icon iconerror' })
     },
 
     /**

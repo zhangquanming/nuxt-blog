@@ -55,7 +55,7 @@ export default {
           sessionStorage.clear()
           this.handleChangeUserInfo(null)
           this.toggleSignInModal(true)
-          this.$toast.info('请查收邮件，重新登录')
+          this.$toast.info('请查收邮件，重新登录', { icon: 'iconfont toasted-icon iconinfo' })
           this.$router.push('/')
         })
         .catch(() => {
@@ -69,7 +69,7 @@ export default {
       if (this.nameOrmail) {
         this.requestForgetPasswrod()
       } else {
-        this.$toast.error('请填写用户名或者邮箱')
+        this.$toast.error('请填写用户名或者邮箱', { icon: 'iconfont toasted-icon iconerror' })
       }
     }
   },

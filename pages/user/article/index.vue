@@ -244,7 +244,7 @@ export default {
             this.isLoading = false
           })
       } else {
-        this.$toast.info('请登录')
+        this.$toast.info('请登录', { icon: 'iconfont toasted-icon iconinfo' })
         this.toggleSignInModal(true)
       }
     },
@@ -263,7 +263,7 @@ export default {
         .update(params)
         .then(() => {
           this.isToggleStatusLoading = false
-          this.$toast.success('操作成功！')
+          this.$toast.success('操作成功！', { icon: 'iconfont toasted-icon iconsuccess' })
           row.status = value
         })
         .catch(() => {
@@ -281,7 +281,7 @@ export default {
         .then(() => {
           this.isDeleteLoading = false
           this.handleHideDeleteBlogModal()
-          this.$toast.success('删除成功！')
+          this.$toast.success('删除成功！', { icon: 'iconfont toasted-icon iconsuccess' })
           this.requestblogList()
         })
         .catch(() => {

@@ -120,7 +120,7 @@ export default {
         .PostChangePwd(params)
         .then((res) => {
           this.isEditLoading = false
-          this.$toast.success('修改成功！')
+          this.$toast.success('修改成功！', { icon: 'iconfont toasted-icon iconsuccess' })
           this.$store.dispatch('changeUserInfo', res.result)
           // this.$store.dispatch('changeToken', res.result.token)
         })
@@ -147,32 +147,32 @@ export default {
       const { passwordOld, password, passwordConfirm } = this.formData
       return new Promise((resolve) => {
         if (!this.userInfo || !this.userInfo._id) {
-          this.$toast.error('请登录')
+          this.$toast.error('请登录', { icon: 'iconfont toasted-icon iconerror' })
           this.toggleSignInModal(true)
           return resolve(false)
         }
         if (!passwordOld) {
-          this.$toast.error('请填写当前密码！')
+          this.$toast.error('请填写当前密码！', { icon: 'iconfont toasted-icon iconerror' })
           return resolve(false)
         }
         if (!password) {
-          this.$toast.error('请填写新密码！')
+          this.$toast.error('请填写新密码！', { icon: 'iconfont toasted-icon iconerror' })
           return resolve(false)
         }
         if (password.length < 6) {
-          this.$toast.error('新密码至少为 6 位')
+          this.$toast.error('新密码至少为 6 位', { icon: 'iconfont toasted-icon iconerror' })
           return resolve(false)
         }
         if (this.passwordLeval < 2) {
-          this.$toast.error('新密码强度不够')
+          this.$toast.error('新密码强度不够', { icon: 'iconfont toasted-icon iconerror' })
           return resolve(false)
         }
         if (!passwordConfirm) {
-          this.$toast.error('请再次确认密码')
+          this.$toast.error('请再次确认密码', { icon: 'iconfont toasted-icon iconerror' })
           return resolve(false)
         }
         if (password !== passwordConfirm) {
-          this.$toast.error('密码不一致')
+          this.$toast.error('密码不一致', { icon: 'iconfont toasted-icon iconerror' })
           return resolve(false)
         }
         return resolve(true)

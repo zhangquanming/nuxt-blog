@@ -82,14 +82,14 @@ export default {
      * @desc 上传 格式出错
      */
     handleFormatError(file) {
-      this.$toast.error(`文件 ${file.name} 格式不对, 请选择 JPG、GIF、JPEG or PNG.`, { duration: 4000 })
+      this.$toast.error(`文件 ${file.name} 格式不对, 请选择 JPG、GIF、JPEG or PNG.`, { icon: 'iconfont toasted-icon iconerror', duration: 4000 })
     },
 
     /**
      * @desc 上传 大小限制
      */
     handleMaxSize(file) {
-      this.$toast.error(`文件 ${file.name} 太大, 不可超过2M`)
+      this.$toast.error(`文件 ${file.name} 太大, 不可超过2M`, { icon: 'iconfont toasted-icon iconerror' })
     },
 
     /**
@@ -104,7 +104,7 @@ export default {
      */
     handleConfirm() {
       if (!this.formData.avatar) {
-        this.$toast.info('请先上传图片')
+        this.$toast.info('请先上传图片', { icon: 'iconfont toasted-icon iconinfo' })
         return
       }
       const params = {
@@ -117,7 +117,7 @@ export default {
         .update(params)
         .then((res) => {
           this.isEditLoading = false
-          this.$toast.success('修改成功！')
+          this.$toast.success('修改成功！', { icon: 'iconfont toasted-icon iconsuccess' })
           this.$store.dispatch('changeUserInfo', res.result)
           // this.$store.dispatch('changeToken', res.result.token)
         })

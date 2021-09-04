@@ -105,23 +105,23 @@ export default {
     handleValidete() {
       const { userName, phone, email, briefDesc } = this.formData
       if (!userName) {
-        this.$toast.error('请填写用户名！')
+        this.$toast.error('请填写用户名！', { icon: 'iconfont toasted-icon iconerror' })
         return false
       }
       if (phone && !validatorsExp.phone.test(phone)) {
-        this.$toast.error('请正确填写手机号！')
+        this.$toast.error('请正确填写手机号！', { icon: 'iconfont toasted-icon iconerror' })
         return false
       }
       if (!email) {
-        this.$toast.error('请填写邮箱！')
+        this.$toast.error('请填写邮箱！', { icon: 'iconfont toasted-icon iconerror' })
         return false
       }
       if (!validatorsExp.email.test(email)) {
-        this.$toast.error('请正确填写邮箱！')
+        this.$toast.error('请正确填写邮箱！', { icon: 'iconfont toasted-icon iconerror' })
         return false
       }
       if (briefDesc && briefDesc.length > 100) {
-        this.$toast.error('请用不超过100个字介绍自己')
+        this.$toast.error('请用不超过100个字介绍自己', { icon: 'iconfont toasted-icon iconerror' })
         return false
       }
       return true
@@ -141,7 +141,7 @@ export default {
         .update(params)
         .then((res) => {
           this.isEditLoading = false
-          this.$toast.success('修改成功！')
+          this.$toast.success('修改成功！', { icon: 'iconfont toasted-icon iconsuccess' })
           this.$store.dispatch('changeUserInfo', res.result)
           // this.$store.dispatch('changeToken', res.result.token)
         })

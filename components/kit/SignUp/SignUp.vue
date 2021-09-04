@@ -59,7 +59,7 @@ export default {
           this.$store.dispatch('changeUserInfo', res.result)
           this.$store.dispatch('changeToken', res.result.token)
           this.isSignUpLoading = false
-          this.$toast.success('注册成功')
+          this.$toast.success('注册成功', { icon: 'iconfont toasted-icon iconsuccess' })
           this.handleCloseModel()
         })
         .catch(() => {
@@ -93,27 +93,27 @@ export default {
       const { userName, email, password, confirmPassword } = this.formData
       return new Promise((resolve) => {
         if (!userName) {
-          this.$toast.error('请填写昵称！')
+          this.$toast.error('请填写昵称！', { icon: 'iconfont toasted-icon iconerror' })
           return resolve(false)
         }
         if (!validatorsExp.email.test(email)) {
-          this.$toast.error('请正确填写邮箱！')
+          this.$toast.error('请正确填写邮箱！', { icon: 'iconfont toasted-icon iconerror' })
           return resolve(false)
         }
         if (!password) {
-          this.$toast.error('请填写密码！')
+          this.$toast.error('请填写密码！', { icon: 'iconfont toasted-icon iconerror' })
           return resolve(false)
         }
         if (password.length < 6) {
-          this.$toast.error('密码至少为 6 位')
+          this.$toast.error('密码至少为 6 位', { icon: 'iconfont toasted-icon iconerror' })
           return resolve(false)
         }
         if (!confirmPassword) {
-          this.$toast.error('请再次确认密码')
+          this.$toast.error('请再次确认密码', { icon: 'iconfont toasted-icon iconerror' })
           return resolve(false)
         }
         if (password !== confirmPassword) {
-          this.$toast.error('密码不一致')
+          this.$toast.error('密码不一致', { icon: 'iconfont toasted-icon iconerror' })
           return resolve(false)
         }
         return resolve(true)

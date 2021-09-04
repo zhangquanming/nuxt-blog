@@ -134,7 +134,7 @@ export default {
      * @desc 评论发表成功 回调
      */
     handleCommentsSuccess() {
-      this.$toast.success('添加评论成功！')
+      this.$toast.success('添加评论成功！', { icon: 'iconfont toasted-icon iconsuccess' })
       this.requestCommentsList()
     },
     /**
