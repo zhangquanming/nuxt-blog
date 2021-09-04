@@ -3,12 +3,14 @@
     <div class="z-container">
       <div class="user-page-wrap">
         <div class="user-page-side">
-          <div class="hidden-xs">
-            <user-brief />
+          <div class="page-side-position">
+            <div class="hidden-xs">
+              <user-brief />
+            </div>
+            <card :padding="0" style="margin-bottom: 0;">
+              <user-menu></user-menu>
+            </card>
           </div>
-          <card :padding="0" style="margin-bottom: 0;">
-            <user-menu></user-menu>
-          </card>
         </div>
         <div class="user-page-main">
           <nuxt />
@@ -49,9 +51,11 @@ export default {
 .user-page-side {
   flex: none;
   width: 240px;
-  min-height: 100%;
   margin-right: 10px;
-  background: #fff;
+  .page-side-position {
+    position: sticky;
+    top: 80px;
+  }
 }
 .user-page-main {
   flex: 1;

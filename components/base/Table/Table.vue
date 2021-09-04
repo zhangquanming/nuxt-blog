@@ -127,6 +127,7 @@ export default {
     td {
       font-size: 12px;
       padding: 8px 8px;
+      white-space: nowrap;
     }
     th {
       padding: 8px 8px;

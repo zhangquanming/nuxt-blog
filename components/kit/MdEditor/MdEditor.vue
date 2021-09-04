@@ -63,7 +63,7 @@ export default {
   },
   watch: {
     value(value, oldValue) {
-      if (!oldValue) {
+      if (value) {
         this.mdText = value
       }
     }
@@ -76,7 +76,7 @@ export default {
       clearTimeout(timer)
       timer = setTimeout(() => {
         this.$emit('input', e.target.value)
-      }, 300)
+      }, 500)
     },
 
     /**
@@ -115,8 +115,6 @@ export default {
   &-wrap {
     position: relative;
     border: 1px solid @colorBorder;
-    margin-top: 5px;
-    border-radius: 5px;
     background: #fff;
     display: flex;
     flex: 1;
