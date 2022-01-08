@@ -11,7 +11,7 @@
           <div class="footer-copyright">
             <div>转载内容版权归作者及来源网站所有，本站原创内容转载请注明来源。</div>
             <div>
-              <span>Copyright © 2020-2021 mingme.net All Rights Reserved.</span>
+              <span>Copyright © 2020-2022 mingme.net All Rights Reserved.</span>
               <a target="_blank" href="https://beian.miit.gov.cn/">京ICP备 2020042020号.</a>
               <span class="gwab">
                 <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802033443">
