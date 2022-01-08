@@ -86,7 +86,7 @@ export default {
             this.isCommentsListLoading = false
           })
       } else {
-        this.$toast.info('请登录')
+        this.$toast.info('请登录', { icon: 'iconfont toasted-icon iconinfo' })
         this.toggleSignInModal(true)
       }
     }

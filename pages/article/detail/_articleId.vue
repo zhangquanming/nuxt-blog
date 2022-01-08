@@ -12,8 +12,8 @@
             </div>
           </billboard>
         </card>
-        <card padding="0" style="margin-bottom: 20px;">
-          <md-preview :content="blogResult.content" />
+        <card padding="20px" style="margin-bottom: 20px;">
+          <md-preview :content="blogResult.content" :isBgShow="true" />
         </card>
         <card>
           <comments-form @on-success="handleCommentsSuccess"></comments-form>
@@ -134,7 +134,7 @@ export default {
      * @desc 评论发表成功 回调
      */
     handleCommentsSuccess() {
-      this.$toast.success('添加评论成功！')
+      this.$toast.success('添加评论成功！', { icon: 'iconfont toasted-icon iconsuccess' })
       this.requestCommentsList()
     },
     /**

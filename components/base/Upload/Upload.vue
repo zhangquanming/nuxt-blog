@@ -144,7 +144,7 @@ export default {
     async post(file) {
       // check action
       if (!this.action) {
-        this.$toast.error('请传 action 或者 beforeUpload')
+        this.$toast.error('请传 action 或者 beforeUpload', { icon: 'iconfont toasted-icon iconerror' })
         return false
       }
 

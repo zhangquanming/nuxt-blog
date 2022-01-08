@@ -1,5 +1,5 @@
 <template>
-  <div :style="styles" v-html="articleHtml" v-highlight class="markdown-body"></div>
+  <div :style="styles" v-html="articleHtml" v-highlight :class="['markdown-body', { bg: isBgShow }]"></div>
 </template>
 
 <script>
@@ -7,7 +7,7 @@ import marked from 'marked'
 import highlight from 'highlight.js'
 
 import 'github-markdown-css/github-markdown.css'
-import 'highlight.js/styles/googlecode.css'
+import 'highlight.js/styles/atom-one-dark.css'
 
 marked.setOptions({
   renderer: new marked.Renderer(),
@@ -36,7 +36,11 @@ export default {
     },
     padding: {
       type: [String, Number],
-      default: '20px'
+      default: '10px'
+    },
+    isBgShow: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {

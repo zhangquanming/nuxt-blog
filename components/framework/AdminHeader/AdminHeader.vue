@@ -22,7 +22,7 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 0 16px;
+  padding: 0 50px;
   background: @colorTextTitle;
 }
 </style>

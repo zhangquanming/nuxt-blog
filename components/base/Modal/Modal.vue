@@ -1,6 +1,6 @@
 <template>
   <transition name="modal">
-    <div @click="$emit('close')" class="modal-mask">
+    <div @click="$emit('close', 'mask')" class="modal-mask">
       <div class="modal-wrapper">
         <div :style="modalContainerStyle" @click.stop="" class="modal-container">
           <div class="modal-header">
@@ -15,7 +15,7 @@
             <slot name="footer"></slot>
           </div>
 
-          <a @click="$emit('close')" class="mode-close" href="javascript:;">
+          <a @click="$emit('close', 'btn')" class="mode-close" href="javascript:;">
             <i class="iconfont iconclose"></i>
           </a>
         </div>

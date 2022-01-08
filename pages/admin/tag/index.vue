@@ -189,7 +189,7 @@ export default {
         .create(params)
         .then(() => {
           this.isAddLoading = false
-          this.$toast.success('添加成功！')
+          this.$toast.success('添加成功！', { icon: 'iconfont toasted-icon iconsuccess' })
           this.handleHideTagModal()
           this.requestTagList()
           this.handleGetTagList()
@@ -213,7 +213,7 @@ export default {
         .update(params)
         .then(() => {
           this.isEditLoading = false
-          this.$toast.success('修改成功！')
+          this.$toast.success('修改成功！', { icon: 'iconfont toasted-icon iconsuccess' })
           this.handleHideTagModal()
           this.requestTagList()
           this.handleGetTagList()
@@ -232,7 +232,7 @@ export default {
         .delete(this.currentRow._id)
         .then(() => {
           this.isDeleteLoading = false
-          this.$toast.success('删除成功！')
+          this.$toast.success('删除成功！', { icon: 'iconfont toasted-icon iconsuccess' })
           this.handleHideDeleteModal()
           this.requestTagList()
           this.handleGetTagList()
@@ -303,10 +303,10 @@ export default {
      */
     handleCheckFormData() {
       if (!this.formData.name) {
-        this.$toast.error('请填写标签名称')
+        this.$toast.error('请填写标签名称', { icon: 'iconfont toasted-icon iconerror' })
         return false
       } else if (!this.formData.value) {
-        this.$toast.error('请填写标签属性值')
+        this.$toast.error('请填写标签属性值', { icon: 'iconfont toasted-icon iconerror' })
         return false
       }
       return true
@@ -321,10 +321,10 @@ export default {
         if (this.userInfo.userName === 'Mingme') {
           isUserAuth = true
         } else {
-          this.$toast.error('无操作权限！')
+          this.$toast.error('无操作权限！', { icon: 'iconfont toasted-icon iconerror' })
         }
       } else {
-        this.$toast.info('请登录')
+        this.$toast.info('请登录', { icon: 'iconfont toasted-icon iconinfo' })
         this.toggleSignInModal(true)
       }
       return isUserAuth

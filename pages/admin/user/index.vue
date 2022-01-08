@@ -215,7 +215,7 @@ export default {
         .create(params)
         .then(() => {
           this.isAddLoading = false
-          this.$toast.success('添加成功！')
+          this.$toast.success('添加成功！', { icon: 'iconfont toasted-icon iconsuccess' })
           this.handleHideUserModal()
           this.requestUserList()
         })
@@ -238,7 +238,7 @@ export default {
         .update(params)
         .then(() => {
           this.isEditLoading = false
-          this.$toast.success('修改成功！')
+          this.$toast.success('修改成功！', { icon: 'iconfont toasted-icon iconsuccess' })
           this.handleHideUserModal()
           this.requestUserList()
         })
@@ -256,7 +256,7 @@ export default {
         .delete(this.currentRow._id)
         .then(() => {
           this.isDeleteLoading = false
-          this.$toast.success('删除成功！')
+          this.$toast.success('删除成功！', { icon: 'iconfont toasted-icon iconsuccess' })
           this.handleHideDeleteModal()
           this.requestUserList()
         })
@@ -328,31 +328,31 @@ export default {
       const { userName, phone, email, password, confirmPassword } = this.formData
       const isAddMode = this.editMode === 'add'
       if (!userName) {
-        this.$toast.error('请填写用户名！')
+        this.$toast.error('请填写用户名！', { icon: 'iconfont toasted-icon iconerror' })
         return false
       }
       if (phone && !validatorsExp.phone.test(phone)) {
-        this.$toast.error('请正确填写手机号！')
+        this.$toast.error('请正确填写手机号！', { icon: 'iconfont toasted-icon iconerror' })
         return false
       }
       if (!validatorsExp.email.test(email)) {
-        this.$toast.error('请正确填写邮箱！')
+        this.$toast.error('请正确填写邮箱！', { icon: 'iconfont toasted-icon iconerror' })
         return false
       }
       if (isAddMode && !password) {
-        this.$toast.error('请填写密码！')
+        this.$toast.error('请填写密码！', { icon: 'iconfont toasted-icon iconerror' })
         return false
       }
       if (password && password.length < 6) {
-        this.$toast.error('密码至少为 6 位')
+        this.$toast.error('密码至少为 6 位', { icon: 'iconfont toasted-icon iconerror' })
         return false
       }
       if (isAddMode && !confirmPassword) {
-        this.$toast.error('请再次确认密码')
+        this.$toast.error('请再次确认密码', { icon: 'iconfont toasted-icon iconerror' })
         return false
       }
       if (isAddMode && password !== confirmPassword) {
-        this.$toast.error('密码不一致')
+        this.$toast.error('密码不一致', { icon: 'iconfont toasted-icon iconerror' })
         return false
       }
       return true
@@ -367,10 +367,10 @@ export default {
         if (this.userInfo.userName === 'Mingme') {
           isUserAuth = true
         } else {
-          this.$toast.error('无操作权限！')
+          this.$toast.error('无操作权限！', { icon: 'iconfont toasted-icon iconerror' })
         }
       } else {
-        this.$toast.info('请登录')
+        this.$toast.info('请登录', { icon: 'iconfont toasted-icon iconinfo' })
         this.toggleSignInModal(true)
       }
       return isUserAuth

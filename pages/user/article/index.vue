@@ -54,7 +54,7 @@ export default {
           title: '海报',
           key: 'poster',
           class: 'hidden-xs hidden-sm',
-          width: '80px',
+          width: '70px',
           render: (h, parama) => {
             return h(
               'router-link',
@@ -74,7 +74,8 @@ export default {
                     src: parama.row.poster
                   },
                   style: {
-                    width: '80px'
+                    height: '40px',
+                    width: '70px'
                   }
                 })
               ]
@@ -144,19 +145,11 @@ export default {
         //   key: 'comment'
         // },
         {
-          title: '状态',
+          title: '审核状态',
+
           class: 'hidden-xs',
           render: (h, parama) => {
-            return h(ZSwitch, {
-              props: {
-                value: parama.row.status
-              },
-              on: {
-                change: (value) => {
-                  this.requestToggleBlogStatus(value, parama.row)
-                }
-              }
-            })
+            return h('div', { style: { width: '60px' } }, parama.row.status ? '审核通过' : '未审核')
           }
         },
         {
@@ -251,7 +244,7 @@ export default {
             this.isLoading = false
           })
       } else {
-        this.$toast.info('请登录')
+        this.$toast.info('请登录', { icon: 'iconfont toasted-icon iconinfo' })
         this.toggleSignInModal(true)
       }
     },
@@ -270,7 +263,7 @@ export default {
         .update(params)
         .then(() => {
           this.isToggleStatusLoading = false
-          this.$toast.success('操作成功！')
+          this.$toast.success('操作成功！', { icon: 'iconfont toasted-icon iconsuccess' })
           row.status = value
         })
         .catch(() => {
@@ -288,7 +281,7 @@ export default {
         .then(() => {
           this.isDeleteLoading = false
           this.handleHideDeleteBlogModal()
-          this.$toast.success('删除成功！')
+          this.$toast.success('删除成功！', { icon: 'iconfont toasted-icon iconsuccess' })
           this.requestblogList()
         })
         .catch(() => {

@@ -280,7 +280,7 @@ export default {
         .create(params)
         .then(() => {
           this.isAddLoading = false
-          this.$toast.success('添加成功！')
+          this.$toast.success('添加成功！', { icon: 'iconfont toasted-icon iconsuccess' })
           this.handleHideResourceModal()
           this.requestResourceList()
         })
@@ -303,7 +303,7 @@ export default {
         .update(params)
         .then(() => {
           this.isEditLoading = false
-          this.$toast.success('修改成功！')
+          this.$toast.success('修改成功！', { icon: 'iconfont toasted-icon iconsuccess' })
           this.handleHideResourceModal()
           this.requestResourceList()
         })
@@ -321,7 +321,7 @@ export default {
         .delete(this.currentRow._id)
         .then(() => {
           this.isDeleteLoading = false
-          this.$toast.success('删除成功！')
+          this.$toast.success('删除成功！', { icon: 'iconfont toasted-icon iconsuccess' })
           this.handleHideDeleteModal()
           this.requestResourceList()
         })
@@ -334,14 +334,14 @@ export default {
      * @desc 上传 格式出错
      */
     handleFormatError(file) {
-      this.$toast.error(`文件 ${file.name} 格式不对, 请选择 JPG、GIF、SVG、JPEG or PNG.`, { duration: 4000 })
+      this.$toast.error(`文件 ${file.name} 格式不对, 请选择 JPG、GIF、SVG、JPEG or PNG.`, { icon: 'iconfont toasted-icon iconerror', duration: 4000 })
     },
 
     /**
      * @desc 上传 大小限制
      */
     handleMaxSize(file) {
-      this.$toast.error(`文件 ${file.name} 太大, 不可超过2M`)
+      this.$toast.error(`文件 ${file.name} 太大, 不可超过2M`, { icon: 'iconfont toasted-icon iconerror' })
     },
 
     /**
@@ -415,10 +415,10 @@ export default {
      */
     handleCheckFormData() {
       if (!this.formData.resourceTypeId) {
-        this.$toast.error('请选择资源类别')
+        this.$toast.error('请选择资源类别', { icon: 'iconfont toasted-icon iconerror' })
         return false
       } else if (!this.formData.name) {
-        this.$toast.error('请填写资源名称')
+        this.$toast.error('请填写资源名称', { icon: 'iconfont toasted-icon iconerror' })
         return false
       }
       return true
@@ -433,10 +433,10 @@ export default {
         if (this.userInfo.userName === 'Mingme') {
           isUserAuth = true
         } else {
-          this.$toast.error('无操作权限！')
+          this.$toast.error('无操作权限！', { icon: 'iconfont toasted-icon iconerror' })
         }
       } else {
-        this.$toast.info('请登录')
+        this.$toast.info('请登录', { icon: 'iconfont toasted-icon iconinfo' })
         this.toggleSignInModal(true)
       }
       return isUserAuth

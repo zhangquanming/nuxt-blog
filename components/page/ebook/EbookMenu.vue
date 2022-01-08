@@ -16,31 +16,31 @@ export default {
         },
         {
           title: '玄幻小说',
-          path: '/ebook/category/xuanhuanxiaoshuo'
+          path: '/ebook/category/1_1'
         },
         {
-          title: '修真小说',
-          path: '/ebook/category/xiuzhenxiaoshuo'
+          title: '武侠小说',
+          path: '/ebook/category/2_1'
         },
         {
           title: '都市小说',
-          path: '/ebook/category/dushixiaoshuo'
+          path: '/ebook/category/3_1'
         },
         {
           title: '历史小说',
-          path: '/ebook/category/lishixiaoshuo'
+          path: '/ebook/category/4_1'
+        },
+        {
+          title: '侦探小说',
+          path: '/ebook/category/5_1'
         },
         {
           title: '网游小说',
-          path: '/ebook/category/wangyouxiaoshuo'
+          path: '/ebook/category/6_1'
         },
         {
           title: '科幻小说',
-          path: '/ebook/category/kehuanxiaoshuo'
-        },
-        {
-          title: '女频小说',
-          path: '/ebook/category/nvpinxiaoshuo'
+          path: '/ebook/category/7_1'
         },
         {
           title: '排行榜单',
@@ -48,7 +48,7 @@ export default {
         },
         {
           title: '完本小说',
-          path: '/ebook/category/wanbenxiaoshuo'
+          path: '/ebook/category/full'
         }
       ]
     }

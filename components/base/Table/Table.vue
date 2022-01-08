@@ -127,6 +127,10 @@ export default {
     td {
       font-size: 12px;
       padding: 8px 8px;
+      white-space: nowrap;
+      max-width: 120px;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     th {
       padding: 8px 8px;

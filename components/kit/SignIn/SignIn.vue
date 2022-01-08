@@ -62,7 +62,7 @@ export default {
           this.handleChangeToken(res.result.token)
           this.handleChangeUserInfo(res.result)
           this.isLoginLoading = false
-          this.$toast.success('登录成功')
+          this.$toast.success('登录成功', { icon: 'iconfont toasted-icon iconsuccess' })
           this.handleCloseModel()
         })
         .catch(() => {
@@ -104,11 +104,11 @@ export default {
     validateFormData() {
       return new Promise((resolve) => {
         if (!this.formData.account) {
-          this.$toast.error('请输入昵称')
+          this.$toast.error('请输入昵称', { icon: 'iconfont toasted-icon iconerror' })
           return resolve(false)
         }
         if (!this.formData.password) {
-          this.$toast.error('请输入密码')
+          this.$toast.error('请输入密码', { icon: 'iconfont toasted-icon iconerror' })
           return resolve(false)
         }
         return resolve(true)

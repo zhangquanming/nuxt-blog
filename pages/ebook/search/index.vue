@@ -17,6 +17,7 @@
                   </div>
                   <div class="z-col-40">
                     <h2 :title="item.name" class="hotlist-item-name">{{ item.name }}</h2>
+                    <p class="hotlist-item-author">{{ item.category }}</p>
                     <p class="hotlist-item-author">{{ item.author }}</p>
                     <p class="hotlist-item-brief">{{ item.brief }}</p>
                   </div>

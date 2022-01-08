@@ -48,7 +48,7 @@ export default {
   },
   mounted() {
     // this.getAuthorWorksList();
-    this.$toast.info('暂不支持关联作者, 可在搜索中搜索')
+    this.$toast.info('暂不支持关联作者, 可在搜索中搜索', { icon: 'iconfont toasted-icon iconinfo' })
   },
   methods: {
     /**

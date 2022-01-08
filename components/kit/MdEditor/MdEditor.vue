@@ -30,7 +30,7 @@
         <textarea v-model="mdText" @input="handleInput"></textarea>
       </div>
       <div class="md-editor-preview">
-        <md-preview :content="value" />
+        <md-preview :content="value" :isBgShow="true" />
       </div>
     </div>
   </div>
@@ -63,7 +63,7 @@ export default {
   },
   watch: {
     value(value, oldValue) {
-      if (!oldValue) {
+      if (value) {
         this.mdText = value
       }
     }
@@ -76,21 +76,21 @@ export default {
       clearTimeout(timer)
       timer = setTimeout(() => {
         this.$emit('input', e.target.value)
-      }, 300)
+      }, 500)
     },
 
     /**
      * @desc 上传 格式出错
      */
     handleFormatError(file) {
-      this.$toast.error(`文件 ${file.name} 格式不对, 请选择 jpg or png.`, { duration: 4000 })
+      this.$toast.error(`文件 ${file.name} 格式不对, 请选择 jpg or png.`, { icon: 'iconfont toasted-icon iconerror', duration: 4000 })
     },
 
     /**
      * @desc 上传 大小限制
      */
     handleMaxSize(file) {
-      this.$toast.error(`文件 ${file.name} 太大, 不可超过2M`)
+      this.$toast.error(`文件 ${file.name} 太大, 不可超过2M`, { icon: 'iconfont toasted-icon iconerror' })
     },
 
     /**
@@ -115,8 +115,6 @@ export default {
   &-wrap {
     position: relative;
     border: 1px solid @colorBorder;
-    margin-top: 5px;
-    border-radius: 5px;
     background: #fff;
     display: flex;
     flex: 1;
@@ -148,6 +146,7 @@ export default {
     left: 0;
   }
   &-preview {
+    padding: 10px;
     right: 0;
   }
 

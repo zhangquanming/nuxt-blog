@@ -106,7 +106,7 @@ export default {
           }
         }
       } else {
-        this.$toast.info('请登录')
+        this.$toast.info('请登录', { icon: 'iconfont toasted-icon iconinfo' })
         this.toggleSignInModal(true)
       }
     },
@@ -115,7 +115,7 @@ export default {
      */
     requestComments() {
       if (!this.formData.content.trim()) {
-        this.$toast.error('请输入评论内容')
+        this.$toast.error('请输入评论内容', { icon: 'iconfont toasted-icon iconerror' })
         return false
       }
       let address = ''
@@ -148,7 +148,7 @@ export default {
      */
     requestCommentReplys() {
       if (!this.formData.content.trim()) {
-        this.$toast.error('请输入回复内容')
+        this.$toast.error('请输入回复内容', { icon: 'iconfont toasted-icon iconerror' })
         return false
       }
       let address = ''
@@ -182,7 +182,7 @@ export default {
      */
     requestMessages() {
       if (!this.formData.content.trim()) {
-        this.$toast.error('请输入评论内容')
+        this.$toast.error('请输入评论内容', { icon: 'iconfont toasted-icon iconerror' })
         return false
       }
       let address = ''
@@ -215,7 +215,7 @@ export default {
      */
     requestMessageReply() {
       if (!this.formData.content.trim()) {
-        this.$toast.error('请输入回复内容')
+        this.$toast.error('请输入回复内容', { icon: 'iconfont toasted-icon iconerror' })
         return false
       }
       let address = ''
