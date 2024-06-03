@@ -12,10 +12,10 @@ const state = () => ({
       name: '豆瓣电影',
       path: '/movie'
     },
-    {
-      name: '电子书',
-      path: '/ebook'
-    },
+    // {
+    //   name: '电子书',
+    //   path: '/ebook'
+    // },
     {
       name: '留言板',
       path: '/message'
