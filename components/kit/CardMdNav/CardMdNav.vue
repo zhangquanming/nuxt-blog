@@ -61,7 +61,6 @@ export default {
       const distance = 80
       const headerList = this.getHeaderList()
       // 对所有的y值为正标的题，按y值升序排序。第一个标题就是当前处于阅读中的段落的标题。也即要高亮的标题
-      console.log(headerList)
       const readingVO = headerList
         .filter(function(item) {
           return item.y > distance

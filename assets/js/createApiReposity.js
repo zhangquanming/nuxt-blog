@@ -1,4 +1,4 @@
-export default ($axios) => (resource) => {
+export default ($axios, store) => (resource) => {
   let api = {
     create(payload) {
       return $axios.$post(resource, payload)
@@ -52,6 +52,19 @@ export default ($axios) => (resource) => {
       // 获取章节内容
       getChapter: (params, options) => $axios.$get(`${resource}/chapter/${params.bookId}/${params.chapterId}`, null, options)
     }
+  }
+  if (resource.indexOf('chat') > 0) {
+    api.completion = (payload) => {
+      return fetch(`${resource}/completion`, {
+        method: 'POST',
+        body: JSON.stringify(payload),
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${store.getters.token}`
+        }
+      })
+    }
+    api.stop = (payload) => $axios.$post(`${resource}/stop`, payload)
   }
   return api
 }

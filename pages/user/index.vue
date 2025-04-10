@@ -25,9 +25,9 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import Card from '@/components/base/Card/Card'
 import UserPageTitle from '@/components/page/user/UserPageTitle.vue'
-import { mapGetters } from 'vuex'
 
 export default {
   name: 'UserHome',

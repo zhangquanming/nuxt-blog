@@ -63,6 +63,7 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex'
 import ZPanel from '@/components/base/ZPanel/ZPanel'
 import ZTable from '@/components/base/Table/Table'
 import Btn from '@/components/base/Btn/Btn'
@@ -70,8 +71,6 @@ import Pagenation from '@/components/base/Pagenation/Pagenation'
 import Modal from '@/components/base/Modal/Modal'
 import ZSelect from '@/components/base/ZSelect/ZSelect'
 import Upload from '@/components/base/Upload/Upload'
-
-import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'AdminResource',

@@ -87,7 +87,7 @@ export default {
     padding: 10px;
   }
   .app-menu-item {
-    margin: 0 8px;
+    margin: 0 2px;
     display: inline-block;
     line-height: @heightHeader;
   }
@@ -102,7 +102,7 @@ export default {
     display: block;
     line-height: @heightHeader;
     position: relative;
-    padding: 0 20px;
+    padding: 0 14px;
     font-size: 16px;
     cursor: pointer;
     transition: color 0.25s ease;

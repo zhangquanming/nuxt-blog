@@ -27,6 +27,22 @@ const actions = {
   },
   cacheArticleData({ commit }, data) {
     commit('setCacheArticleData', data)
+  },
+  getConversationsList({ commit }, data) {
+    return new Promise((resolve, reject) => {
+      this.$myApi.conversation
+        .index(data)
+        .then((res) => {
+          commit('setConversationsList', res && res.result.docs ? res.result.docs : [])
+          resolve(res)
+        })
+        .catch((err) => {
+          reject(err)
+        })
+    })
+  },
+  changeCurrentConversation({ commit }, data) {
+    commit('setCurrentConversation', data)
   }
 }
 export default actions

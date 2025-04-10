@@ -31,6 +31,7 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex'
 import ZPanel from '@/components/base/ZPanel/ZPanel'
 import ZTable from '@/components/base/Table/Table'
 import Btn from '@/components/base/Btn/Btn'
@@ -39,8 +40,6 @@ import Pagenation from '@/components/base/Pagenation/Pagenation'
 import Modal from '@/components/base/Modal/Modal'
 import AdminCommentFilter from '@/components/page/admin/AdminCommentFilter'
 import { replaceEmotionText } from '@/components/base/Emotion/emotion.js'
-
-import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'AdminComment',

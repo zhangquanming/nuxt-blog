@@ -41,12 +41,12 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 import Card from '@/components/base/Card/Card'
 import UserPageTitle from '@/components/page/user/UserPageTitle.vue'
 import Btn from '@/components/base/Btn/Btn'
 import Upload from '@/components/base/Upload/Upload'
-
-import { mapGetters } from 'vuex'
 
 export default {
   name: 'UserProfile',

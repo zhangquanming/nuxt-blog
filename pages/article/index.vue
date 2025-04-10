@@ -19,13 +19,14 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import Card from '@/components/base/Card/Card'
 import TopicItem from '@/components/kit/TopicItem/TopicItem'
 import CardNoData from '@/components/kit/CardNoData/CardNoData'
 import SearchBlog from '@/components/kit/SearchBlog/SearchBlog'
 import CardCategory from '@/components/kit/CardCategory/CardCategory'
 import Pagenation from '@/components/base/Pagenation/Pagenation'
-import { mapGetters } from 'vuex'
+
 export default {
   name: 'ArticleIndex',
   components: {

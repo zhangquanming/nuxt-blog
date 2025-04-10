@@ -11,6 +11,7 @@ export const compress = (img, ratio = 0.6) => {
   ctx.fillRect(0, 0, canvas.width, canvas.height)
   ctx.drawImage(img, 0, 0, width, height)
   const ndata = canvas.toDataURL('image/jpeg', ratio)
+  // eslint-disable-next-line vue/require-prop-types, no-console
   console.log('**压缩后的图片大小**', ndata.length / 1024)
   return ndata
 }
@@ -20,8 +21,10 @@ export const isNeedCompress = (base64, size = 50) => {
   const itemSize = base64.length / 1024
   const flag = itemSize > size
   if (flag) {
+    // eslint-disable-next-line vue/require-prop-types, no-console
     console.log('**未压缩前的图片大小**', itemSize)
   } else {
+    // eslint-disable-next-line vue/require-prop-types, no-console
     console.log(`**图片不大于 ${size}kb 无需压缩 **`)
   }
   return flag

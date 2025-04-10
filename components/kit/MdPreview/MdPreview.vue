@@ -16,7 +16,8 @@ marked.setOptions({
   headerPrefix: 'header-nav',
   highlight(code) {
     return highlight.highlightAuto(code).value
-  }
+  },
+  split: false
 })
 
 export default {
@@ -50,7 +51,14 @@ export default {
       renderer.heading = function(text, level) {
         return `<h${level} id="titleAnchor-${index++}">${text}</h${level}>`
       }
-      return marked(this.content || '', { renderer })
+      let safeContent = this.content
+      // 自动补全未闭合的代码块
+      const codeBlockCount = (safeContent.match(/```/g) || []).length
+      if (codeBlockCount % 2 !== 0) {
+        safeContent += '\n```'
+      }
+
+      return marked(safeContent || '', { renderer })
     },
     styles() {
       return {
@@ -62,7 +70,15 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.markdown-body p {
-  text-align: justify;
+.markdown-body {
+  pre {
+    transition: opacity 0.3s ease;
+    &[data-loading] {
+      opacity: 0.6;
+    }
+  }
+  p {
+    text-align: justify;
+  }
 }
 </style>

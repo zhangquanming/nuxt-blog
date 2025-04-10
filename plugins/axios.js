@@ -27,6 +27,7 @@ export default function(ctx) {
   })
 
   $axios.onRequestError((error) => {
+    // eslint-disable-next-line no-console
     console.log('onRequestError', error)
   })
 
@@ -46,12 +47,11 @@ export default function(ctx) {
   })
 
   $axios.onResponseError((error) => {
+    // eslint-disable-next-line no-console
     console.log('onResponseError', error)
   })
 
   $axios.onError((error) => {
-    console.log('onError', error)
-
     if (error && error.message.indexOf('401') > 1) {
       app.$toast.error('登录过期了，请重新登录！', { icon: 'iconfont toasted-icon iconerror' })
       sessionStorage.clear()

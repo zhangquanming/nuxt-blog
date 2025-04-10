@@ -16,6 +16,8 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex'
+
 import Card from '@/components/base/Card/Card'
 import UserPageTitle from '@/components/page/user/UserPageTitle.vue'
 import ZTable from '@/components/base/Table/Table'
@@ -23,8 +25,6 @@ import Pagenation from '@/components/base/Pagenation/Pagenation'
 import Btn from '@/components/base/Btn/Btn'
 import ZSwitch from '@/components/base/ZSwitch/ZSwitch'
 import Modal from '@/components/base/Modal/Modal'
-
-import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'UserBlog',

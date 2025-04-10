@@ -1,6 +1,10 @@
 const state = () => ({
   navList: [
     {
+      name: 'AiChat',
+      path: '/ai'
+    },
+    {
       name: '个人文章',
       path: '/article'
     },
@@ -30,7 +34,9 @@ const state = () => ({
   blogResult: {},
   highLightIndex: 0, // markdown 目录高亮索引
   categoryIndex: 0,
-  cacheArticleData: null
+  cacheArticleData: null,
+  conversationsList: [],
+  currentConversation: null
 })
 
 export default state

@@ -45,6 +45,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 import FilterSearch from '@/components/kit/FilterSearch/FilterSearch'
 import Card from '@/components/base/Card/Card'
 import TopicItem from '@/components/kit/TopicItem/TopicItem'
@@ -53,8 +55,6 @@ import SearchBlog from '@/components/kit/SearchBlog/SearchBlog'
 import Pagenation from '@/components/base/Pagenation/Pagenation'
 import NoData from '@/components/kit/NoData/NoData'
 import Icon from '@/components/base/Icon/Icon'
-
-import { mapGetters } from 'vuex'
 
 export default {
   name: 'BlogSearch',

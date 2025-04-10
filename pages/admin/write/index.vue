@@ -40,13 +40,13 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex'
+
 import Modal from '@/components/base/Modal/Modal'
 import ZSelect from '@/components/base/ZSelect/ZSelect'
 import Btn from '@/components/base/Btn/Btn'
 import Upload from '@/components/base/Upload/Upload'
 import MdEditor from '@/components/kit/MdEditor/MdEditor'
-
-import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'AdminWrite',

@@ -13,13 +13,13 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex'
+
 import Card from '@/components/base/Card/Card'
 import NoData from '@/components/kit/NoData/NoData'
 import UserPageTitle from '@/components/page/user/UserPageTitle.vue'
 import UserCommentItem from '@/components/page/user/UserCommentItem.vue'
 import Pagenation from '@/components/base/Pagenation/Pagenation'
-
-import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'UserComment',

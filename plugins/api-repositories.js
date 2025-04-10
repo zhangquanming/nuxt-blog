@@ -1,7 +1,7 @@
 import createApiReposity from '~/assets/js/createApiReposity'
 
-export default ({ $axios }, inject) => {
-  const repositoryWithAxios = createApiReposity($axios)
+export default ({ $axios, store }, inject) => {
+  const repositoryWithAxios = createApiReposity($axios, store)
 
   const repositories = {
     blogs: repositoryWithAxios('/api/blogs'),
@@ -15,7 +15,9 @@ export default ({ $axios }, inject) => {
     ebooks: repositoryWithAxios('/api/ebooks'),
     messages: repositoryWithAxios('/api/messages'),
     messageReplys: repositoryWithAxios('/api/messageReplys'),
-    links: repositoryWithAxios('/api/links')
+    links: repositoryWithAxios('/api/links'),
+    conversation: repositoryWithAxios('/api/conversation'),
+    chat: repositoryWithAxios('/api/chat')
   }
 
   inject('myApi', repositories)

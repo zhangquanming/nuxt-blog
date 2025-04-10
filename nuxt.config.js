@@ -30,7 +30,7 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: '//at.alicdn.com/t/font_1905390_l0vkna5ato.css' }
+      { rel: 'stylesheet', href: '//at.alicdn.com/t/c/font_1905390_j90mvzz1w4.css' }
     ]
   },
   /*
@@ -49,6 +49,7 @@ module.exports = {
    */
   plugins: [
     { src: '~/plugins/axios.js', ssr: true },
+    { src: '~/plugins/eventBus.js', ssr: true },
     { src: '~/plugins/filters.js', ssr: true },
     { src: '~/plugins/api-repositories.js', ssr: true },
     { src: '~/plugins/storeCache', ssr: false },
@@ -102,7 +103,7 @@ module.exports = {
    */
   proxy: {
     '/api': {
-      target: process.env.NODE_ENV === 'development' ? 'http://localhost:3000/' : 'https://mingme.net/',
+      target: process.env.NODE_ENV === 'development' ? 'https://mingme.net/' : 'https://mingme.net/',
       changeOrigin: true
     },
     '/douban/': {
@@ -145,6 +146,6 @@ module.exports = {
   },
   server: {
     port: 8000, // default: 3000
-    host: '0.0.0.0'
+    host: 'localhost'
   }
 }

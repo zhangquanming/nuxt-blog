@@ -25,13 +25,12 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex'
 import Card from '@/components/base/Card/Card'
 import UserPageTitle from '@/components/page/user/UserPageTitle.vue'
 import FormItem from '@/components/base/FormItem/FormItem'
 import BtnGroup from '@/components/base/BtnGroup/BtnGroup'
 import Btn from '@/components/base/Btn/Btn'
-
-import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'UserProfile',

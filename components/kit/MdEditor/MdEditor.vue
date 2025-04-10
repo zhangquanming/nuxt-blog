@@ -50,6 +50,7 @@ export default {
     MdPreview,
     Upload
   },
+  // eslint-disable-next-line vue/require-prop-types
   props: ['value'],
   data() {
     return {

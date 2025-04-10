@@ -28,6 +28,12 @@ const mutations = {
   },
   setCacheArticleData(state, data) {
     state.cacheArticleData = data
+  },
+  setConversationsList(state, arr) {
+    state.conversationsList = arr
+  },
+  setCurrentConversation(state, data) {
+    state.currentConversation = data
   }
 }
 export default mutations

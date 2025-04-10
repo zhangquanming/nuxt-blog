@@ -34,3 +34,7 @@ export const highLightIndex = (state) => state.highLightIndex
 export const categoryIndex = (state) => state.categoryIndex
 
 export const cacheArticleData = (state) => state.cacheArticleData
+
+export const conversationsList = (state) => state.conversationsList
+
+export const currentConversation = (state) => state.currentConversation

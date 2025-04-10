@@ -1,7 +1,12 @@
 export default function(ctx) {
   // 离开页面 刷新前 将store中的数据存到session
   window.addEventListener('beforeunload', () => {
-    sessionStorage.setItem('storeCache', JSON.stringify(ctx.store.state))
+    const storeCache = {
+      ...ctx.store.state,
+      conversationsList: [],
+      currentConversation: null
+    }
+    sessionStorage.setItem('storeCache', JSON.stringify(storeCache))
   })
   // 页面加载完成  将session中的store数据
   window.addEventListener('load', () => {

@@ -23,6 +23,8 @@ module.exports = {
   },
   // add your custom rules here
   rules: {
+    "import/order": "off",
+    "vue/comment-directive": "off",
     'nuxt/no-cjs-in-config': 'off',
     'vue/require-default-prop': 'off',
     'vue/no-v-html': 'off',

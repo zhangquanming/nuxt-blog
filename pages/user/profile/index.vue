@@ -24,13 +24,13 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 import Card from '@/components/base/Card/Card'
 import UserPageTitle from '@/components/page/user/UserPageTitle.vue'
 import FormItem from '@/components/base/FormItem/FormItem'
 import Btn from '@/components/base/Btn/Btn'
 import { validatorsExp } from '@/assets/js/validate'
-
-import { mapGetters } from 'vuex'
 
 export default {
   name: 'UserProfile',
