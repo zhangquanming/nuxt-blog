@@ -4,8 +4,8 @@
       "name": "blog-app",
       "script": "./server/index.js",
       "watch": false,
-      "exec_mode": "fork",
-      "instances": 0,
+      "exec_mode": "cluster",
+      "instances": "max",     
       "min_uptime": "60s",
       "max_restarts": 10,
       "max_memory_restart": "200M"
